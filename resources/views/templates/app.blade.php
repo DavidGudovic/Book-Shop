@@ -7,9 +7,15 @@
   <title>Knjižara Aurora</title>
   @vite('resources/js/app.js')
 </head>
-<body>
-  @include('includes.navbar')
-  @yield('content')
+<body class="antialiased bg-gray-600">
+  <header>
+    @include('includes.navbar')
+  </header>
+  <!-- CONTENT -->
+  <main>
+    @yield('content')
+  </main>
+  <!-- END CONTENT -->
   @include('includes.footer')
 </body>
 </html>
