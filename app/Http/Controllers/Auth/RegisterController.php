@@ -28,10 +28,8 @@ class RegisterController extends Controller
    */
    public function store(RegisterRequest $request, UserService $userService)
    {
-     //validate
-     $request->validated();
      //add to database
-     $userService->createUser($request);
+     $userService->createUser($request->validated());
      //redirect to login with success message
      return redirect()->route('login')->with(['status' => 'success',
                                               'status_msg' => 'Uspesna registracija, ulogujte se!']);

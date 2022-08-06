@@ -22,20 +22,18 @@ class LoginController extends Controller
   }
 
   /*
-  . Logs in the user
+  . Attempts to Log in the user
   */
   public function store(LoginRequest $request, UserService $userService)
   {
-    //validate
-    $request->validated();
 
-    //try login and redirect accordingly
-    if($userService->loginUser($request)){
-      return redirect()->route('home');
-    } else{  //redirect with error
+    if(!($userService->loginUser($request->validated() + ['remember' => $request->has('remember')]))){
       return back()->with(['status' => 'error',
       'status_msg' => 'Uneli ste pogrešne podatke!',]);
     }
+      //success
+      return redirect()->route('home');
+
   }
 
   /*
