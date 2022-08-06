@@ -4,8 +4,16 @@
   <!-- Register -->
   <div class="flex justify-center">
     <div class="w-4/12 bg-white p-6 m-3 rounded-lg">
+      
+      <!--Status message display-->
+      @if(session()->has('status'))
+        <p class='text-center font-bold mb-5 @if(session('status') == 'error') text-red-600 @else text-green-400 @endif'>{{session('status_msg')}}</p>
+      @endif
+      <!-- End status message -->
+
         <!-- Register form -->
       <form class="" action="{{route('register')}}" method="post">
+
           <!-- Fields -->
           <!-- Cross site request forgery -->
        @csrf
