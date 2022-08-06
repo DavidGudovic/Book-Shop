@@ -13,14 +13,16 @@ class RegisterController extends Controller
   /*
   .Displays register form
   */
-   public function index(){
+   public function index()
+   {
      return view('auth.register');
    }
 
    /*
    .Registers new user
    */
-   public function store(Request $request){
+   public function store(Request $request)
+   {
      //validate
      $this->validate($request, [
        'username' => 'required|max:40',
