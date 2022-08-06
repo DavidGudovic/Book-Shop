@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
+use App\Http\Controllers\Controller;
+use App\Services\UserService;
 
-// Displays login page ; logs in, Logs out users.
+
+/*
+ . Displays login page ; logs in, Logs out users.
+*/
 class LoginController extends Controller
 {
   /*
@@ -19,16 +24,13 @@ class LoginController extends Controller
   /*
   . Logs in the user
   */
-  public function store(Request $request)
+  public function store(LoginRequest $request, UserService $userService)
   {
     //validate
-    $this -> validate($request, [
-      'username' => 'required',
-      'password' => 'required',
-    ]);
+    $request->validated();
 
     //try login and redirect accordingly
-    if(auth()->attempt($request->only('username','password'),$request->remember)){
+    if($userService->loginUser($request)){
       return redirect()->route('home');
     } else{  //redirect with error
       return back()->with(['status' => 'error',
@@ -39,9 +41,9 @@ class LoginController extends Controller
   /*
   . Logs the user out
   */
-  public function destroy(Request $request)
+  public function destroy(Request $request, UserService $userService)
   {
-    auth()->logout();
+    $userService->logoutUser();
     return redirect()->route('home');
   }
 }

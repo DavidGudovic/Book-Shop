@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use App\Services\UserService;
+
+
 
 //Displays register form, creates user
 class RegisterController extends Controller
@@ -21,26 +26,13 @@ class RegisterController extends Controller
    /*
    .Registers new user
    */
-   public function store(Request $request)
+   public function store(RegisterRequest $request, UserService $userService)
    {
      //validate
-     $this->validate($request, [
-       'username' => 'required|max:40',
-       'email' => 'required|email|max:244',
-       'name' => 'required|max:40',
-       'lastname' => 'required|max:40',
-       'password' => 'required|confirmed',
-     ]);
-
+     $request->validated();
      //add to database
-     User::create([
-       'name' => $request-> name,
-       'username' => $request-> username,
-       'email' => $request-> email,
-       'password' => Hash::make($request->password),
-     ]);
-
-     //redirect
+     $userService->createUser($request);
+     //redirect to login with success message
      return redirect()->route('login')->with(['status' => 'success',
                                               'status_msg' => 'Uspesna registracija, ulogujte se!']);
    }
