@@ -2,7 +2,6 @@
 namespace App\Services;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -14,14 +13,14 @@ class UserService
     Creates a user in database
     returns an Eloquent Model object of the user
     */
-    public function createUser(Request $request): User
+    public function createUser(array $userData): User
     {
         // Create user
         $user = User::create([
-          'name' => $request-> name,
-          'username' => $request-> username,
-          'email' => $request-> email,
-          'password' => Hash::make($request->password),
+          'name' => $userData['name'],
+          'username' => $userData['username'],
+          'email' => $userData['email'],
+          'password' => Hash::make($userData['password']),
         ]);
 
         return $user;
@@ -31,9 +30,11 @@ class UserService
     Attempts to Log the user in
     returns boolean
     */
-    public function loginUser(Request $request) : bool
+    public function loginUser(array $userData) : bool
     {
-      return auth()->attempt($request->only('username','password'),$request->remember);
+      return auth()
+      ->attempt(['username' => $userData['username'], 'password' => $userData['password']],
+                $userData['remember']);
     }
 
     /*
