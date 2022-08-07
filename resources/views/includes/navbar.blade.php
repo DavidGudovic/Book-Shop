@@ -1,15 +1,14 @@
 <nav>
-  <div class="flex justify-between bg-white w-full fixed top-0 h-30 md:text-xl">
+  <div class="flex justify-between bg-white w-full fixed top-0 h-30">
     <!-- Right nav links -->
-
-    <ul class="flex items-center  p-3 w-1/3">
+    <ul class="flex items-center p-3 w-1/3">
       <li><a href="{{ route('home') }}" class="p-3">Početna</a></li>
       <li><a href="{{ route('home') }}" class="p-3">Ponuda</a></li>
 
       @admin
       <li><a href="" class="p-3">Administracija</a></li>
       @endadmin
-
+      
     </ul>
     <!-- End right nav links -->
     <!-- Nav brand centered-->
