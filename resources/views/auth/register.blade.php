@@ -44,20 +44,9 @@
             <!-- Name -->
           <div class="mb-4">
              <label for='name' class='sr-only'>Ime</label>
-             <input type="text" name="name" id='name' placeholder="Unesite ime"
+             <input type="text" name="name" id='name' placeholder="Unesite ime i prezime"
              class='form-control @error('name') border-red-500 @enderror' value='{{old('name')}}'>
              @error('name')
-               <div class="text-red-500 mt-2 text-sm">
-                  {{$message}}
-               </div>
-             @enderror
-          </div>
-            <!-- Last name -->
-          <div class="mb-4">
-             <label for='lastname' class='sr-only'>Prezime</label>
-             <input type="text" name="lastname" id='lastname' placeholder="Unesite prezime"
-             class='form-control @error('lastname') border-red-500 @enderror' value='{{old('lastname')}}'>
-             @error('lastname')
                <div class="text-red-500 mt-2 text-sm">
                   {{$message}}
                </div>
@@ -78,12 +67,7 @@
           <div class="mb-4">
              <label for='password_confirmation' class='sr-only'>Potvrda lozinke</label>
              <input type='password' name='password_confirmation' id='password_confirmation' placeholder="Ponovite lozinku"
-             class='form-control @error('password_confirmation') border-red-500 @enderror' >
-             @error('password_confirmation')
-               <div class="text-red-500 mt-2 text-sm">
-                  {{$message}}
-               </div>
-             @enderror
+             class='form-control @error('password') border-red-500 @enderror' >
           </div>
             <!-- End fields -->
             <!-- Buttons -->
