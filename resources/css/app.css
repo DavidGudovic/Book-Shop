@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
+
+.form-control{
+  @apply bg-gray-100 border-2 w-full p-4 rounded-lg;
+}
+.form-btn{
+  @apply bg-blue-500 text-white px-4 py-3 mx-2 rounded font-medium w-full;
+}
+
 @tailwind utilities;
