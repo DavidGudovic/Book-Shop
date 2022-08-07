@@ -8,20 +8,22 @@
   @vite('resources/js/app.js')
 </head>
 <body class="antialiased bg-gray-600">
+  <!--HEADER-->
   <header>
     @include('includes.navbar')
     @yield('header');
   </header>
-  <!-- SIDEBAR -->
-  <aside>
-    @yield('sidebar')
-  </aside>
-  <!-- END SIDEBAR -->
-  <!-- CONTENT -->
-  <main>
-    @yield('content')
-  </main>
-  <!-- END CONTENT -->
+  <!--END HEADER-->
+    <!-- SIDEBAR -->
+    <aside>
+      @yield('sidebar')
+    </aside>
+    <!-- END SIDEBAR -->
+    <!-- CONTENT -->
+    <main>
+      @yield('content')
+    </main>
+    <!-- END CONTENT -->
   @include('includes.footer')
 </body>
 </html>
