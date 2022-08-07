@@ -2,8 +2,8 @@
 
 @section('content')
   <!-- Login -->
-  <div class="flex justify-center">
-    <div class="w-4/12 bg-white p-6 m-3 rounded-lg">
+  <div class="flex items-center justify-center mt-20 md:mt-40 md:text-2xl">
+    <div class="w-4/12 md:w-2/3 bg-white p-6 rounded-lg">
 
       <!--Status message display-->
       @if(session()->has('status'))
@@ -16,7 +16,7 @@
         <!--fields-->
         <!-- Cross site request forgery -->
        @csrf
-       
+
             <!--Username -->
           <div class="mb-4">
              <label for='username' class='sr-only'>Korisničko ime</label>

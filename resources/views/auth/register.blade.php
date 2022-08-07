@@ -2,9 +2,9 @@
 
 @section('content')
   <!-- Register -->
-  <div class="flex justify-center">
-    <div class="w-4/12 bg-white p-6 m-3 rounded-lg">
-      
+  <div class="flex justify-center mt-8 md:mt-40 md:text-2xl">
+    <div class="w-4/12 md:w-3/4 bg-white p-6 m-3 rounded-lg">
+
       <!--Status message display-->
       @if(session()->has('status'))
         <p class='text-center font-bold mb-5 @if(session('status') == 'error') text-red-600 @else text-green-400 @endif'>{{session('status_msg')}}</p>

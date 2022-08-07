@@ -1,5 +1,5 @@
 <nav>
-  <div class="flex justify-between bg-white h-30 sticky">
+  <div class="flex justify-between bg-white w-full fixed top-0 h-30 md:text-xl">
     <!-- Right nav links -->
 
     <ul class="flex items-center  p-3 w-1/3">

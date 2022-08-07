@@ -10,7 +10,13 @@
 <body class="antialiased bg-gray-600">
   <header>
     @include('includes.navbar')
+    @yield('header');
   </header>
+  <!-- SIDEBAR -->
+  <aside>
+    @yield('sidebar')
+  </aside>
+  <!-- END SIDEBAR -->
   <!-- CONTENT -->
   <main>
     @yield('content')
