@@ -1,4 +1,4 @@
-<footer class="flex-col h-48 w-full px-40 py-10 bg-gray-800 absolute bottom-0 ">
+<footer class="flex-col h-48 w-full px-40 py-10 bg-gray-800 relative bottom-0 ">
   <div class="flex justify-between mb-20">
     <p> Neki tekst </p>
     <p> Neki drugi tekst</p>
