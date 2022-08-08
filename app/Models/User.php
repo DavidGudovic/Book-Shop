@@ -32,4 +32,17 @@ class User extends Authenticatable
     /*
       Eloquent relationships
     */
+
+    public function orders(){
+      return $this->hasMany(Order::class);
+    }
+
+    public function reviews(){
+      return $this->hasMany(Review::class);
+    }
+
+    public function reclamations(){
+      return $this->hasMany(Reclamation::class);
+    }
+
 }
