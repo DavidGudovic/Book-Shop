@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="author" content="David Gudović">
-  <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
-  <title>Knjižara Karamazov</title>
+  <meta name="description" content="Online prodavnica knjizare Aurora">
+  <title>Knjižara Aurora</title>
   @vite('resources/js/app.js')
 </head>
-<body class="antialiased bg-gray-600">
-  <!--HEADER-->
-  <header>
+
+<body class="flex flex-col antialiased bg-gray-100 h-screen">
+
+    <!--HEADER-->
+    @yield('header')
+    <!--END HEADER-->
     @include('includes.navbar')
-    @yield('header');
-  </header>
-  <!--END HEADER-->
+
     <!-- SIDEBAR -->
     <aside>
       @yield('sidebar')
