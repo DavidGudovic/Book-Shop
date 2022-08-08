@@ -5,6 +5,7 @@
   <meta name="author" content="David Gudović">
   <meta name="description" content="Online prodavnica knjizare Aurora">
   <title>Knjižara Aurora</title>
+  <link rel="icon" href="{{URL('icon.svg')}}">
   @vite('resources/js/app.js')
 </head>
 
