@@ -16,14 +16,12 @@ class UserService
     public function createUser(array $userData): User
     {
         // Create user
-        $user = User::create([
+          return  User::create([
           'name' => $userData['name'],
           'username' => $userData['username'],
           'email' => $userData['email'],
           'password' => Hash::make($userData['password']),
         ]);
-
-        return $user;
     }
 
     /*
