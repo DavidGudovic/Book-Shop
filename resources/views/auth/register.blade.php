@@ -73,7 +73,7 @@
             <!-- Buttons -->
           <div class="flex justify-evenly">
              <button type="submit" class="form-btn">Registruj se!</button>
-             <button type="reset" class="form-btn">Resetuj!</button>
+             <button type="reset" class="form-btn bg-gray-500">Resetuj!</button>
           </div>
             <!-- End buttons -->
       </form>
