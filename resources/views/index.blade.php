@@ -23,17 +23,41 @@
 
 @section('content')
   <div class="flex flex-col items-center justify-center mt-20 mb-10">
+
     <p class='text-3xl mb-20'>Naša preporuka</p>
-    <div class="grid grid-cols-3 gap-10">
-      <div class="flex flex-col">
-        <img src="{{URL('/images/test.jpg')}}" alt="">
+
+    <div class="flex flex-wrap justify-center gap-32 mb-20">
+
+      <div class="flex flex-col w-[350px]">
+        <img src="{{URL('/images/orvel.jpg')}}" class="h-[500px]" alt="">
+        <p class='text-2xl font-bold mt-2'>1984</p>
+        <p>Džordž Orvel</p>
+        <p class="mt-4">Knjiga "1984", predstavlja distopijski, odnosno antiutopijski roman Džordža Orvela. Prema većini književnih kritičara, tema romana jeste totalitarni režim kao takav, odnosno, život običnog, beznačajnog pojedinca u društvu totalne kontrole. Budući da je roman distopijski, </p>
+        <div class="flex">
+          <button type="button" class="rounded-3xl bg-black text-white  mt-3 px-4 py-2" name="button">Više informacija</button>
+        </div>
       </div>
-      <div class="flex flex-col">
-        <img src="{{URL('/images/test.jpg')}}" alt="">
+
+      <div class="flex flex-col w-[350px]">
+        <img src="{{URL('/images/stranac.jpg')}}" class="h-[500px]" alt="">
+        <p class='text-2xl font-bold mt-2'>Stranac</p>
+        <p>Albert Camus</p>
+        <p class="mt-4"> Radnja romana događa se u Alžiru. Glavni junak je mali namještnik Mersault, mladić s banalnim životom bezbroja malih, beznačajnih ljudi. Roman Stranac je roman o ljudskoj egzistenciji, o njemu se govori o čovekovoj usamljenosti, otuđenosti, besmislu, i apsurdu života</p>
+        <div class="flex">
+          <button type="button" class="rounded-3xl bg-black text-white  mt-3 px-4 py-2" name="button">Više informacija</button>
+        </div>
       </div>
-      <div class="flex flex-col">
-        <img src="{{URL('/images/test.jpg')}}" alt="">
+
+      <div class="flex flex-col w-[350px]">
+        <img src="{{URL('/images/margarita.jpg')}}" class="h-[500px]" alt="">
+        <p class='text-2xl font-bold mt-2'>Majstor i margarita</p>
+        <p>Mihail Bulgakov</p>
+        <p class="mt-4"> Radnja romana događa se u Alžiru. Glavni junak je mali namještnik Mersault, mladić s banalnim životom bezbroja malih, beznačajnih ljudi. Roman Stranac je roman o ljudskoj egzistenciji, o njemu se govori o čovekovoj usamljenosti, otuđenosti, besmislu, i apsurdu života</p>
+        <div class="flex">
+          <button type="button" class="rounded-3xl bg-black text-white  mt-3 px-4 py-2" name="button">Više informacija</button>
+        </div>
       </div>
+
     </div>
   </div>
 @endsection
