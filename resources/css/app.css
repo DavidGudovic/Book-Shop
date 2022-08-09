@@ -9,6 +9,9 @@ body{
   font-family: satoshi;
 }
 
+a{
+  @apply hover:text-yellow-400;
+}
 
 
 @tailwind base;
