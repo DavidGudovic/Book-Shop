@@ -52,7 +52,7 @@
     <h2 class='font-bold text-3xl my-20'>Naša ponuda</h2>
 
     <!--Categories-->
-    <div class="w-full flex flex-wrap mb-20 p-10 rounded-lg justify-evenly bg-gradient-to-l from-blue-400 to-purple-400">
+    <div class="w-full flex flex-wrap mb-20 p-10 rounded-lg justify-evenly bg-gradient-to-b md:bg-gradient-to-l from-blue-400 to-purple-400">
       <!-- Fiction -->
       <div class="flex flex-col align-center text-center w-1/2 min-w-[400px] gap-40 mb-40 md:mb-0">
         <h3 class='text-3xl'>Beletristika</h3>
