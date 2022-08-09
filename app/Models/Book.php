@@ -50,4 +50,30 @@ class Book extends Model
       return $this->belongsTo(Category::class);
     }
 
+    /*
+     Local scopes
+       recommended - isRecommended = 1
+       fiction - isFiction
+       nonFiction - !isFiction
+       category($categoryId) - category_id = $categoryId
+    */
+    public function scopeRecommended($query)
+    {
+        return $query->where('isRecommended',1);
+    }
+
+    public function scopeFiction($query)
+    {
+        return $query->whereHas('Category', function($q){$q->where('isFiction', 1);});
+    }
+
+    public function scopeNonFiction($query)
+    {
+        return $query->whereHas('Category', function($q){$q->where('isFiction', 0);});
+    }
+
+    public function scopeCategory($query, $categoryId){
+      return $query->where('category_id', $categoryId);
+    }
+
 }
