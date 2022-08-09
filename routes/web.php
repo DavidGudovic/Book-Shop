@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomePageController;
 
-// index page
-Route::view('/', 'index')->name('home');
+// home page page
+Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 //Authentication
 Route::get('/login', [LoginController::class, 'index'])->name('login');  //form
