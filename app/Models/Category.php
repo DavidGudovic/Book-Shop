@@ -30,4 +30,19 @@ class Category extends Model
     public function books(){
       return $this->hasMany(Book::class);
     }
+
+    /*
+     Local scopes
+
+       fiction - isFiction
+       nonFiction - !isFiction
+
+    */
+    public function scopeFiction($query){
+        return $query->where('isFiction',1);
+    }
+    
+    public function scopeNonFiction($query){
+        return $query->where('isFiction',0);
+    }
 }
