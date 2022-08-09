@@ -10,9 +10,9 @@
     <!-- Products-->
     <div class="flex flex-col gap-10 w-[215px]">
       <p class="border-b-2">Pogledajte našu ponudu</p>
-      <p>Sve</p>
-      <p>Fikcija</p>
-      <p>Stručna literatura</p>
+      <a href="{{route('books.index')}}">Cela ponuda</a>
+      <a href="{{route('books.index', ['category' => 'fiction'])}}">Beletristika</a>
+      <a href="{{route('books.index', ['category' => 'nonFiction'])}}">Popularna nauka</a>
     </div>
     <!-- End products -->
     <!-- Contact -->

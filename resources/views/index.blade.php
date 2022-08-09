@@ -23,29 +23,33 @@
 
 @section('content')
   <div class="flex flex-col items-center justify-center">
-
+    <!--Recommendations-->
     <p class='text-3xl my-20'>Naša preporuka</p>
 
-    <!-- Lista preporucenih knijga -->
+    <!-- List of recommended books -->
     <div class="flex flex-wrap justify-center gap-32">
       @foreach($recommends as $recommended)
+        <!-- Book -->
         <div class="flex flex-col w-[350px]">
           <img src="{{URL('/images/' . $recommended->image)}}" class="h-[500px]" alt="">
           <p class='text-2xl font-bold mt-2'>{{$recommended->name}}</p>
           <p>{{$recommended->authors->first()->name}}</p>
           <p class="mt-4 h-[150px] overflow-hidden">{{$recommended->synopsis}}</p>
           <div class="flex justify-between items-center mt-3">
-            <a href="" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
+            <a href="{{route('books.show', $recommended)}}" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
             <i class="fa-solid fa-heart fa-2x"></i>
             <i class="fa-solid fa-cart-shopping fa-2x"></i>
           </div>
         </div>
+        <!-- End of book -->
       @endforeach
     </div>
-    <!-- Kraj Liste -->
+    <!-- End of list -->
 
+    <!--End recommendations -->
 
+    <!-- Product offer -->
     <p class='text-3xl my-20'>Naša ponuda</p>
-
+    <!-- End product offer-->
   </div>
 @endsection
