@@ -28,44 +28,22 @@
 
     <!-- Lista preporucenih knijga -->
     <div class="flex flex-wrap justify-center gap-32">
-      <!-- Knjiga 1 -->
-      <div class="flex flex-col w-[350px]">
-        <img src="{{URL('/images/orvel.jpg')}}" class="h-[500px]" alt="">
-        <p class='text-2xl font-bold mt-2'>1984</p>
-        <p>Džordž Orvel</p>
-        <p class="mt-4">Knjiga "1984", predstavlja distopijski, odnosno antiutopijski roman Džordža Orvela. Prema većini književnih kritičara, tema romana jeste totalitarni režim kao takav, odnosno, život običnog, beznačajnog pojedinca u društvu totalne kontrole. Budući da je roman distopijski, </p>
-        <div class="flex justify-between items-center mt-3">
-          <a href="" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
-          <i class="fa-solid fa-heart fa-2x"></i>
-          <i class="fa-solid fa-cart-shopping fa-2x"></i>
+      @foreach($recommends as $recommended)
+        <div class="flex flex-col w-[350px]">
+          <img src="{{URL('/images/' . $recommended->image)}}" class="h-[500px]" alt="">
+          <p class='text-2xl font-bold mt-2'>{{$recommended->name}}</p>
+          <p>{{$recommended->authors->first()->name}}</p>
+          <p class="mt-4 h-[150px] overflow-hidden">{{$recommended->synopsis}}</p>
+          <div class="flex justify-between items-center mt-3">
+            <a href="" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
+            <i class="fa-solid fa-heart fa-2x"></i>
+            <i class="fa-solid fa-cart-shopping fa-2x"></i>
+          </div>
         </div>
-      </div>
-      <!-- Knjiga 2 -->
-      <div class="flex flex-col w-[350px]">
-        <img src="{{URL('/images/stranac.jpg')}}" class="h-[500px]" alt="">
-        <p class='text-2xl font-bold mt-2'>Stranac</p>
-        <p>Albert Camus</p>
-        <p class="mt-4"> Radnja romana događa se u Alžiru. Glavni junak je mali namještnik Mersault, mladić s banalnim životom bezbroja malih, beznačajnih ljudi. Roman Stranac je roman o ljudskoj egzistenciji, o njemu se govori o čovekovoj usamljenosti, otuđenosti, besmislu, i apsurdu života</p>
-        <div class="flex justify-between items-center mt-3">
-          <a href="" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
-          <i class="fa-solid fa-heart fa-2x"></i>
-          <i class="fa-solid fa-cart-shopping fa-2x"></i>
-        </div>
-      </div>
-      <!-- Knjiga 3 -->
-      <div class="flex flex-col w-[350px]">
-        <img src="{{URL('/images/margarita.jpg')}}" class="h-[500px]" alt="">
-        <p class='text-2xl font-bold mt-2'>Majstor i margarita</p>
-        <p>Mihail Bulgakov</p>
-        <p class="mt-4"> Priča u romanu se odnosi na posetu đavola zvanično ateističkom Sovjetskom Savezu. Roman “Majstor i Margarita” spaja natprirodne elemente sa satiričnom mračnom komedijom i hrišćanskom filozofijom, prkoseći nekom specifičnom žanru. Mnogi kritičari smatraju da je to jedan ...</p>
-        <div class="flex justify-between items-center mt-3">
-          <a href="" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
-          <i class="fa-solid fa-heart fa-2x"></i>
-          <i class="fa-solid fa-cart-shopping fa-2x"></i>
-        </div>
-      </div>
+      @endforeach
     </div>
-    <!-- Kraj liste-->
+    <!-- Kraj Liste -->
+
 
     <p class='text-3xl my-20'>Naša ponuda</p>
 
