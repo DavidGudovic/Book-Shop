@@ -57,18 +57,15 @@ class Book extends Model
        nonFiction - !isFiction
        category($categoryId) - category_id = $categoryId
     */
-    public function scopeRecommended($query)
-    {
+    public function scopeRecommended($query){
         return $query->where('isRecommended',1);
     }
 
-    public function scopeFiction($query)
-    {
+    public function scopeFiction($query){
         return $query->whereHas('Category', function($q){$q->where('isFiction', 1);});
     }
 
-    public function scopeNonFiction($query)
-    {
+    public function scopeNonFiction($query){
         return $query->whereHas('Category', function($q){$q->where('isFiction', 0);});
     }
 
