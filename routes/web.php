@@ -15,3 +15,21 @@ Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');  //l
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');  //form
 Route::post('/register', [RegisterController::class, 'store']); //register
+
+/*
+Routes only logged in users can access
+redirects to login page if unauthorized
+*/
+Route::middleware('auth')->prefix('user')->group(function () {
+
+
+});
+
+/*
+Routes only administrators can access
+Throws 403 if unauthorized
+*/
+Route::middleware('admin')->prefix('admin')->group(function () {
+
+
+});
