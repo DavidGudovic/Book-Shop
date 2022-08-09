@@ -19,6 +19,7 @@ class Book extends Model
       'price',
       'category_id',
       'image',
+      'isRecommended',
     ];
 
     protected $hidden = [
@@ -34,7 +35,7 @@ class Book extends Model
     */
 
     public function authors(){
-      return $this->belongsToMany(Author::class);
+      return $this->belongsToMany(Author::class)->as('authors');
     }
 
     public function reviews(){
@@ -42,7 +43,7 @@ class Book extends Model
     }
 
     public function orders(){
-      return $this->belongsToMany(Order::class)->withPivot('quantity');
+      return $this->belongsToMany(Order::class)->withPivot('quantity')->as('orders');
     }
 
     public function category(){
