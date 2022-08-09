@@ -19,11 +19,18 @@
     <!-- Contact -->
     <div class="flex flex-col gap-10">
       <p class="border-b-2">Kontakt</p>
-      <p><i class="fa-solid fa-envelope"></i> dgudovic.dev@gmail.com</p>
+      <p><i class="fa-solid fa-envelope"></i> knjizara-aurora@gmail.com</p>
       <p><i class="fa-solid fa-phone"></i> 067/010-010</p>
-      <p> <i class="fa-brands fa-github"></i> <a href="https://github.com/DavidGudovic">David Gudović</a></p>
+      <p> <i class="fa-brands fa-instagram"></i> <a href="https://instagram.com/">Aurora knjižare</a></p>
     </div>
     <!-- End contact -->
+    <!-- Developer -->
+    <div class="flex flex-col gap-10">
+      <p class="border-b-2">Sajt kreirao</p>
+      <p><i class="fa-solid fa-envelope"></i> dgudovic.dev@gmail.com</p>
+      <p> <i class="fa-brands fa-github"></i> <a href="https://github.com/DavidGudovic">David Gudović</a></p>
+    </div>
+    <!-- Developer -->
   </div>
   <!-- End footer -->
 
