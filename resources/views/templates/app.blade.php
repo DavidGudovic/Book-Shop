@@ -6,7 +6,7 @@
   <meta name="description" content="Online prodavnica knjizare Aurora">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{csrf_token()}}">
-  
+
   <title>Knjižara Aurora</title>
   <link rel="icon" href="{{URL('icon.svg')}}">
   @vite('resources/js/app.js')
