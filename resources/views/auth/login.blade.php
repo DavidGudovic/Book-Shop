@@ -2,7 +2,7 @@
 
 @section('content')
   <!-- Login -->
-  <div class="flex items-center justify-center ">
+  <div class="flex items-center justify-center my-20 ">
     <div class="w-4/12 min-w-[400px] bg-white p-6  rounded-lg">
 
       <!--Status message display-->

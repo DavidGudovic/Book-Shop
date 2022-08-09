@@ -1,7 +1,7 @@
 @extends('templates.app')
 
 @section('header')
-  <div class="h-[300px] bg-gray-100 flex items-center justify-center my-6">
+  <header class="h-[300px] bg-gray-100 flex items-center justify-center">
     <svg width="1282" height="212" viewBox="0 0 1282 212" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_31_2)">
         <path d="M402.768 87.6889C390.876 146.553 356.064 211.801 301.699 211.801C269.014 211.801 249.903 195.279 246.913 157.155C242.241 91.9297 319.127 97.01 314.875 44.0652C312.218 18.8187 290.583 21.4471 272.468 30.2381C263.278 34.6999 252.627 27.7422 252.627 17.5597C252.627 17.383 252.627 17.2284 252.627 17.0516C252.627 9.98351 257.941 4.10812 264.961 3.18043C289.785 -0.132765 316.16 13.2525 318.684 43.6234C322.936 88.0864 282.588 93.1888 286.84 152.495C289.387 191.878 316.16 212.64 342.468 193.578C381.974 165.195 402.768 91.5101 402.768 47.4446V0.419434H440.148V211.779H402.768V87.6889Z" fill="#0D0D0D"/>
@@ -18,7 +18,7 @@
       </defs>
     </svg>
 
-  </div>
+  </header>
 @endsection
 
 @section('content')
@@ -35,7 +35,7 @@
         <p>Džordž Orvel</p>
         <p class="mt-4">Knjiga "1984", predstavlja distopijski, odnosno antiutopijski roman Džordža Orvela. Prema većini književnih kritičara, tema romana jeste totalitarni režim kao takav, odnosno, život običnog, beznačajnog pojedinca u društvu totalne kontrole. Budući da je roman distopijski, </p>
         <div class="flex justify-between items-center mt-3">
-          <button type="button" class="rounded-3xl bg-black text-white  px-4 py-2" name="button">Više informacija</button>
+          <a href="" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
           <i class="fa-solid fa-heart fa-2x"></i>
           <i class="fa-solid fa-cart-shopping fa-2x"></i>
         </div>
@@ -47,7 +47,7 @@
         <p>Albert Camus</p>
         <p class="mt-4"> Radnja romana događa se u Alžiru. Glavni junak je mali namještnik Mersault, mladić s banalnim životom bezbroja malih, beznačajnih ljudi. Roman Stranac je roman o ljudskoj egzistenciji, o njemu se govori o čovekovoj usamljenosti, otuđenosti, besmislu, i apsurdu života</p>
         <div class="flex justify-between items-center mt-3">
-          <button type="button" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</button>
+          <a href="" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
           <i class="fa-solid fa-heart fa-2x"></i>
           <i class="fa-solid fa-cart-shopping fa-2x"></i>
         </div>
@@ -59,7 +59,7 @@
         <p>Mihail Bulgakov</p>
         <p class="mt-4"> Priča u romanu se odnosi na posetu đavola zvanično ateističkom Sovjetskom Savezu. Roman “Majstor i Margarita” spaja natprirodne elemente sa satiričnom mračnom komedijom i hrišćanskom filozofijom, prkoseći nekom specifičnom žanru. Mnogi kritičari smatraju da je to jedan ...</p>
         <div class="flex justify-between items-center mt-3">
-          <button type="button" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</button>
+          <a href="" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
           <i class="fa-solid fa-heart fa-2x"></i>
           <i class="fa-solid fa-cart-shopping fa-2x"></i>
         </div>

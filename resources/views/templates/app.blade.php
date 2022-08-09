@@ -9,23 +9,26 @@
   @vite('resources/js/app.js')
 </head>
 
-<body class="flex flex-col antialiased bg-gray-100 h-screen">
+<body class="flex flex-col antialiased bg-gray-100 min-h-screen">
 
-    <!--HEADER-->
+    <!--HEADER OPTIONAL-->
     @yield('header')
     <!--END HEADER-->
     @include('includes.navbar')
 
-    <!-- SIDEBAR -->
-    <aside>
-      @yield('sidebar')
-    </aside>
-    <!-- END SIDEBAR -->
-    <!-- CONTENT -->
-    <main class="flex-1">
-      @yield('content')
-    </main>
-    <!-- END CONTENT -->
+<div class="flex  flex-row justify-center items-center flex-1">
+  <!-- SIDEBAR OPTIONAL-->
+  <aside>
+    @yield('sidebar')
+  </aside>
+  <!-- END SIDEBAR -->
+  <!-- CONTENT -->
+  <main class="">
+    @yield('content')
+  </main>
+  <!-- END CONTENT -->
+</div>
+
   @include('includes.footer')
 </body>
 </html>
