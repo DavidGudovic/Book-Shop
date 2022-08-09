@@ -8,7 +8,7 @@
     </div>
     <!-- End logo -->
     <!-- Products-->
-    <div class="flex flex-col gap-10">
+    <div class="flex flex-col gap-10 w-[215px]">
       <p class="border-b-2">Pogledajte našu ponudu</p>
       <p>Sve</p>
       <p>Fikcija</p>
@@ -16,7 +16,7 @@
     </div>
     <!-- End products -->
     <!-- Contact -->
-    <div class="flex flex-col gap-10">
+    <div class="flex flex-col gap-10 w-[215px]">
       <p class="border-b-2">Kontakt</p>
       <p><i class="fa-solid fa-envelope"></i> knjizara-aurora@gmail.com</p>
       <p><i class="fa-solid fa-phone"></i> 067/010-010</p>
@@ -24,11 +24,10 @@
     </div>
     <!-- End contact -->
     <!-- Developer -->
-    <div class="flex flex-col gap-10">
+    <div class="flex flex-col gap-10 w-[215px]">
       <p class="border-b-2">Sajt kreirao</p>
       <p><i class="fa-solid fa-envelope"></i> dgudovic.dev@gmail.com</p>
       <p> <i class="fa-brands fa-github"></i> <a href="https://github.com/DavidGudovic">David Gudović</a></p>
-      <p><i class="fa-solid fa-id-card"></i> 11/18</p>
     </div>
     <!-- End developer -->
   </div>
