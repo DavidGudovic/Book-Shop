@@ -2,7 +2,7 @@
 
 @section('content')
   <!-- Register -->
-  <div class="flex justify-center mt-8">
+  <div class="flex justify-center align-middle text-center">
     <div class="w-4/12 min-w-[400px] bg-white p-6 m-3 rounded-lg">
 
       <!--Status message display-->

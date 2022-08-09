@@ -22,7 +22,7 @@
     </aside>
     <!-- END SIDEBAR -->
     <!-- CONTENT -->
-    <main>
+    <main class="flex-1">
       @yield('content')
     </main>
     <!-- END CONTENT -->

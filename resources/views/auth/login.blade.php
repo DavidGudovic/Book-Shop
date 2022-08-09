@@ -2,8 +2,8 @@
 
 @section('content')
   <!-- Login -->
-  <div class="flex items-center justify-center min-h-[75vh]">
-    <div class="w-4/12 min-w-[400px] bg-white p-6 rounded-lg">
+  <div class="flex items-center justify-center ">
+    <div class="w-4/12 min-w-[400px] bg-white p-6  rounded-lg">
 
       <!--Status message display-->
       @if(session()->has('status'))
