@@ -15,7 +15,7 @@ class BookService
    Returns a collection of Books
   */
   public function getRecommended(){
-    return Book::where('isRecommended', 1)->get()->random(3);
+    return Book::with('authors')->where('isRecommended', 1)->get()->random(3);
   }
 
 }
