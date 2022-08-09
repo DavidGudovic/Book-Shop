@@ -12,10 +12,11 @@ class BookService
 {
 
   /*
-   Returns a collection of Books
+   Returns a collection of n random recommended books
+   n = $quantity
   */
-  public function getRecommended(){
-    return Book::with('authors')->where('isRecommended', 1)->get()->random(3);
+  public function getRecommended(int $quantity){
+    return Book::with('authors')->where('isRecommended', 1)->get()->random($quantity);
   }
 
 }
