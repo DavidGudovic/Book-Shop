@@ -54,7 +54,7 @@
     <!--Categories-->
     <div class="w-full flex flex-wrap mb-20 p-10 rounded-lg justify-evenly bg-gradient-to-l from-blue-400 to-purple-400">
       <!-- Fiction -->
-      <div class="flex flex-col align-center text-center w-1/2 gap-40">
+      <div class="flex flex-col align-center text-center w-1/2 min-w-[400px] gap-40">
         <h3 class='text-3xl'>Beletristika</h3>
         <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Klasici</a>
         <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Romantika</a>
@@ -62,7 +62,7 @@
         <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Pustolovine</a>
       </div>
       <!--Non fiction-->
-      <div class="flex flex-col align-center text-center w-1/2 gap-40">
+      <div class="flex flex-col align-center text-center w-1/2 min-w-[400px] gap-40">
         <h3 class='text-3xl'>Popularna nauka</h3>
         <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Psihologija</a>
         <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Informacione tehnologije</a>
