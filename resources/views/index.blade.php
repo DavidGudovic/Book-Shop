@@ -62,7 +62,7 @@
         @endforeach
       </div>
       <!--Non fiction-->
-      <div class="flex flex-col align-center text-center w-1/2 min-w-[400px] gap-40">
+      <div class="flex flex-col align-center text-center w-1/2 min-w-full md:min-w-[400px] gap-40">
         <h3 class='text-3xl'>Popularna nauka</h3>
         @foreach($nonFictionCategories as $category)
         <a href="{{route('books.index',
