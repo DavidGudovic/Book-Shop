@@ -14,11 +14,9 @@
 
         <!-- Register form -->
       <form class="" action="{{route('register')}}" method="post">
-
           <!-- Fields -->
           <!-- Cross site request forgery -->
        @csrf
-
             <!-- Username -->
           <div class="mb-4">
              <label for='username' class='sr-only'>Korisničko ime</label>
