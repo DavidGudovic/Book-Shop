@@ -64,10 +64,10 @@
       <!--Non fiction-->
       <div class="flex flex-col align-center text-center w-1/2 gap-40">
         <h3 class='text-3xl'>Popularna nauka</h3>
-        <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Psihologija</p>
-        <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Informacione tehnologije</p>
-        <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Dizajn</p>
-        <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Biologija</p>
+        <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Psihologija</a>
+        <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Informacione tehnologije</a>
+        <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Dizajn</a>
+        <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => '1'])}}">Biologija</a>
       </div>
       <!--End categories-->
     </div>
