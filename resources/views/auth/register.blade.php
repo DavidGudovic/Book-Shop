@@ -2,8 +2,8 @@
 
 @section('content')
   <!-- Register -->
-  <div class="flex justify-center align-middle text-center">
-    <div class="w-4/12 min-w-[400px] bg-white p-6 m-3 rounded-lg">
+  <div class="flex justify-center align-middle text-center ">
+    <div class="w-4/12 min-w-[400px] bg-white p-6 m-3 rounded-lg border-2 border-gray-800 shadow-xl shadow-gray-800">
 
       <!--Status message display-->
       @if(session()->has('status'))

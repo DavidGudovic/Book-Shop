@@ -3,7 +3,7 @@
 @section('content')
   <!-- Login -->
   <div class="flex items-center justify-center my-20 ">
-    <div class="w-4/12 min-w-[400px] bg-white p-6  rounded-lg">
+    <div class="w-4/12 min-w-[400px] bg-white p-6  rounded-lg border-2 border-gray-800 shadow-xl shadow-gray-800"">
 
       <!--Status message display-->
       @if(session()->has('status'))
