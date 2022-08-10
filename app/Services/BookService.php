@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Hash;
 class BookService
 {
   /*
+   Returns a specific book with relevant info eager loaded
+   throws 404 if nothing is found
+  */
+  public function getOne(int $bookId){
+    return Book::with('authors', 'category', 'reviews')->findOrFail($bookId)->get();
+  }
+  /*
   Returns a collection of n random recommended books
   n = $quantity
   */
@@ -43,7 +50,6 @@ class BookService
   public function getAll(){
     return Book::with('authors', 'category')->get();
   }
-
 
   /*
   Returns a collection of books by passed categoryId
