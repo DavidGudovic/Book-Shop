@@ -32,3 +32,13 @@ display: -webkit-box;
 -webkit-box-orient: vertical;
 -webkit-line-clamp: 6;
 }
+
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

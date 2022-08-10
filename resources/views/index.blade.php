@@ -59,7 +59,7 @@
     <h2 class='font-extrabold text-3xl my-20'>Naša ponuda</h2>
 
     <!-- EXPERIMENTAL -->
-    <div class="flex flex-row gap-6 overflow-x-scroll my-5 mb-40">
+    <div class="flex flex-row gap-6 overflow-x-scroll my-5 mb-40 no-scrollbar">
       <img src={{URL('images/noimage.jpg')}} alt="">
       <img src={{URL('images/noimage.jpg')}} alt="">
       <img src={{URL('images/noimage.jpg')}} alt="">
