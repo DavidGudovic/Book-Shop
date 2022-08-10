@@ -23,7 +23,7 @@ Route::post('/register', [RegisterController::class, 'store']); //register
 /*
 Routes for displaying lists of products
 */
-Route::resource('books', BookController::class, ['except' => 'index', 'except' => 'show']);
+Route::resource('books', BookController::class, ['except' => ['index', 'show']]);
 Route::prefix('books')->group(function(){
   Route::get('/show/{book}', [BookController::class, 'show'])->name('books.show'); // Fixes books.show hijacking books.index/category/null
   Route::get('/{category?}/{subcategory?}', [BookController::class, 'index'])->name('books.index');
