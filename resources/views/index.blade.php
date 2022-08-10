@@ -1,7 +1,7 @@
 @extends('templates.app')
 
 @section('header')
-  <header class="h-[300px] bg-gray-200 flex items-center justify-center">
+  <header class="h-[300px] bg-gradient-to-b md:bg-gradient-to-l from-blue-400 to-purple-400 flex items-center justify-center">
     <svg width="1282" height="212" viewBox="0 0 1282 212" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_31_2)">
         <path d="M402.768 87.6889C390.876 146.553 356.064 211.801 301.699 211.801C269.014 211.801 249.903 195.279 246.913 157.155C242.241 91.9297 319.127 97.01 314.875 44.0652C312.218 18.8187 290.583 21.4471 272.468 30.2381C263.278 34.6999 252.627 27.7422 252.627 17.5597C252.627 17.383 252.627 17.2284 252.627 17.0516C252.627 9.98351 257.941 4.10812 264.961 3.18043C289.785 -0.132765 316.16 13.2525 318.684 43.6234C322.936 88.0864 282.588 93.1888 286.84 152.495C289.387 191.878 316.16 212.64 342.468 193.578C381.974 165.195 402.768 91.5101 402.768 47.4446V0.419434H440.148V211.779H402.768V87.6889Z" fill="#0D0D0D"/>
@@ -49,23 +49,23 @@
     <!--End recommendations -->
 
     <!-- Product offer -->
-    <h2 class='font-bold text-3xl my-20'>Naša ponuda</h2>
+    <h2 class='font-extrabold text-3xl my-20'>Naša ponuda</h2>
 
     <!--Categories-->
-    <div class="w-full flex flex-wrap mb-20 p-10 rounded-lg justify-evenly bg-gradient-to-b md:bg-gradient-to-l from-blue-400 to-purple-400">
+    <div class="w-full flex flex-wrap md:mb-20 p-10 rounded-lg justify-evenly bg-gradient-to-b md:bg-gradient-to-l from-blue-400 to-purple-400">
       <!-- Fiction -->
       <div class="flex flex-col align-center text-center w-1/2 min-w-full md:min-w-[400px] gap-40 mb-40 md:mb-0">
-        <h3 class='text-3xl'>Beletristika</h3>
+        <h3 class='font-bold text-3xl'>Beletristika</h3>
         @foreach($fictionCategories as $category)
-        <a href="{{route('books.index',
+        <a class='text-2xl' href="{{route('books.index',
           ['category' => 'fiction', 'subcategory' => $category->id])}}">{{$category->name}}</a>
         @endforeach
       </div>
       <!--Non fiction-->
       <div class="flex flex-col align-center text-center w-1/2 min-w-full md:min-w-[400px] gap-40">
-        <h3 class='text-3xl'>Popularna nauka</h3>
+        <h3 class='font-bold text-3xl'>Popularna nauka</h3>
         @foreach($nonFictionCategories as $category)
-        <a href="{{route('books.index',
+        <a class='text-2xl' href="{{route('books.index',
           ['category' => 'nonFiction', 'subcategory' => $category->id])}}">{{$category->name}}</a>
         @endforeach
       </div>
