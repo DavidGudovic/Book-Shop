@@ -55,43 +55,51 @@
     <!-- End of list -->
     <!--End recommendations -->
 
+
     <!-- Product offer -->
     <h2 class='font-extrabold text-3xl my-20'>Naša ponuda</h2>
-
-    <!-- EXPERIMENTAL -->
-    <div class="flex flex-row gap-6 overflow-x-scroll my-5 mb-40 no-scrollbar">
-      <img src={{URL('images/noimage.jpg')}} alt="">
-      <img src={{URL('images/noimage.jpg')}} alt="">
-      <img src={{URL('images/noimage.jpg')}} alt="">
-      <img src={{URL('images/noimage.jpg')}} alt="">
-      <img src={{URL('images/noimage.jpg')}} alt="">
-      <img src={{URL('images/noimage.jpg')}} alt="">
-      <img src={{URL('images/noimage.jpg')}} alt="">
-    </div>
-    <!-- END EXPERIMENTAL -->
-
-    <!--Categories-->
-    <div class="flex flex-wrap justify-evenly p-10 w-full rounded-t-lg bg-gradient-to-b from-blue-400 to-purple-400
-                 md:rounded-lg md:mb-20 md:bg-gradient-to-l ">
+    <!-- Categories-->
+    <div class="flex flex-col justify-center md:flex-row m-20 mt-0">
       <!-- Fiction -->
-      <div class="flex flex-col align-center text-center w-1/2 min-w-full md:min-w-[400px] gap-40 mb-40 md:mb-0">
-        <h3 class='font-bold text-3xl'>Beletristika</h3>
-        @foreach($fictionCategories as $category)
-          <a class='text-2xl' href="{{route('books.index',
-            ['category' => 'fiction', 'subcategory' => $category->id])}}">{{$category->name}}</a>
+      <div class="flex flex-col mx-4">
+        <!-- Fiction imgs-->
+        <div class="flex flex-row flex-wrap gap-10 justify-center">
+          @foreach($fictionCategories as $category)
+            <!-- Image -->
+            <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => $category])}}" class="overflow-hidden">
+              <img src="{{URL('/images/categories/' . $category->image)}}" alt="{{$category->name}} category image"
+                   class="min-w-[250px] w-[400px] md:w-[250px] hover:scale-110">
+              <p class="relative bottom-10 left-6 font-bold text-white text-xl md:text-base">{{$category->name}}</p>
+            </a>
+            <!-- End Image -->
           @endforeach
         </div>
-        <!--Non fiction-->
-        <div class="flex flex-col align-center text-center w-1/2 min-w-full md:min-w-[400px] gap-40">
-          <h3 class='font-bold text-3xl'>Popularna nauka</h3>
-          @foreach($nonFictionCategories as $category)
-            <a class='text-2xl' href="{{route('books.index',
-              ['category' => 'nonFiction', 'subcategory' => $category->id])}}">{{$category->name}}</a>
-            @endforeach
-          </div>
-        </div>
-        <!--End categories-->
-
-        <!-- End product offer-->
+        <!--End fiction imgs-->
+        <h2 class="text-2xl text-center my-4">Beletristika</h2>
       </div>
-    @endsection
+      <!--End Fiction-->
+
+      <!-- nonFiction -->
+      <div class="flex flex-col mx-4">
+        <!-- nonFiction images-->
+        <div class="flex flex-row flex-wrap gap-10 justify-center">
+          @foreach($nonFictionCategories as $category)
+            <!-- Image -->
+            <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => $category])}}" class="overflow-hidden">
+              <img src="{{URL('/images/categories/' . $category->image)}}" alt="{{$category->name}} category image"
+                   class="min-w-[250px] w-[400px] md:w-[250px] overflow-hidden hover:scale-110">
+              <p class="relative bottom-10 left-6 font-bold text-white text-xl md:text-base">{{$category->name}}</p>
+            </a>
+            <!-- End Image -->
+          @endforeach
+        </div>
+        <!--End nonFiction images-->
+        <h2 class="text-2xl text-center my-4">Popularna nauka</h2>
+      </div>
+      <!--End nonFiction-->
+    </div>
+    <!-- end categories-->
+    <a href="{{route('books.index')}}" class="p-2 bg-black text-white rounded-3xl mb-20">Pogledajte celu ponudu</a>
+    <!-- End product offer -->
+  </div>
+@endsection
