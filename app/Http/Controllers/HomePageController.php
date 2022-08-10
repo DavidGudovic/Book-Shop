@@ -11,16 +11,16 @@ use App\Services\CategoryService;
 class HomePageController extends Controller
 {
 
-   // Gets relevant data and forwards it to home page view
- public function index(BookService $bookService , CategoryService $categoryService ){
-   
-      $recommends = $bookService->getRecommended(3);
+  // Gets relevant data and forwards it to home page view
+  public function index(BookService $bookService , CategoryService $categoryService ){
 
-      $fictionCategories = $categoryService->getAll('fiction');
-      $nonFictionCategories = $categoryService->getAll('nonFiction');
+    $recommends = $bookService->getRecommended(3);
+
+    $fictionCategories = $categoryService->getAll('fiction');
+    $nonFictionCategories = $categoryService->getAll('nonFiction');
 
     return view('index', ['recommends' => $recommends,
                           'fictionCategories' => $fictionCategories,
                           'nonFictionCategories' => $nonFictionCategories]);
-    }
+  }
 }

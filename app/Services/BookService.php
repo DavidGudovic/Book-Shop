@@ -65,6 +65,8 @@ class BookService
     if($category === 'nonFiction'){
       return Book::with('authors', 'category')->nonFiction()->get();
     }
+
+    return [];
   }
 
 
