@@ -17,7 +17,6 @@
         </clipPath>
       </defs>
     </svg>
-
   </header>
 @endsection
 
@@ -33,7 +32,16 @@
         <div class="flex flex-col w-[350px]">
           <img src="{{URL('/images/' . $recommended->image)}}" class="h-[500px]" alt="">
           <p class='text-2xl font-bold mt-2'>{{$recommended->name}}</p>
-          <p>{{$recommended->authors->first()->name}}</p>
+          <!-- Authors -->
+          <p>
+            @foreach($recommended->authors as $author)
+              {{$author->name}}
+              @if(!$loop->last)
+                <i class="fa-solid fa-minus"></i>
+              @endif
+            @endforeach
+          </p>
+          <!-- End Authors -->
           <p class="mt-4 h-[150px] overflow-hidden">{{$recommended->synopsis}}</p>
           <div class="flex justify-between items-center mt-3">
             <a href="{{route('books.show', $recommended)}}" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
@@ -45,34 +53,33 @@
       @endforeach
     </div>
     <!-- End of list -->
-
     <!--End recommendations -->
 
     <!-- Product offer -->
     <h2 class='font-extrabold text-3xl my-20'>Naša ponuda</h2>
 
     <!--Categories-->
-    <div class="w-full flex flex-wrap md:mb-20 p-10 rounded-lg justify-evenly bg-gradient-to-b md:bg-gradient-to-l from-blue-400 to-purple-400">
+    <div class="flex flex-wrap justify-evenly p-10 w-full rounded-t-lg bg-gradient-to-b from-blue-400 to-purple-400
+                 md:rounded-lg md:mb-20 md:bg-gradient-to-l ">
       <!-- Fiction -->
       <div class="flex flex-col align-center text-center w-1/2 min-w-full md:min-w-[400px] gap-40 mb-40 md:mb-0">
         <h3 class='font-bold text-3xl'>Beletristika</h3>
         @foreach($fictionCategories as $category)
-        <a class='text-2xl' href="{{route('books.index',
-          ['category' => 'fiction', 'subcategory' => $category->id])}}">{{$category->name}}</a>
-        @endforeach
-      </div>
-      <!--Non fiction-->
-      <div class="flex flex-col align-center text-center w-1/2 min-w-full md:min-w-[400px] gap-40">
-        <h3 class='font-bold text-3xl'>Popularna nauka</h3>
-        @foreach($nonFictionCategories as $category)
-        <a class='text-2xl' href="{{route('books.index',
-          ['category' => 'nonFiction', 'subcategory' => $category->id])}}">{{$category->name}}</a>
-        @endforeach
-      </div>
-      <!--End categories-->
-    </div>
+          <a class='text-2xl' href="{{route('books.index',
+            ['category' => 'fiction', 'subcategory' => $category->id])}}">{{$category->name}}</a>
+          @endforeach
+        </div>
+        <!--Non fiction-->
+        <div class="flex flex-col align-center text-center w-1/2 min-w-full md:min-w-[400px] gap-40">
+          <h3 class='font-bold text-3xl'>Popularna nauka</h3>
+          @foreach($nonFictionCategories as $category)
+            <a class='text-2xl' href="{{route('books.index',
+              ['category' => 'nonFiction', 'subcategory' => $category->id])}}">{{$category->name}}</a>
+            @endforeach
+          </div>
+        </div>
+        <!--End categories-->
 
-
-    <!-- End product offer-->
-  </div>
-@endsection
+        <!-- End product offer-->
+      </div>
+    @endsection
