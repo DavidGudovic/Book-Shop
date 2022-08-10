@@ -10,6 +10,7 @@
   <title>Knjižara Aurora</title>
   <link rel="icon" href="{{URL('icon.svg')}}">
   @vite('resources/js/app.js')
+  @livewireStyles
 </head>
    <body class="flex flex-col antialiased bg-gray-200 min-h-screen">
      <!--HEADER OPTIONAL-->
@@ -37,5 +38,6 @@
      <!--FOOTER-->
      @include('includes.footer')
      <!--END FOOTER-->
+     @livewireScripts
    </body>
 </html>
