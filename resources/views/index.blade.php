@@ -42,7 +42,7 @@
             @endforeach
           </p>
           <!-- End Authors -->
-          <p class="mt-4 h-[150px] overflow-hidden">{{$recommended->synopsis}}</p>
+          <p class="mt-4 h-36 line-clamp-6">{{$recommended->synopsis}}</p>
           <div class="flex justify-between items-center mt-3">
             <a href="{{route('books.show', $recommended)}}" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
             <p class="text-2xl">{{$recommended->price}} RSD</p>
