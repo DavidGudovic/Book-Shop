@@ -21,7 +21,7 @@ class BookController extends Controller
   public function index(BookService $bookService, $category = null, $subcategory = null)
   {
       $books = $bookService->getAllorFiltered($category, $subcategory);
-      return view('products.index')->with(['books' => $books]);
+      return $books ? view('products.index')->with(['books' => $books]) : abort(404);
   }
 
   /*
@@ -40,8 +40,9 @@ class BookController extends Controller
     //
   }
 
+  
   /*
-  Display the specified resource.
+  Display the specified book.
   */
   public function show(Book $book)
   {
