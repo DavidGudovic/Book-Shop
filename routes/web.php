@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Resources\BookController;
-use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\Resources\UserController;
 
 
 // home page page
@@ -33,9 +34,8 @@ Route::prefix('books')->group(function(){
 Routes only logged in users can access
 redirects to login page if unauthorized
 */
-Route::middleware('auth')->prefix('user')->group(function () {
-
-
+Route::middleware('auth')->group(function () {
+Route::resource('users', UserController::class);
 });
 
 /*
