@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Hash;
 class BookService
 {
   /*
+  Returns a collection of n random recommended books
+  n = $quantity
+  */
+  public function getRecommended(int $quantity){
+    return Book::with('authors')->recommended()->inRandomOrder()->take($quantity)->get();
+  }
+  /*
     Used when filter criteria is ambigious,
     Determines criteria and calls relevant method.
   */
@@ -37,13 +44,6 @@ class BookService
     return Book::with('authors', 'category')->get();
   }
 
-  /*
-  Returns a collection of n random recommended books
-  n = $quantity
-  */
-  public function getRecommended(int $quantity){
-    return Book::with('authors')->inRandomOrder()->take($quantity)->get();
-  }
 
   /*
   Returns a collection of books by passed categoryId
