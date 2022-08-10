@@ -12,5 +12,7 @@ UI on PC, actual screen height is a quarter of the screenshot
 
    
 UI on an Android phone   
-
-<img src='https://user-images.githubusercontent.com/56200401/183827383-37a0d3b2-5e7d-4664-aa19-b364b752febd.jpeg' align="center/>
+   
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/56200401/183827383-37a0d3b2-5e7d-4664-aa19-b364b752febd.jpeg" />
+</p>
