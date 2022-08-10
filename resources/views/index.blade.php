@@ -58,6 +58,18 @@
     <!-- Product offer -->
     <h2 class='font-extrabold text-3xl my-20'>Naša ponuda</h2>
 
+    <!-- EXPERIMENTAL -->
+    <div class="flex flex-row gap-6 overflow-x-scroll my-5 mb-40">
+      <img src={{URL('images/noimage.jpg')}} alt="">
+      <img src={{URL('images/noimage.jpg')}} alt="">
+      <img src={{URL('images/noimage.jpg')}} alt="">
+      <img src={{URL('images/noimage.jpg')}} alt="">
+      <img src={{URL('images/noimage.jpg')}} alt="">
+      <img src={{URL('images/noimage.jpg')}} alt="">
+      <img src={{URL('images/noimage.jpg')}} alt="">
+    </div>
+    <!-- END EXPERIMENTAL -->
+
     <!--Categories-->
     <div class="flex flex-wrap justify-evenly p-10 w-full rounded-t-lg bg-gradient-to-b from-blue-400 to-purple-400
                  md:rounded-lg md:mb-20 md:bg-gradient-to-l ">
