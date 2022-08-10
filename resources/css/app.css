@@ -42,3 +42,7 @@ display: -webkit-box;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.gradient{
+  background-image: url('/images/header_pattern.png');
+  background-size: cover;
+}
