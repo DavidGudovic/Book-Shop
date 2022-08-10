@@ -45,8 +45,8 @@
           <p class="mt-4 h-[150px] overflow-hidden">{{$recommended->synopsis}}</p>
           <div class="flex justify-between items-center mt-3">
             <a href="{{route('books.show', $recommended)}}" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
-            <i class="fa-solid fa-heart fa-2x"></i>
-            <i class="fa-solid fa-cart-shopping fa-2x"></i>
+            <p class="text-2xl">{{$recommended->price}} RSD</p>
+            <a href=""><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
           </div>
         </div>
         <!-- End of book -->
