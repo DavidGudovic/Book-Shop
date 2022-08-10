@@ -59,7 +59,7 @@
     <!-- Product offer -->
     <h2 class='font-extrabold text-3xl my-20'>Naša ponuda</h2>
     <!-- Categories-->
-    <div class="flex flex-col justify-center md:flex-row m-20 mt-0">
+    <div class="flex flex-col justify-center md:flex-row m-10 md:mx-20 mt-0">
       <!-- Fiction -->
       <div class="flex flex-col mx-4">
         <!-- Fiction imgs-->
@@ -75,7 +75,7 @@
           @endforeach
         </div>
         <!--End fiction imgs-->
-        <h2 class="text-2xl text-center my-4">Beletristika</h2>
+        <h2 class="text-2xl text-center mb-4">Beletristika</h2>
       </div>
       <!--End Fiction-->
 
@@ -94,7 +94,7 @@
           @endforeach
         </div>
         <!--End nonFiction images-->
-        <h2 class="text-2xl text-center my-4">Popularna nauka</h2>
+        <h2 class="text-2xl text-center mb-4">Popularna nauka</h2>
       </div>
       <!--End nonFiction-->
     </div>
