@@ -2,9 +2,10 @@
 A web store for a fictional Book Shop, made with Laravel, Tailwind and Livewire, for school. 
 
 
-#Unfinished UI
+# Unfinished UI
 
-UI on PC, actual screenheight is a quarter of the screenshot
+UI on PC, actual screen height is a quarter of the screenshot   
+
 ![Web capture_10-8-2022_7555_localhost](https://user-images.githubusercontent.com/56200401/183826967-19de40a6-8dca-4e90-a8bd-fdbfc45a489a.jpeg)
 
 
