@@ -37,7 +37,7 @@
             @foreach($recommended->authors as $author)
               {{$author->name}}
               @if(!$loop->last)
-                <i class="fa-solid fa-minus"></i>
+                ,
               @endif
             @endforeach
           </p>
