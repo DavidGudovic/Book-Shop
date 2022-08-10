@@ -14,6 +14,7 @@ class Category extends Model
     protected $fillable = [
       'name',
       'isFiction',
+      'image',
     ];
 
     protected $hidden = [
@@ -41,7 +42,7 @@ class Category extends Model
     public function scopeFiction($query){
         return $query->where('isFiction',1);
     }
-    
+
     public function scopeNonFiction($query){
         return $query->where('isFiction',0);
     }
