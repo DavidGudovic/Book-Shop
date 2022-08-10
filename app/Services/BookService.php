@@ -14,8 +14,8 @@ class BookService
    Returns a specific book with relevant info eager loaded
    throws 404 if nothing is found
   */
-  public function getOne(int $bookId){
-    return Book::with('authors', 'category', 'reviews')->findOrFail($bookId)->get();
+  public function getOne(Book $book){
+    return Book::with('authors', 'category', 'reviews')->where('id',$book->id)->firstOrFail();
   }
   /*
   Returns a collection of n random recommended books
