@@ -66,8 +66,8 @@
         <div class="flex flex-row flex-wrap gap-10 justify-center">
           @foreach($fictionCategories as $category)
             <!-- Image -->
-            <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => $category])}}" class="overflow-hidden">
-              <img src="{{URL('/images/categories/' . $category->image)}}" alt="{{$category->name}} category image"
+            <a href="{{route('books.index',['category' => 'fiction', json_encode([$category->id])])}}" class="overflow-hidden">
+              <img src="{{URL('/images/categories/' . $category->image)}}" alt="Slika kategorije {{$category->name}} "
               class="min-w-[250px] w-[400px] md:w-[250px] hover:scale-110">
               <p class="relative bottom-10 left-6 font-bold text-white text-xl md:text-base">{{$category->name}}</p>
             </a>
@@ -85,8 +85,8 @@
         <div class="flex flex-row flex-wrap gap-10 justify-center">
           @foreach($nonFictionCategories as $category)
             <!-- Image -->
-            <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => $category])}}" class="overflow-hidden">
-              <img src="{{URL('/images/categories/' . $category->image)}}" alt="{{$category->name}} category image"
+            <a href="{{route('books.index',['category' => 'fiction', json_encode([$category->id])])}}" class="overflow-hidden">
+              <img src="{{URL('/images/categories/' . $category->image)}}" alt="slika kategorije {{$category->name}}"
               class="min-w-[250px] w-[400px] md:w-[250px] overflow-hidden hover:scale-110">
               <p class="relative bottom-10 left-6 font-bold text-white text-xl md:text-base">{{$category->name}}</p>
             </a>
