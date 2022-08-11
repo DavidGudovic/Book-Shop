@@ -59,16 +59,16 @@
     <!-- Product offer -->
     <h2 class='font-extrabold text-3xl my-20'>Naša ponuda</h2>
     <!-- Categories-->
-    <div class="flex flex-col justify-center md:flex-row m-10 md:mx-20 mt-0">
+    <div class="flex flex-col justify-center m-10 mt-0 md:mx-20 md:flex-row ">
       <!-- Fiction -->
-      <div class="flex flex-col mx-4">
+      <div class="flex flex-col-reverse mx-4 md:flex-col ">
         <!-- Fiction imgs-->
         <div class="flex flex-row flex-wrap gap-10 justify-center">
           @foreach($fictionCategories as $category)
             <!-- Image -->
             <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => $category])}}" class="overflow-hidden">
               <img src="{{URL('/images/categories/' . $category->image)}}" alt="{{$category->name}} category image"
-                   class="min-w-[250px] w-[400px] md:w-[250px] hover:scale-110">
+              class="min-w-[250px] w-[400px] md:w-[250px] hover:scale-110">
               <p class="relative bottom-10 left-6 font-bold text-white text-xl md:text-base">{{$category->name}}</p>
             </a>
             <!-- End Image -->
@@ -80,14 +80,14 @@
       <!--End Fiction-->
 
       <!-- nonFiction -->
-      <div class="flex flex-col mx-4">
+      <div class="flex flex-col-reverse mx-4 md:flex-col ">
         <!-- nonFiction images-->
         <div class="flex flex-row flex-wrap gap-10 justify-center">
           @foreach($nonFictionCategories as $category)
             <!-- Image -->
             <a href="{{route('books.index',['category' => 'fiction', 'subcategory' => $category])}}" class="overflow-hidden">
               <img src="{{URL('/images/categories/' . $category->image)}}" alt="{{$category->name}} category image"
-                   class="min-w-[250px] w-[400px] md:w-[250px] overflow-hidden hover:scale-110">
+              class="min-w-[250px] w-[400px] md:w-[250px] overflow-hidden hover:scale-110">
               <p class="relative bottom-10 left-6 font-bold text-white text-xl md:text-base">{{$category->name}}</p>
             </a>
             <!-- End Image -->
