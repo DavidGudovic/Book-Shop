@@ -6,7 +6,7 @@
 
     <!-- Profile dropdown -->
     <div x-data="{ open: false }" x-on:click.outside="open = false">
-      <button x-on:click="open = !open">
+      <button x-on:click="open = !open" class="hover:text-yellow-400">
         Ponuda <i class="fa-solid fa-caret-down" :class="{'rotate-180 inline-block': open}"></i>
       </button>
       <!-- hidden menu -->
@@ -28,7 +28,7 @@
       <!-- User specific links -->
       <!-- Profile dropdown -->
       <div x-data="{ open: false }" x-on:click.outside="open = false">
-        <button x-on:click="open = !open">
+        <button x-on:click="open = !open" class="hover:text-yellow-400">
           Profil <i class="fa-solid fa-caret-down" :class="{'rotate-180 inline-block': open}"></i>
         </button>
         <!-- hidden menu -->
