@@ -3,28 +3,36 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Livewire\WithPagination;
 use App\Services\BookService;
 
 class ProductCatalog extends Component
 {
-  use WithPagination;
-
-  public $booksaa;
-  public $categories;
-  public $price_range;
-  public $test = 'AAAAAAAAAA';
+  public $book_list; //filter result
 
   public $listeners = [
     'filter' => 'filter',
   ];
 
-    public function filter(){
-      dd();
+  /*
+   Applies filters too book list. [categories, price_range]
+   Filter criteria provided by raising a filter event
+  */
+  public function filter(BookService $bookService, $categories = [], $price_range = null){
+    $this->book_list = $bookService->getAllorFiltered(null , array_keys($categories, true));
+
+    if(!empty($price_range)){
+      foreach($this->book_list as $bookCollectionKey => $book){
+        if($book->price > $price_range){
+          $this->book_list->forget($bookCollectionKey);
+        }
+      }
+
     }
 
-    public function render()
-    {
-        return view('livewire.product-catalog');
-    }
+  }
+
+  public function render()
+  {
+    return view('livewire.product-catalog');
+  }
 }

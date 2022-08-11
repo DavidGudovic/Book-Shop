@@ -1,8 +1,7 @@
-<!-- Livewire component -->
 <div class="flex flex-col">
   <!-- List of Books -->
   <div class="flex flex-row flex-wrap gap-20 justify-center">
-    @forelse($booksaa as $book)
+    @forelse($book_list as $book)
       <div class="flex flex-col gap-2">
         <img src="{{URL('/images/'. $book->image)}}" class="h-[420px] w-[270px]">
         <p class="font-semibold">{{$book->name}}</p>
@@ -28,5 +27,3 @@
   </div>
   <!-- End of list-->
 </div>
-
-<!-- End livewire component -->
