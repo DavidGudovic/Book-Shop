@@ -1,13 +1,13 @@
 @extends('templates.app')
 
 @section('content')
-  <div class="">
-    <p>Api response: </p>
-    @forelse($books as $book)
-       <p>{{$book->name}} {{$book->isbn}} {{$book->price}} {{$book->category}}  {{$book->authors->first->name}}</p>
-     @empty
-           <p class="text-6xl font-bold text-black">Nema proizvoda</p>
-    @endforelse
-
+  <p class="font-extrabold text-3xl text-center mt-16 mb-4">Ponuda Knjiga</p>
+  <div class="flex flex-col md:flex-row w-screen p-10 md:pr-6">
+    <div class="mb-6 md:mb-0">
+      <livewire:filters>
+    </div>
+    <div class="flex-1">
+      <livewire:product-catalog :booksaa="$books">
+    </div>
   </div>
 @endsection
