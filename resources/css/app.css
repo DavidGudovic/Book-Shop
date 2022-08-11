@@ -9,11 +9,12 @@ body{
   font-family: satoshi;
 }
 
+@tailwind base;
+
 a{
   @apply hover:text-yellow-400;
 }
 
-@tailwind base;
 @tailwind components;
 
 .form-control{
@@ -33,16 +34,10 @@ display: -webkit-box;
 -webkit-line-clamp: 6;
 }
 
-/* Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
 .gradient{
   background-image: url('/images/header_pattern.png');
   background-size: cover;
 }
+
+/* AlpineJS Flashing hidden menus fix*/
+[x-cloak]{display:none;}
