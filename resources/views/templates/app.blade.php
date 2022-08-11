@@ -39,5 +39,6 @@
      @include('includes.footer')
      <!--END FOOTER-->
      @livewireScripts
+     <livewire:cart-modal />
    </body>
 </html>

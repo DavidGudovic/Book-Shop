@@ -40,7 +40,9 @@
         <!-- end hidden menu -->
       </div>
       <!-- End profile dropdown -->
-      <li><a href="" >Korpa</a></li>
+      <!-- Alpine JS event -> Livewire Modal -->
+      <li><button class="hover:text-yellow-400" x-data="{}" x-on:click="window.livewire.emitTo('cart-modal', 'show')">Korpa</button></li>
+      <!-- End Alpine JS event -->
       <!-- End user links -->
     @endauth
     @guest
