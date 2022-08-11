@@ -16,7 +16,8 @@ class BookController extends Controller
 {
 
   /*
-  Display a listing of all book resources or filtered by a category or subcategories
+  Display an initial listing of all book resources or filtered by a category or subcategories
+  Filters from inside products.index are handled by Livewire.ProductCatalog
   */
   public function index(BookService $bookService, $category = null, $subcategories = null)
   {
@@ -44,9 +45,9 @@ class BookController extends Controller
   /*
   Display the specified book.
   */
-  public function show(BookService $bookService, Book $book)
+  public function show(Book $book)
   {
-    return view('products.show', ['book' => $bookService->getOne($book)]);
+    return view('products.show', ['book' => $book]);
   }
 
   /*
