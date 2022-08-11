@@ -35,7 +35,7 @@
         <ul class="absolute flex flex-col gap-4 rounded-lg bg-white text-black p-4 mt-4 " x-show="open" x-transition.opacity>
           <li><a href="{{route('users.show', auth()->user())}}">Informacije</a></li>
           <li><a href="">Narudžbine</a></li>
-          <li><a href="{{route('logout')}}">Odjavi se</a></li>
+          <li><a href="{{route('logout')}}">Odjava</a></li>
         </ul>
         <!-- end hidden menu -->
       </div>
@@ -46,7 +46,7 @@
     @guest
       <!-- Authentication links -->
       <li><a href="{{ route('register')}}">Registracija</a></li>
-      <li><a href="{{ route('login') }}">Ulogujte se</a></li>
+      <li><a href="{{ route('login') }}">Prijava</a></li>
       <!-- End Authentication -->
     @endguest
   </ul>
