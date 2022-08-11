@@ -16,11 +16,11 @@ class BookController extends Controller
 {
 
   /*
-  Display a listing of all book resources or filtered by a category or sub category
+  Display a listing of all book resources or filtered by a category or subcategories
   */
-  public function index(BookService $bookService, $category = null, $subcategory = null)
+  public function index(BookService $bookService, $category = null, $subcategories = null)
   {
-      $books = $bookService->getAllorFiltered($category, $subcategory);
+      $books = $bookService->getAllorFiltered($category, json_decode($subcategories));
       return $books ? view('products.index')->with(['books' => $books]) : abort(404);
   }
 

@@ -28,17 +28,17 @@ class BookService
     Used when filter criteria is ambigious,
     Determines criteria and calls relevant method.
   */
-  public function getAllorFiltered($category = null, $subcategory = null){
+  public function getAllorFiltered($category = null, $subcategories = []){
 
-    if(!empty($category) && empty($subcategory)){
+    if(!empty($category) && empty($subcategories)){
       return $this->getByCategory($category);
     }
 
-    if(!empty($subcategory)){
-    return $this->getBySubCategory($subcategory);
+    if(!empty($subcategories)){
+    return $this->getBySubCategories($subcategories);
     }
 
-    if(empty($category) && empty($subcategory)){
+    if(empty($category) && empty($subcategories)){
       return $this->getAll();
     }
 
@@ -52,10 +52,12 @@ class BookService
   }
 
   /*
-  Returns a collection of books by passed categoryId
+  Returns a collection of books by categories
   */
-  public function getBySubCategory(int $categoryId){
-    return Book::with('authors', 'category')->category($categoryId)->get();
+  public function getBySubCategories($categories){
+    return Book::with('authors', 'category')->whereHas('category', function ($q) use($categories){
+      $q->whereIn('id', $categories);
+    })->get();
   }
 
   /*
