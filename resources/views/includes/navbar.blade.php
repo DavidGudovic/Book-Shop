@@ -10,7 +10,7 @@
         Ponuda <i class="fa-solid fa-caret-down" :class="{'rotate-180 inline-block': open}"></i>
       </button>
       <!-- hidden menu -->
-      <ul class="absolute flex flex-col gap-4 rounded-lg bg-white text-black p-4 mt-4 " x-show="open" x-transition.opacity>
+      <ul class="absolute flex flex-col gap-4 rounded-lg bg-white text-black p-4 mt-4 " x-cloak x-show="open" x-transition.opacity>
         <li><a href="{{ route('books.index') }}" >Cela ponuda</a></li>
         <li><a href="{{ route('books.index', ['category' => 'fiction']) }}">Beletristika</a></li>
         <li><a href="{{ route('books.index', ['category' => 'nonFiction']) }}">Popularna nauka</a></li>
@@ -32,7 +32,7 @@
           Profil <i class="fa-solid fa-caret-down" :class="{'rotate-180 inline-block': open}"></i>
         </button>
         <!-- hidden menu -->
-        <ul class="absolute flex flex-col gap-4 rounded-lg bg-white text-black p-4 mt-4 " x-show="open" x-transition.opacity>
+        <ul class="absolute flex flex-col gap-4 rounded-lg bg-white text-black p-4 mt-4 " x-cloak x-show="open" x-transition.opacity>
           <li><a href="{{route('users.show', auth()->user())}}">Informacije</a></li>
           <li><a href="">Narudžbine</a></li>
           <li><a href="{{route('logout')}}">Odjava</a></li>
