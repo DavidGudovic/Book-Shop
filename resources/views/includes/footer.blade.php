@@ -1,4 +1,4 @@
-<footer class="flex-col w-full h-fit px-10 py-6 bg-gray-200 text-black border-t-2 border-black relative bottom-0 ">
+<footer class="flex-col w-full h-fit px-10 py-6 bg-black text-white border-t-2 border-black relative bottom-0 ">
   <div class="flex flex-wrap gap-11 justify-evenly">
     <!-- Logo -->
     <div>
@@ -9,7 +9,7 @@
     <!-- End logo -->
     <!-- Products-->
     <div class="flex flex-col gap-10 w-[215px]">
-      <p class="border-b-2 border-gray-800">Pogledajte našu ponudu</p>
+      <p class="border-b-2 border-white">Pogledajte našu ponudu</p>
       <a href="{{route('books.index')}}">Cela ponuda</a>
       <a href="{{route('books.index', ['category' => 'fiction'])}}">Beletristika</a>
       <a href="{{route('books.index', ['category' => 'nonFiction'])}}">Popularna nauka</a>
@@ -17,7 +17,7 @@
     <!-- End products -->
     <!-- Contact -->
     <div class="flex flex-col gap-10 w-[215px]">
-      <p class="border-b-2 border-gray-800">Kontakt</p>
+      <p class="border-b-2 border-white">Kontakt</p>
       <p><i class="fa-solid fa-envelope"></i> knjizara-aurora@gmail.com</p>
       <p><i class="fa-solid fa-phone"></i> 067/010-010</p>
       <p> <i class="fa-brands fa-instagram"></i> <a href="https://instagram.com/">Aurora knjižare</a></p>
@@ -25,7 +25,7 @@
     <!-- End contact -->
     <!-- Developer -->
     <div class="flex flex-col gap-10 w-[215px]">
-      <p class="border-b-2 border-gray-800">Sajt kreirao</p>
+      <p class="border-b-2 border-white">Sajt kreirao</p>
       <p><i class="fa-solid fa-envelope"></i> dgudovic.dev@gmail.com</p>
       <p> <i class="fa-brands fa-github"></i> <a href="https://github.com/DavidGudovic">David Gudović</a></p>
     </div>
