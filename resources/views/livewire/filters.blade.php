@@ -1,12 +1,15 @@
 <div x-data="{ showFilters: true }">
   <!-- Hamburger menu -->
   <button class="fixed top-16 left-4" type="button"
-          x-on:click="showFilters = !showFilters">
+          x-on:click="showFilters = !showFilters"
+          x-if
+          @click="$nextTick(() => showFilters ? window.scrollTo(0,0) : true)">
     <i class="fa-solid fa-bars fa-2xl" :class="{'rotate-90 inline-block': showFilters}"></i>
+    <p x-show="!showFilters" class="text-opacity-70">Filteri<p>
   </button>
   <!-- End hamburger menu -->
   <!-- Filters list -->
-  <div class="flex flex-col gap-6 border-2 border-gray-800 p-6 min-w-[250px]"
+  <form class="flex flex-col gap-6 border-2 border-gray-800 p-6 min-w-[250px]"
       x-show="showFilters" x-transition.opacity x-ref="filters" >
     <p class="font-bold text-center">Filteri</p>
     <!--Fiction-->
@@ -39,10 +42,11 @@
     <!-- Actions -->
     <div class="flex flex-col gap-2">
 
-      <button wire:click="$emit('filter')" type="button" class="border-2 border-black bg-black text-white p-1 rounded-xl">Primeni filtere</button>
-      <button wire:click="$emit('filter')" type="button" class="border-2 text-black border-black p-1 rounded-xl">Resetuj filtere</button>
+      <input wire:click.prevent="$emit('filter')" type="submit" value="Primeni filtere" class="border-2 border-black bg-black text-white p-1 rounded-xl">
+      <input type="reset" value="Resetuj filtere" class="border-2 text-black border-black p-1 rounded-xl">
 
     </div>
-    <!-- End actions--></div>
+    <!-- End actions-->
+  </form>
     <!-- End filters list -->
   </div>
