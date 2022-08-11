@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Book;
 use App\Services\BookService;
+use App\Services\CategoryService;
 
 
 /*
@@ -19,10 +20,17 @@ class BookController extends Controller
   Display an initial listing of all book resources or filtered by a category or subcategories
   Filters from inside products.index are handled by Livewire.ProductCatalog
   */
-  public function index(BookService $bookService, $category = null, $subcategories = null)
+  public function index(BookService $bookService, CategoryService $categoryService, $category = null, $subcategories = null)
   {
-      $books = $bookService->getAllorFiltered($category, json_decode($subcategories));
-      return $books ? view('products.index')->with(['books' => $books]) : abort(404);
+      $decoded = json_decode($subcategories);
+      $books = $bookService->getAllorFiltered($category, $decoded);
+      $filterCriteria = empty($decoded) ? [] : $decoded;
+      $filters = $categoryService->getFilters($filterCriteria);
+
+
+      return $books ? //isNull
+      view('products.index')->with(['books' => $books, 'filters' => $filters]) :
+      abort(404);
   }
 
   /*
