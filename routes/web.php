@@ -34,7 +34,7 @@ Route::prefix('books')->group(function(){
 Routes only logged in users can access
 redirects to login page if unauthorized
 */
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'private')->group(function () {
 Route::resource('users', UserController::class);
 });
 
