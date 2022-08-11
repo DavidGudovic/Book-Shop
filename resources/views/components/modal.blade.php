@@ -6,7 +6,7 @@
   <div x-show="show" class="fixed inset-0 transform absolute inset-0 bg-gray-500 opacity-70" x-on:click="show=false">
   </div>
 
-   <div x-show="show" class="bg-white rounded-lg overflow-y-auto transform  w-full m-10 p-6  ">
+   <div x-show="show" class="bg-white rounded-lg overflow-y-auto transform  w-full md:w-1/2 p-6  ">
       {{ $slot }}
    </div>
 </div>
