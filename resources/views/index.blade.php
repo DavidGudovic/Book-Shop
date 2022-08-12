@@ -75,7 +75,7 @@
           @endforeach
         </div>
         <!--End fiction imgs-->
-        <h2 class="text-2xl text-center mb-4 mt-6">Beletristika</h2>
+        <h2 class="text-2xl text-center mb-4 mt-0 md:mt-6">Beletristika</h2>
       </div>
       <!--End Fiction-->
 
@@ -94,7 +94,7 @@
           @endforeach
         </div>
         <!--End nonFiction images-->
-        <h2 class="text-2xl text-center mb-4 mt-6">Popularna nauka</h2>
+        <h2 class="text-2xl text-center mb-4 mt-0 md:mt-6">Popularna nauka</h2>
       </div>
       <!--End nonFiction-->
     </div>
