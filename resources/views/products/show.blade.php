@@ -3,7 +3,7 @@
 @section('content')
   <p>Api response: </p>
   <p>
-    {{$book->name}} {{$book->isbn}} {{$book->category}}
+    {{$book->title}} {{$book->isbn}} {{$book->category}}
     @foreach($book->authors as $author)
       {{$author->name}}
       @if(!$loop->last)

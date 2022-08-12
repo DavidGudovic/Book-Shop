@@ -12,7 +12,7 @@
       <!-- Book -->
       <div class="flex flex-col gap-2">
         <img src="{{URL('/images/'. $book->image)}}" class="h-[420px] w-[270px]">
-        <p class="font-semibold">{{$book->name}}</p>
+        <p class="font-semibold">{{$book->title}}</p>
         <!-- Authors -->
         <p>
           @foreach($book->authors as $author)
@@ -25,7 +25,7 @@
         <!-- End Authors -->
         <!-- Score -->
         <div class="flex flex-row gap-5">
-          @foreach(range(1,5) as $index)
+          @foreach(range(0, $book->average_score) as $index)
                 <i class="fa-solid fa-star"></i>
           @endforeach
         </div>

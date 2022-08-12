@@ -31,7 +31,7 @@
         <!-- Book -->
         <div class="flex flex-col w-[350px]">
           <img src="{{URL('/images/' . $recommended->image)}}" class="h-[500px]" alt="">
-          <p class='text-2xl font-bold mt-2'>{{$recommended->name}}</p>
+          <p class='text-2xl font-bold mt-2'>{{$recommended->title}}</p>
           <!-- Authors -->
           <p>
             @foreach($recommended->authors as $author)

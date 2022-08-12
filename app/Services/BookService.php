@@ -21,8 +21,8 @@ class BookService
     // I.E "John Doe" query wouldn't return "John J. D. Doe" without explode->join
     $queryPieces = explode(" ", $queryString);
     $queryString = join("%", $queryPieces);
-    
-        return  Book::where('name','LIKE','%'.$queryString.'%')
+
+        return  Book::where('title','LIKE','%'.$queryString.'%')
             ->orWhere('isbn','LIKE','%'.$queryString.'%')
             ->orWhereHas('authors', function($q) use ($queryString){
               $q->where('name','LIKE','%'.$queryString.'%');
