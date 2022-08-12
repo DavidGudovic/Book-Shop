@@ -20,7 +20,6 @@
           x-on:click="showFilters = !showFilters"
           @click="$nextTick(() => showFilters ? window.scrollTo(0,0) : true)">
       <i class="fa-solid fa-sliders fa-2xl" :class="{'rotate-90 inline-block': showFilters}"></i>
-      <p x-show="showFilters" class="text-opacity-70 fixed top-20 pt-2 left-16">Sakrij Filtere</p>
       <p x-show="!showFilters" class="text-opacity-70">Filteri</p>
   </button>
   <!-- End hamburger menu -->
