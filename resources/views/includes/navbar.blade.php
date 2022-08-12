@@ -1,4 +1,4 @@
-<nav class="sticky top-0 max-h-16 bg-black text-white z-20">
+<nav class="sticky top-0 max-h-16 bg-black text-white z-40">
   <!-- Nav items -->
   <ul class="flex items-center justify-around w-full py-4">
     <!-- Generic nav links -->
