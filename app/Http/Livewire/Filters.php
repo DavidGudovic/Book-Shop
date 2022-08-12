@@ -45,32 +45,29 @@ class Filters extends Component
     $this->softResetFilter();
     $this->emit("applySearch", $this->searchQuery);
   }
-  /*
+
 
   /*
-  Pass filter criteria from form to ProductCatalog
+  Emits filter criteria from form to ProductCatalog
   Called when applying filters
   Resets search query (Items are filtered by filtes, not searchBar)
   */
   public function submit()
   {
-    $this->searchQuery = "";
+    $this->resetSearchBar();
     $this->emit("filter", $this->category_list, $this->price_range);
   }
 
   /*
-  calls soft reset
-  Resets search query
-  Emits filter event with no criteria ( displays all products )
+    Resets searchQuery, reRenders SearchBar
   */
-  public function resetFilter()
+  public function resetSearchBar()
   {
-    $this->softResetFilter();
-    $this->searchQuery = "";
-    $this->emit("filter");
+      $this->searchQuery = "";
   }
   /*
     input type(reset) behaviour but works on non user inputed data
+    Resets form without emiting new filters to ProductCatalog
   */
   public function softResetFilter()
   {
@@ -79,4 +76,16 @@ class Filters extends Component
       $this->category_list[$category] = false;
     }
   }
+  /*
+  calls soft reset
+  Resets search query
+  Emits empty filter to ProductCatalog ( displays all products )
+  */
+  public function resetFilter()
+  {
+    $this->softResetFilter();
+    $this->resetSearchBar();
+    $this->emit("filter");
+  }
+
 }
