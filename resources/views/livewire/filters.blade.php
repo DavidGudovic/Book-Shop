@@ -4,7 +4,7 @@
   <!-- Search -->
 
     <!-- Closed search icons-->
-  <button class="fixed top-20 right-6 z-10 pt-2 hover:text-yellow-400" type="button"
+  <button class="fixed top-20 right-6 pt-2 hover:text-yellow-400" type="button"
           x-on:click="showSearchBar = true"
           x-show="!showSearchBar">
             <i class="fa-solid fa-arrow-left fa-2xl"></i>
@@ -15,7 +15,7 @@
   <!-- Search form open -->
   <form wire:submit.prevent="search">
     <!-- Search Submit-->
-    <button class="fixed top-20 right-6 z-10 pt-2 hover:text-yellow-400" type="submit"
+    <button class="fixed top-20 right-6 pt-2 hover:text-yellow-400" type="submit"
             x-on:click="showFilters = false"
             @click="$nextTick(() => window.scrollTo(0,0))"
             x-show="showSearchBar">

@@ -9,13 +9,13 @@ use Livewire\Component;
 */
 class Modal extends Component
 {
-  public $show = false;
+  public $showModal = false;
 
-  public function show(){
-    $this->show = !$this->show;
+  public function showModal(){
+    $this->showModal = !$this->showModal;
   }
 
   public $listeners = [
-    'show' => 'show',
+    'showModal' => 'showModal',
   ];
 }
