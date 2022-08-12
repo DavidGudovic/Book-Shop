@@ -1,4 +1,11 @@
 <div class="flex flex-col">
+  <!-- Fixed -->
+  <!-- Search loading indicator -->
+  <div wire:loading class="fixed top-28 pt-2 right-10 h-16 w-16">
+    <img src="{{URL('/images/loading.gif')}}" alt="">
+  </div>
+  <!-- End loading indicator -->
+  <!-- End fixed-->
   <!-- List of Books -->
   <div class="flex flex-row flex-wrap gap-20 justify-center">
     @forelse($book_list as $book)
