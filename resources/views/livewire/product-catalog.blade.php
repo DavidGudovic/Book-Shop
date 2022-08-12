@@ -25,12 +25,16 @@
         <!-- End Authors -->
         <!-- Score -->
         <div class="flex flex-row gap-5">
-          @foreach(range(0, $book->average_score) as $index)
+        @if($book->average_score > 0)
+          @foreach(range(1, $book->average_score) as $index)
                 <i class="fa-solid fa-star"></i>
           @endforeach
+        @else
+          <p class="text-gray-500 text-sm"> Još uvek nema ocena </p>
+        @endif
         </div>
-
         <!-- End score -->
+
         <div class="flex justify-between items-center mt-3">
           <a href="{{route('books.show', $book)}}" class="rounded-3xl bg-black text-white px-2 py-1" name="button">Više informacija</a>
           <p class="text-lg">{{$book->price}} RSD</p>
