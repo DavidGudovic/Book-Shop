@@ -66,16 +66,16 @@
         <div class="flex flex-row flex-wrap gap-10 justify-center">
           @foreach($fictionCategories as $category)
             <!-- Image -->
-            <a href="{{route('books.index',['category' => 'fiction', json_encode([$category->id])])}}" class="overflow-hidden">
+            <a href="{{route('books.index',['category' => 'fiction', json_encode([$category->id])])}}" class="overflow-hidden ">
               <img src="{{URL('/images/categories/' . $category->image)}}" alt="Slika kategorije {{$category->name}} "
               class="min-w-[250px] w-[400px] md:w-[250px] hover:scale-110">
-              <p class="relative bottom-10 left-6 font-bold text-white text-xl md:text-base">{{$category->name}}</p>
+              <p class="relative bottom-10 left-6 font-bold text-white text-xl md:text-base h-0">{{$category->name}}</p>
             </a>
             <!-- End Image -->
           @endforeach
         </div>
         <!--End fiction imgs-->
-        <h2 class="text-2xl text-center mb-4">Beletristika</h2>
+        <h2 class="text-2xl text-center mb-4 mt-6">Beletristika</h2>
       </div>
       <!--End Fiction-->
 
@@ -88,13 +88,13 @@
             <a href="{{route('books.index',['category' => 'fiction', json_encode([$category->id])])}}" class="overflow-hidden">
               <img src="{{URL('/images/categories/' . $category->image)}}" alt="slika kategorije {{$category->name}}"
               class="min-w-[250px] w-[400px] md:w-[250px] overflow-hidden hover:scale-110">
-              <p class="relative bottom-10 left-6 font-bold text-white text-xl md:text-base">{{$category->name}}</p>
+              <p class="relative bottom-10 left-6 font-bold text-white text-xl md:text-base h-0">{{$category->name}}</p>
             </a>
             <!-- End Image -->
           @endforeach
         </div>
         <!--End nonFiction images-->
-        <h2 class="text-2xl text-center mb-4">Popularna nauka</h2>
+        <h2 class="text-2xl text-center mb-4 mt-6">Popularna nauka</h2>
       </div>
       <!--End nonFiction-->
     </div>
