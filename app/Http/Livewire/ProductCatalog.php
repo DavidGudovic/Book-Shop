@@ -15,11 +15,12 @@ class ProductCatalog extends Component
   ];
 
   /*
-   Applies filters too book list. [categories, price_range]
-   Filter criteria provided by raising a filter event
+  Applies filters too book list. [categories, price_range]
+  Filter criteria provided by raising a filter event
   */
-  public function filter(BookService $bookService, $categories = [], $price_range = null){
-    $this->book_list = $bookService->getAllorFiltered(null , array_keys($categories, true));
+  public function filter(BookService $bookService, $category_list = [], $price_range = null, $sort_by='title', $sort_direction='ASC')
+  {
+    $this->book_list = $bookService->getAllorFiltered(null , array_keys($category_list, true));
 
     if(!empty($price_range)){
       foreach($this->book_list as $bookCollectionKey => $book){
@@ -27,15 +28,23 @@ class ProductCatalog extends Component
           $this->book_list->forget($bookCollectionKey);
         }
       }
-
     }
-
+    $this->sort($sort_by, $sort_direction);
   }
-
+  /*
+   Sorts the book list by criteria and direction
+  */
+  public function sort($sort_by, $sort_direction){
+    $this->book_list =
+    $sort_direction == 'ASC' ?
+    $this->book_list->sortBy($sort_by) : // 0 1 2...n
+    $this->book_list->sortByDesc($sort_by); // n... 2 1 0
+  }
   /*
   Applies validated search criteria passed by Filters Component
   */
-  public function applySearch(BookService $bookService,$criteria){
+  public function applySearch(BookService $bookService,$criteria)
+  {
     $this->book_list = $bookService->getBySearch($criteria);
   }
 

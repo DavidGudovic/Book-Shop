@@ -1,7 +1,6 @@
 <div x-data="{ showFilters: true, showSearchBar: false }">
 
   <!-- Fixed elements -->
-
   <!-- Search -->
 
     <!-- Closed search icons-->
@@ -31,7 +30,7 @@
        <input type="text" name="searchBar" placeholder="Knjiga, Autor ili ISBN"
            x-show="showSearchBar"
            x-cloak x-transition-opacity
-           wire:model="searchQuery"
+           wire:model="search_query"
            class="fixed top-20 right-4 b-white border-2 border-gray-800 text-black rounded-3xl p-2 w-64">
       <!-- End search bar -->
   </form>
@@ -50,8 +49,8 @@
   <!--End fixed elements-->
 
   <!-- Filters Responsive Form -->
-  <form wire:submit.prevent="submit" class="flex flex-col gap-6 border-2 border-gray-800 p-6 min-w-[250px]"
-      x-show="showFilters" x-transition.opacity x-ref="filters" >
+  <form wire:submit.prevent="submit"class="flex flex-col gap-4 border-2 border-gray-800 p-6 min-w-[250px]"
+      x-show="showFilters" x-transition.opacity x-ref="filters" x-on:click="showSearchBar = false">
       <div class="flex flex-row justify-center">
         <p class="font-bold text-center">Filteri</p>
         <div wire:loading wire:target="submit, resetFilter" class="w-8 h-8">
@@ -86,6 +85,23 @@
       <output>{{$price_range ? $price_range . ' RSD' : ""}}</output>
     </div>
     <!-- End price range -->
+    <!-- Sort -->
+    <div class="flex flex-col gap-2 -mt-4">
+    <p class="text-opacity-70 text-black text-sm">Sortiraj po:</p>
+    <!-- Sort criteria -->
+    <select wire:model="sort_by" name="sortby">
+      <option value="title">Nazivu</option>
+      <option value="price">Ceni</option>
+      <option value="average_score">Oceni</option>
+    </select>
+    <!-- Sort direction -->
+    <select wire:model="sort_direction" name="sortdir">
+      <option value="ASC">Rastuće</option>
+      <option value="DESC">Opadajuće</option>
+    </select>
+    </div>
+    <!-- End Sort -->
+
     <!-- Actions -->
     <div class="flex flex-col gap-2">
       <input type="submit" value="Primeni filtere"

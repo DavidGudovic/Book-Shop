@@ -9,9 +9,14 @@ class Filters extends Component
 {
   public $fiction_categories; //mounted
   public $nonFiction_categories; //mounted
-  public $category_list; //filter criteria [categoryID -> true/false]
-  public $price_range; //filter criteria
-  public $searchQuery = ""; //Query string
+  public $search_query = ""; //search criteria
+
+  //filter criteria
+  public $category_list; //[K:categoryID -> V:true/false]
+  public $price_range;
+  public $sort_by;
+  public $sort_direction;
+
 
   public $listeners = [
     'search' => 'search',
@@ -24,7 +29,8 @@ class Filters extends Component
     'searchQuery' => 'Unesite tekst pretrage',
   ];
 
-  public function mount(CategoryService $categoryService){
+  public function mount(CategoryService $categoryService)
+  {
     $this->fiction_categories = $categoryService->getAll('fiction');
     $this->nonFiction_categories = $categoryService->getAll('nonFiction');
   }
@@ -35,15 +41,15 @@ class Filters extends Component
   }
 
   /*
-   Validates search query
-   Soft resets filters
-   emits search query to ProductCatalog component
+  Validates search query
+  Soft resets filters
+  emits search query to ProductCatalog component
   */
   public function search()
   {
     $this->validate();
     $this->softResetFilter();
-    $this->emit("applySearch", $this->searchQuery);
+    $this->emit("applySearch", $this->search_query);
   }
 
 
@@ -55,22 +61,24 @@ class Filters extends Component
   public function submit()
   {
     $this->resetSearchBar();
-    $this->emit("filter", $this->category_list, $this->price_range);
+    $this->emit("filter", $this->category_list, $this->price_range, $this->sort_by, $this->sort_direction);
   }
 
   /*
-    Resets searchQuery, reRenders SearchBar
+  Resets searchQuery, reRenders SearchBar
   */
   public function resetSearchBar()
   {
-      $this->searchQuery = "";
+    $this->search_query = "";
   }
   /*
-    input type(reset) behaviour but works on non user inputed data
-    Resets form without emiting new filters to ProductCatalog
+  input type(reset) behaviour but works on non user inputed data
+  Resets form without emiting new filters to ProductCatalog
   */
   public function softResetFilter()
   {
+    $this->sort_by = "title";
+    $this->sort_direction = "ASC";
     $this->price_range = null;
     foreach($this->category_list as $category => $checked){
       $this->category_list[$category] = false;
