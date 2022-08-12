@@ -50,19 +50,23 @@ class Filters extends Component
   /*
   Pass filter criteria from form to ProductCatalog
   Called when applying filters
+  Resets search query (Items are filtered by filtes, not searchBar)
   */
   public function submit()
   {
+    $this->searchQuery = "";
     $this->emit("filter", $this->category_list, $this->price_range);
   }
 
   /*
   calls soft reset
+  Resets search query
   Emits filter event with no criteria ( displays all products )
   */
   public function resetFilter()
   {
     $this->softResetFilter();
+    $this->searchQuery = "";
     $this->emit("filter");
   }
   /*

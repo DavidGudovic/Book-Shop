@@ -1,44 +1,52 @@
 <div x-data="{ showFilters: true, showSearchBar: false }">
 
   <!-- Fixed elements -->
+
   <!-- Search -->
-    <!-- Magnifying glass icon-->
+
+    <!-- Closed search icons-->
   <button class="fixed top-20 right-6 z-10 pt-2 hover:text-yellow-400" type="button"
           x-on:click="showSearchBar = true"
           x-show="!showSearchBar">
-    <i class="fa-solid fa-arrow-left fa-2xl"></i>
+  <!--  <i class="fa-solid fa-arrow-left fa-2xl"></i> -->
     <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
   </button>
-  <!-- End Icon -->
+  <!-- End closed search icons -->
+
   <!-- Search form open -->
   <form wire:submit.prevent="search">
+    <!-- Search Submit-->
     <button class="fixed top-20 right-6 z-10 pt-2 hover:text-yellow-400" type="submit"
-            wire:click="search"
+            x-on:click="showFilters = false"
+            @click="$nextTick(() => window.scrollTo(0,0))"
             x-show="showSearchBar">
       <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
     </button>
-
+    <!-- End search submit -->
       <!--Hidden search bar-->
-    <a href="" class="fa-solid fa-arrow-right fa-2xl fixed top-24 pt-2 right-72 "
+      <!-- Close icon-->
+      <a href="" class="fa-solid fa-arrow-right fa-2xl fixed top-24 pt-2 right-72 "
        x-show="showSearchBar" x-on:click.prevent="showSearchBar = !showSearchBar"></a>
-    <input type="text" name="searchBar" placeholder="Knjiga, Autor ili ISBN"
+       <!-- End close icon -->
+       <input type="text" name="searchBar" placeholder="Knjiga, Autor ili ISBN"
            x-show="showSearchBar"
            x-cloak x-transition-opacity
            wire:model="searchQuery"
            class="fixed top-20 right-4 b-white border-2 border-gray-800 text-black rounded-3xl p-2 w-64">
       <!-- End search bar -->
   </form>
-  <!-- End Search form -->
+  <!-- End search open -->
+
   <!--End Search -->
 
-  <!-- Hamburger menu -->
+  <!-- Open/Close filters -->
   <button class="fixed top-20 left-6 pt-2 hover:text-yellow" type="button"
           x-on:click="showFilters = !showFilters"
           @click="$nextTick(() => showFilters ? window.scrollTo(0,0) : true)">
       <i class="fa-solid fa-sliders fa-2xl" :class="{'rotate-90 inline-block': showFilters}"></i>
       <p x-show="!showFilters" class="text-opacity-70">Filteri</p>
   </button>
-  <!-- End hamburger menu -->
+  <!-- End open/close filters-->
   <!--End fixed elements-->
 
   <!-- Filters Responsive Form -->

@@ -1,7 +1,7 @@
 <div class="flex flex-col">
   <!-- Fixed -->
   <!-- Search loading indicator -->
-  <div wire:loading class="fixed top-28 pt-2 right-10 h-16 w-16">
+  <div wire:loading class="fixed m-auto right-0 left-0 top-32 h-16 w-16">
     <img src="{{URL('/images/loading.gif')}}" alt="">
   </div>
   <!-- End loading indicator -->
