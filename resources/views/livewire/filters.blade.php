@@ -10,17 +10,18 @@
     <!--End icon-->
     <!--Hidden search bar-->
   <input type="text" name="searchBar" placeholder="Pretražite po imenu knjige"
-         x-show="showSearchBar" x-cloak
+         x-show="showSearchBar" x-cloak x-transition-opacity
          class="fixed top-20 right-4 b-white border-2 border-gray-800 text-black rounded-3xl p-2 w-64">
     <!-- End search bar -->
   <!--End Search -->
 
   <!-- Hamburger menu -->
-  <button class="fixed top-20 left-6" type="button"
+  <button class="fixed top-20 left-6 pt-2" type="button"
           x-on:click="showFilters = !showFilters"
           @click="$nextTick(() => showFilters ? window.scrollTo(0,0) : true)">
-    <i class="fa-solid fa-bars fa-2xl" :class="{'rotate-90 inline-block': showFilters}"></i>
-    <p x-show="!showFilters" class="text-opacity-70">Filteri<p>
+      <i class="fa-solid fa-sliders fa-2xl" :class="{'rotate-90 inline-block': showFilters}"></i>
+      <p x-show="showFilters" class="text-opacity-70 fixed top-20 pt-2 left-16">Sakrij Filtere</p>
+      <p x-show="!showFilters" class="text-opacity-70">Filteri</p>
   </button>
   <!-- End hamburger menu -->
   <!--End fixed elements-->
