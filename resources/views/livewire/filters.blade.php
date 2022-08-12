@@ -1,12 +1,30 @@
-<div x-data="{ showFilters: true }">
+<div x-data="{ showFilters: true, showSearchBar: false }">
+
+  <!-- Fixed elements -->
+  <!-- Search -->
+    <!-- Magnifying glass icon-->
+  <button class="fixed top-20 right-6 z-10 pt-2" type="button"
+          x-on:click="showSearchBar = !showSearchBar">
+    <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+  </button>
+    <!--End icon-->
+    <!--Hidden search bar-->
+  <input type="text" name="searchBar" placeholder="Pretražite po imenu knjige"
+         x-show="showSearchBar" x-cloak
+         class="fixed top-20 right-4 b-white border-2 border-gray-800 text-black rounded-3xl p-2 w-64">
+    <!-- End search bar -->
+  <!--End Search -->
+
   <!-- Hamburger menu -->
-  <button class="fixed top-16 left-4" type="button"
+  <button class="fixed top-20 left-6" type="button"
           x-on:click="showFilters = !showFilters"
           @click="$nextTick(() => showFilters ? window.scrollTo(0,0) : true)">
     <i class="fa-solid fa-bars fa-2xl" :class="{'rotate-90 inline-block': showFilters}"></i>
     <p x-show="!showFilters" class="text-opacity-70">Filteri<p>
   </button>
   <!-- End hamburger menu -->
+  <!--End fixed elements-->
+
   <!-- Filters Responsive Form -->
   <form wire:submit.prevent="submit" class="flex flex-col gap-6 border-2 border-gray-800 p-6 min-w-[250px]"
       x-show="showFilters" x-transition.opacity x-ref="filters" >
