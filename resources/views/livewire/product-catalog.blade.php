@@ -22,7 +22,7 @@
         </div>
       </div>
     @empty
-      <p class="text-6xl font-bold text-black">Nema proizvoda</p>
+      <img src="{{URL('images/noresult.jpg')}}" alt="Nema rezultata pretrage">
     @endforelse
   </div>
   <!-- End of list-->
