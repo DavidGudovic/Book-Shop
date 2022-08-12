@@ -15,7 +15,7 @@
   <!-- Search form open -->
   <form wire:submit.prevent="search">
     <!-- Search Submit-->
-    <button class="fixed top-20 right-6 pt-2 hover:text-yellow-400" type="submit"
+    <button class="fixed top-20 right-6 pt-2 hover:text-yellow-400 z-10" type="submit"
             x-on:click="showFilters = false"
             @click="$nextTick(() => window.scrollTo(0,0))"
             x-show="showSearchBar">
@@ -54,7 +54,7 @@
       <div class="flex flex-row justify-center">
         <p class="font-bold text-center">Filteri</p>
         <div wire:loading wire:target="submit, resetFilter" class="w-8 h-8">
-          <img src="{{URL('/images/loading.gif')}}" alt="">
+          <img src="{{URL('/images/util/loading.gif')}}" alt="">
         </div>
       </div>
 
