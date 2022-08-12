@@ -17,6 +17,13 @@ class Filters extends Component
     'search' => 'search',
   ];
 
+  public $rules = [
+    'searchQuery' => 'required',
+  ];
+  public $messages = [
+    'searchQuery' => 'Unesite tekst pretrage',
+  ];
+
   public function mount(CategoryService $categoryService){
     $this->fiction_categories = $categoryService->getAll('fiction');
     $this->nonFiction_categories = $categoryService->getAll('nonFiction');
@@ -28,22 +35,27 @@ class Filters extends Component
   }
 
   /*
+   Validates search query
+   Soft resets filters
+   emits search query to ProductCatalog component
+  */
+  public function search()
+  {
+    $this->validate();
+    $this->softResetFilter();
+    $this->emit("applySearch", $this->searchQuery);
+  }
+  /*
+
+  /*
   Pass filter criteria from form to ProductCatalog
+  Called when applying filters
   */
   public function submit()
   {
     $this->emit("filter", $this->category_list, $this->price_range);
   }
 
-  /*
-   Filters product display by criteria
-   Soft resets filters
-  */
-  public function search()
-  {
-    $this->softResetFilter();
-    dd($this->searchQuery);
-  }
   /*
   calls soft reset
   Emits filter event with no criteria ( displays all products )

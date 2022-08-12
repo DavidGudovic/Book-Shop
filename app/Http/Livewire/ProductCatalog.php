@@ -11,6 +11,7 @@ class ProductCatalog extends Component
 
   public $listeners = [
     'filter' => 'filter',
+    'applySearch' => 'applySearch',
   ];
 
   /*
@@ -29,6 +30,13 @@ class ProductCatalog extends Component
 
     }
 
+  }
+
+  /*
+  Applies validated search criteria passed by Filters Component
+  */
+  public function applySearch(BookService $bookService,$criteria){
+    $this->book_list = $bookService->getBySearch($criteria);
   }
 
   public function render()

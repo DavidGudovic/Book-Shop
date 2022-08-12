@@ -10,9 +10,22 @@ use Illuminate\Support\Facades\Hash;
 */
 class BookService
 {
+
   /*
-   Returns a specific book with relevant info eager loaded
-   throws 404 if nothing is found
+   Returns books by criteria,
+   Matches with Title, Author, ISBN
+  */
+  public function getBySearch($queryString){
+    return  Book::where('name','LIKE','%'.$queryString.'%')
+            ->orWhere('isbn','LIKE','%'.$queryString.'%')
+            ->orWhereHas('authors', function($q) use ($queryString){
+              $q->where('name','LIKE','%'.$queryString.'%');
+            })
+            ->get();
+  }
+  /*
+  Returns a specific book with relevant info eager loaded
+  throws 404 if nothing is found
   */
   public function getOne(int $book){
     return Book::with('authors', 'category', 'reviews')->where('id', $book)->firstOrFail();
@@ -25,8 +38,8 @@ class BookService
     return Book::with('authors')->recommended()->inRandomOrder()->take($quantity)->get();
   }
   /*
-    Used when filter criteria is ambigious,
-    Determines criteria and calls relevant method.
+  Used when filter criteria is ambigious,
+  Determines criteria and calls relevant method.
   */
   public function getAllorFiltered($category = null, $subcategories = []){
 
@@ -35,7 +48,7 @@ class BookService
     }
 
     if(!empty($subcategories)){
-    return $this->getBySubCategories($subcategories);
+      return $this->getBySubCategories($subcategories);
     }
 
     if(empty($category) && empty($subcategories)){
