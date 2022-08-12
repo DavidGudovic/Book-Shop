@@ -23,10 +23,10 @@ class Filters extends Component
   ];
 
   public $rules = [
-    'searchQuery' => 'required',
+    'search_query' => 'required',
   ];
   public $messages = [
-    'searchQuery' => 'Unesite tekst pretrage',
+    'search_query' => 'Unesite tekst pretrage',
   ];
 
   public function mount(CategoryService $categoryService)
