@@ -22,6 +22,7 @@
       <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
     </button>
     <!-- End search submit -->
+
       <!--Hidden search bar-->
       <!-- Close icon-->
       <a href="" class="fa-solid fa-arrow-right fa-2xl fixed top-24 pt-2 right-72 "
@@ -35,17 +36,17 @@
       <!-- End search bar -->
   </form>
   <!-- End search open -->
-
   <!--End Search -->
 
   <!-- Open/Close filters -->
-  <button class="fixed top-20 left-6 pt-2 hover:text-yellow" type="button"
+  <button class="fixed top-20 left-6 pt-2 z-10 hover:text-yellow" type="button"
           x-on:click="showFilters = !showFilters"
           @click="$nextTick(() => showFilters ? window.scrollTo(0,0) : true)">
       <i class="fa-solid fa-sliders fa-2xl" :class="{'rotate-90 inline-block': showFilters}"></i>
       <p x-show="!showFilters" class="text-opacity-70">Filteri</p>
   </button>
   <!-- End open/close filters-->
+
   <!--End fixed elements-->
 
   <!-- Filters Responsive Form -->
