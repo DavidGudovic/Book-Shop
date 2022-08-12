@@ -8,8 +8,10 @@
   <button class="fixed top-20 right-6 z-10 pt-2 hover:text-yellow-400" type="button"
           x-on:click="showSearchBar = true"
           x-show="!showSearchBar">
-  <!--  <i class="fa-solid fa-arrow-left fa-2xl"></i> -->
-    <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+          <div class="flex-col md:flex-row">
+            <i class="fa-solid fa-arrow-left fa-2xl"></i>
+            <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+          </div>
   </button>
   <!-- End closed search icons -->
 
