@@ -3,7 +3,6 @@
   <!-- Fixed elements -->
   <!-- Search -->
     <!-- Magnifying glass icon-->
-
   <button class="fixed top-20 right-6 z-10 pt-2 hover:text-yellow-400" type="button"
           x-on:click="showSearchBar = true"
           x-show="!showSearchBar">
@@ -22,7 +21,7 @@
       <!--Hidden search bar-->
     <a href="" class="fa-solid fa-arrow-right fa-2xl fixed top-24 pt-2 right-72 "
        x-show="showSearchBar" x-on:click.prevent="showSearchBar = !showSearchBar"></a>
-    <input type="text" name="searchBar" placeholder="Knjiga, Autor, ISBN"
+    <input type="text" name="searchBar" placeholder="Knjiga, Autor ili ISBN"
            x-show="showSearchBar"
            x-cloak x-transition-opacity
            wire:model="searchQuery"
