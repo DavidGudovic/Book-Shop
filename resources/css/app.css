@@ -36,7 +36,7 @@ display: -webkit-box;
 
 /* Image includes, cleaner here then inline tailwind */
 .gradient{
-  background-image: url('/images/header_pattern.png');
+  background-image: url('/images/util/header_pattern.png');
   background-size: cover;
 }
 
