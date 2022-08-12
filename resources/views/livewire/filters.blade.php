@@ -3,20 +3,37 @@
   <!-- Fixed elements -->
   <!-- Search -->
     <!-- Magnifying glass icon-->
-  <button class="fixed top-20 right-6 z-10 pt-2" type="button"
-          x-on:click="showSearchBar = !showSearchBar">
+
+  <button class="fixed top-20 right-6 z-10 pt-2 hover:text-yellow-400" type="button"
+          x-on:click="showSearchBar = true"
+          x-show="!showSearchBar">
+    <i class="fa-solid fa-arrow-left fa-2xl"></i>
     <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
   </button>
-    <!--End icon-->
-    <!--Hidden search bar-->
-  <input type="text" name="searchBar" placeholder="Pretražite po imenu knjige"
-         x-show="showSearchBar" x-cloak x-transition-opacity
-         class="fixed top-20 right-4 b-white border-2 border-gray-800 text-black rounded-3xl p-2 w-64">
-    <!-- End search bar -->
+  <!-- End Icon -->
+  <!-- Search form open -->
+  <form wire:submit.prevent="search">
+    <button class="fixed top-20 right-6 z-10 pt-2 hover:text-yellow-400" type="submit"
+            wire:click="search"
+            x-show="showSearchBar">
+      <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+    </button>
+
+      <!--Hidden search bar-->
+    <a href="" class="fa-solid fa-arrow-right fa-2xl fixed top-24 pt-2 right-72 "
+       x-show="showSearchBar" x-on:click.prevent="showSearchBar = !showSearchBar"></a>
+    <input type="text" name="searchBar" placeholder="Knjiga, Autor, ISBN"
+           x-show="showSearchBar"
+           x-cloak x-transition-opacity
+           wire:model="searchQuery"
+           class="fixed top-20 right-4 b-white border-2 border-gray-800 text-black rounded-3xl p-2 w-64">
+      <!-- End search bar -->
+  </form>
+  <!-- End Search form -->
   <!--End Search -->
 
   <!-- Hamburger menu -->
-  <button class="fixed top-20 left-6 pt-2" type="button"
+  <button class="fixed top-20 left-6 pt-2 hover:text-yellow" type="button"
           x-on:click="showFilters = !showFilters"
           @click="$nextTick(() => showFilters ? window.scrollTo(0,0) : true)">
       <i class="fa-solid fa-sliders fa-2xl" :class="{'rotate-90 inline-block': showFilters}"></i>
@@ -28,7 +45,13 @@
   <!-- Filters Responsive Form -->
   <form wire:submit.prevent="submit" class="flex flex-col gap-6 border-2 border-gray-800 p-6 min-w-[250px]"
       x-show="showFilters" x-transition.opacity x-ref="filters" >
-    <p class="font-bold text-center">Filteri</p>
+      <div class="flex flex-row justify-center">
+        <p class="font-bold text-center">Filteri</p>
+        <div wire:loading wire:target="submit, resetFilter" class="w-8 h-8">
+          <img src="{{URL('/images/loading.gif')}}" alt="">
+        </div>
+      </div>
+
     <!--Fiction-->
     <div class="flex flex-col ">
       <p class="text-opacity-70 text-black text-sm">Beletristika</p>
