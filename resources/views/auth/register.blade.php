@@ -1,6 +1,6 @@
 @extends('templates.app')
 
-@section('background-pattern') bg-aurora-register-phone md:bg-aurora-register bg-cover bg-no-repeat bg-center @endsection
+@section('background-pattern') bg-aurora-phone md:bg-aurora-register bg-cover bg-no-repeat bg-center @endsection
 
 @section('content')
   <!-- Register -->
@@ -17,7 +17,7 @@
         <!-- End status message -->
 
           <!-- Register form -->
-        <form class="" action="{{route('register')}}" method="post">
+        <form class="" action="{{route('register.store')}}" method="post">
             <!-- Fields -->
             <!-- Cross site request forgery -->
          @csrf
@@ -73,9 +73,9 @@
             </div>
               <!-- End fields -->
               <!-- Buttons -->
-            <div class="flex justify-evenly">
-               <button type="submit" class="form-btn">Registruj se!</button>
-               <button type="reset" class="form-btn bg-gray-500">Resetuj!</button>
+            <div class="flex justify-evenly gap-4">
+               <button type="submit" class="form-btn">Registruj se</button>
+               <button type="reset" class="form-btn bg-gray-500">Resetuj</button>
             </div>
               <!-- End buttons -->
         </form>

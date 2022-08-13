@@ -1,7 +1,7 @@
 @extends('templates.app')
 
-@section('background-pattern') bg-aurora-login-phone md:bg-aurora-login bg-cover bg-no-repeat bg-center @endsection
-  
+@section('background-pattern') bg-aurora-phone md:bg-aurora-login bg-cover bg-no-repeat bg-center @endsection
+
 @section('content')
   <!-- Login -->
   <div class="flex items-center justify-center my-20 ">
@@ -54,7 +54,7 @@
                 <!-- end fields-->
                 <!-- Buttons -->
                 <div>
-                  <button type="submit" class="form-btn bg-black">Prijavi se</button>
+                  <button type="submit" class="form-btn">Prijavi se</button>
                 </div>
                 <!-- End buttons -->
               </form>
