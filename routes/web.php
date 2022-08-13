@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Resources\BookController;
 use App\Http\Controllers\Resources\UserController;
+use App\Http\Controllers\Resources\OrderController;
+use App\Http\Controllers\Resources\ReclamationController;
 
 // TODO Localize route URLs to Serbian
 
@@ -37,8 +39,12 @@ redirects to login page if unauthorized
 */
 
 Route::middleware('auth', 'private')->group(function () {
-Route::get('/users/{user}/delete', [UserController::class, 'delete'])->name('users.delete');
-Route::resource('users', UserController::class);
+
+Route::get('/user/{user}/delete', [UserController::class, 'delete'])->name('user.delete');
+Route::resource('user', UserController::class);
+
+Route::resource('order', OrderController::class);
+Route::resource('reclamation', ReclamationController::class);
 });
 
 /*
