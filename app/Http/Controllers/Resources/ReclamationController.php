@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Resources;
 
 use App\Http\Controllers\Controller;
 use App\Models\Reclamation;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReclamationController extends Controller
@@ -13,7 +14,7 @@ class ReclamationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
         return view('reclamations.index');
     }
@@ -23,7 +24,7 @@ class ReclamationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
         //
     }
@@ -34,7 +35,7 @@ class ReclamationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,User $user)
     {
         //
     }
@@ -45,7 +46,7 @@ class ReclamationController extends Controller
      * @param  \App\Models\Reclamation  $reclamation
      * @return \Illuminate\Http\Response
      */
-    public function show(Reclamation $reclamation)
+    public function show(Reclamation $reclamation,User $user)
     {
         //
     }
@@ -56,7 +57,7 @@ class ReclamationController extends Controller
      * @param  \App\Models\Reclamation  $reclamation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reclamation $reclamation)
+    public function edit(Reclamation $reclamation,User $user)
     {
         //
     }
@@ -68,7 +69,7 @@ class ReclamationController extends Controller
      * @param  \App\Models\Reclamation  $reclamation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reclamation $reclamation)
+    public function update(Request $request, Reclamation $reclamation,User $user)
     {
         //
     }
@@ -79,7 +80,7 @@ class ReclamationController extends Controller
      * @param  \App\Models\Reclamation  $reclamation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reclamation $reclamation)
+    public function destroy(Reclamation $reclamation,User $user)
     {
         //
     }
