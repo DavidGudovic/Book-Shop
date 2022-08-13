@@ -1,7 +1,7 @@
-@extends('templates.app')
+@extends('templates.user-profile')
 
-@section('content')
-  <div class="">
-    <p>Api response: {{auth()->user()}}</p>
+@section('window')
+  <div class="flex h-full w-full flex-row border border-black">
+    
   </div>
 @endsection
