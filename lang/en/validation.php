@@ -18,6 +18,13 @@ return [
     'unique' => 'Ova vrednost već postoji!',
     'confirmed' => ':attribute se ne podudara!',
     'email' => 'Polje mora biti validna email adresa',
+    'current_password' => 'Netačna lozinka',
+    'min' => [
+        'array' => ':attribute mora imati minimum :min elemenata.',
+        'file' => ':attribute mora biti minimum :min kilobita.',
+        'numeric' => ':attribute mora biti minimum :min.',
+        'string' => ':attribute mora biti minimum :min karaktera',
+    ],
     // End translated
 
     'accepted' => 'The :attribute must be accepted.',
@@ -38,7 +45,6 @@ return [
         'string' => 'The :attribute must be between :min and :max characters.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'current_password' => 'The password is incorrect.',
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'The :attribute does not match the format :format.',
@@ -96,12 +102,7 @@ return [
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
-    'min' => [
-        'array' => 'The :attribute must have at least :min items.',
-        'file' => 'The :attribute must be at least :min kilobytes.',
-        'numeric' => 'The :attribute must be at least :min.',
-        'string' => 'The :attribute must be at least :min characters.',
-    ],
+
     'multiple_of' => 'The :attribute must be a multiple of :value.',
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
