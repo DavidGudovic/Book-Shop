@@ -12,6 +12,6 @@ class PrivateInfo
      */
     public function handle(Request $request, Closure $next)
     {
-        return  $request->route('user') == auth()->user() ? $next($request) : abort(403);
+        return  $request->user() == auth()->user() ? $next($request) : abort(403);
     }
 }
