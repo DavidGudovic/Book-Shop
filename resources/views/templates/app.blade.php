@@ -20,18 +20,18 @@
      @include('includes.navbar')
      <!--END NAVBAR -->
 
-     <!-- CONTENT -->
-     <div class="flex flex-row flex-1 justify-center items-center ">
-       <!-- SIDEBAR OPTIONAL-->
-       <aside>
-         @yield('sidebar')
-       </aside>
-       <!-- END SIDEBAR -->
+     <!-- CONTENT - Injectable background-->
+     <div class="flex flex-row flex-1 justify-center @yield('background-pattern')">
        <!-- MAIN CONTENT -->
        <main>
          @yield('content')
        </main>
        <!-- END MAIN CONTENT -->
+       <!--OPTIONAL ASIDE-->
+       <aside>
+         @yield('side')
+       </aside>
+       <!-- END ASIDE -->
      </div>
      <!-- END CONTENT -->
 
