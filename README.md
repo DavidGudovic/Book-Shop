@@ -6,13 +6,19 @@ A web store for a fictional Book Shop, made with Laravel, Tailwind and Livewire,
 
 actual screen height is a quarter of the screenshot   
 
-![Web capture_10-8-2022_7555_localhost](https://user-images.githubusercontent.com/56200401/183826967-19de40a6-8dca-4e90-a8bd-fdbfc45a489a.jpeg)
-
-
+![landing page](https://user-images.githubusercontent.com/56200401/184506765-6b9fccbe-dcf5-47bb-9d27-ba7f70a2025d.jpeg)
 
    
 # Unfinished UI on an Android phone   
    
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/56200401/183827383-37a0d3b2-5e7d-4664-aa19-b364b752febd.jpeg" />
+   
+<img src='https://user-images.githubusercontent.com/56200401/184506768-b52da830-2c0d-4e08-9bff-c61bfd29ed89.png'>
+   
 </p>
+<p align="center">
+   
+<img src='https://user-images.githubusercontent.com/56200401/184506811-f745d462-817a-46ef-af7b-7b04c533a67f.png'>
+   
+</p>
+
