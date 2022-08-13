@@ -1,11 +1,13 @@
 @extends('templates.app')
 
+@section('background-pattern') bg-aurora-register-phone md:bg-aurora-register bg-cover bg-no-repeat bg-center @endsection
+
 @section('content')
   <!-- Register -->
   <div class="flex justify-center align-middle text-center my-10">
     <div class="flex flex-col gap-10">
       <h1 class="text-2xl font-bold text-center">Registracija korisnika</h1>
-      <div class="w-4/12 min-w-[400px] p-6 m-3 rounded-lg border-2 border-gray-800 shadow-xl shadow-gray-800">
+      <div class="w-4/12 min-w-[400px] p-6 m-3 rounded-lg border-2 border-gray-800 bg-gray-200">
 
         <!--Status message display-->
         @if(session()->has('status'))
