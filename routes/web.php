@@ -15,43 +15,34 @@ use App\Http\Controllers\Resources\ReclamationController;
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 //Authentication
-Route::get('/login', [LoginController::class, 'index'])->name('login');  //form
-Route::post('/login', [LoginController::class, 'store']);  //login
-Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');  //logout
-
-Route::get('/register', [RegisterController::class, 'index'])->name('register');  //form
-Route::post('/register', [RegisterController::class, 'store']); //register
-
+Route::resource('register', RegisterController::class, ['only' => ['create', 'store']]);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'store']);  
+Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 /*
 Routes for displaying lists of products
+catalog/ route fixes books.show hijacking requests from books.index/param/null
 */
-Route::resource('books', BookController::class, ['except' => ['index', 'show']]);
-Route::prefix('books')->group(function(){
-  Route::get('/show/{book}', [BookController::class, 'show'])->name('books.show'); // Fixes books.show hijacking books.index/category/null
-  Route::get('/{category?}/{subcategories?}', [BookController::class, 'index'])->name('books.index');
-});
-
+Route::get('catalog/{category?}/{subcategories?}', [BookController::class, 'index'])->name('books.index');
+Route::resource('books', BookController::class, ['except' => 'index']);
 
 /*
 Routes only logged in users can access
 redirects to login page if unauthorized
 */
-
 Route::middleware('auth', 'private')->group(function () {
-
 Route::get('/user/{user}/delete', [UserController::class, 'delete'])->name('user.delete');
 Route::resource('user', UserController::class);
-
-Route::resource('order', OrderController::class);
-Route::resource('reclamation', ReclamationController::class);
+Route::resource('orders', OrderController::class);
+Route::resource('reclamations', ReclamationController::class);
 });
 
 /*
 Routes only administrators can access
 Throws 403 if unauthorized
 */
-Route::middleware('admin')->prefix('admin')->group(function () {
+Route::middleware('admin')->prefix('administration')->group(function () {
 
 
 });
