@@ -11,70 +11,85 @@ use App\Services\UserService;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('users.index');
-    }
-    /*
-    Displays the form for deleting the account
-    */
-    public function delete(User $user)
-    {
-        return view('users.delete');
-    }
+  /**
+  * Display a listing of the resource.
+  */
+  public function index()
+  {
+    return view('users.index');
+  }
+  /*
+  Displays the form for deleting the account
+  */
+  public function delete(User $user)
+  {
+    return view('users.delete');
+  }
 
-    /**
-     */
-    public function create()
-    {
-        //
-    }
+  /**
+  */
+  public function create()
+  {
+    //
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
+  /**
+  * Store a newly created resource in storage.
+  */
+  public function store(Request $request)
+  {
 
-    }
+  }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
-    {
-        return view('users.show', ['user' => $user]);
-    }
+  /**
+  * Display the specified resource.
+  */
+  public function show(User $user)
+  {
+    return view('users.show', ['user' => $user]);
+  }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
-    {
-        //
-    }
+  /**
+  * Show the form for editing the specified resource.
+  */
+  public function edit(User $user)
+  {
+    //
+  }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
+  /**
+  * Update the user in storage.
+  */
+  public function update(Request $request,UserService $userService, User $user)
+  {
+    // Validating here cause casting to a custom request breaks 'private' middleware
+    $newData = $this->validate($request,[
+    'username' => 'required|unique:users,username,' . $user->id,
+    'email' => 'required|email|unique:users,email,' . $user->id,
+    'name' => 'required',
+    'current_password' => 'required|min:8',
+    'new_password' => 'required|min:8',
+  ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user, UserService $userService, Request $request)
-    {
-      if(!Hash::check($request->input('password'), $user->password)){
-       return back()->withErrors(['password'=>'Uneli ste pogrešnu šifru']);
-      }
+  if(!Hash::check($request->input('current_password'), $user->password)){
+    return back()->withErrors(['current_password'=>'Uneli ste pogrešnu šifru']);
+  }
 
-      $userService->deleteUser($user->id);
-      return redirect()->route('home');
-    }
+  $userService->updateUser($newData);
+  return back()->with(['status'=> 'success', 'status_msg' => 'Uspešno ste izmenili podatke!']);
+
+}
+
+/**
+* Remove the specified resource from storage.
+*/
+public function destroy(User $user, UserService $userService,Request $request)
+{
+  if(!Hash::check($request->input('password'), $user->password)){
+    return back()->withErrors(['password'=>'Uneli ste pogrešnu šifru']);
+  }
+
+  $userService->deleteUser($user->id);
+  return redirect()->route('home');
+}
 }

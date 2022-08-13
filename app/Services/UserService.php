@@ -50,4 +50,16 @@ class UserService
        User::destroy($userID);
        $this->logoutUser();
     }
+    /*
+      Update user
+    */
+    public function updateUser(array $newData) : void
+    {
+       auth()->user()->update([
+         'username' => $newData['username'],
+         'email' => $newData['email'],
+         'name' => $newData['name'],
+         'password' => Hash::make($newData['new_password']),
+       ]);
+    }
 }
