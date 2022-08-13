@@ -34,7 +34,7 @@
         <!-- hidden menu -->
         <ul class="absolute flex flex-col gap-4 rounded-lg bg-white text-black p-4 mt-4 " x-cloak x-show="open" x-transition.opacity>
           <li><a href="{{route('user.show', auth()->user())}}">Informacije</a></li>
-          <li><a href="{{route('orders.index', auth()->user())}}">Narudžbine</a></li>
+          <li><a href="{{route('user.orders.index', auth()->user())}}">Narudžbine</a></li>
           <li><a href="{{route('logout')}}">Odjava</a></li>
         </ul>
         <!-- end hidden menu -->

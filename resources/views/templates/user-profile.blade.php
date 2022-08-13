@@ -19,10 +19,10 @@
       <div class="flex flex-col border border-black px-8 md:w-72">
         <a href="{{route('user.show', auth()->user())}}" class="py-7 border-b border-gray-800 font-bold text-xl">
           <i class="{{ Route::currentRouteName() === 'user.show' ? 'fa-solid fa-play fa-2xs' : '' }}"></i> Informacije</a>
-        <a href="{{route('orders.index')}}" class="py-7 border-b border-gray-800 font-bold text-xl">
-          <i class="{{ Route::currentRouteName() === 'orders.index' ? 'fa-solid fa-play fa-2xs' : '' }}"></i> Istorija narudžbina</a>
-        <a href="{{route('reclamations.index')}}" class="py-7 border-b border-gray-800 font-bold text-xl">
-          <i class="{{ Route::currentRouteName() === 'reclamations.index' ? 'fa-solid fa-play fa-2xs' : '' }}"></i> Reklamacije</a>
+        <a href="{{route('user.orders.index', auth()->user())}}" class="py-7 border-b border-gray-800 font-bold text-xl">
+          <i class="{{ Route::currentRouteName() === 'user.orders.index' ? 'fa-solid fa-play fa-2xs' : '' }}"></i> Istorija narudžbina</a>
+        <a href="{{route('user.reclamations.index', auth()->user())}}" class="py-7 border-b border-gray-800 font-bold text-xl">
+          <i class="{{ Route::currentRouteName() === 'user.reclamations.index' ? 'fa-solid fa-play fa-2xs' : '' }}"></i> Reklamacije</a>
         <a href="{{route('user.delete', auth()->user())}}" class="py-7 font-bold text-xl">
           <i class="{{ Route::currentRouteName() === 'user.delete' ? 'fa-solid fa-play fa-2xs' : '' }}"></i> Deaktivacija naloga</a>
       </div>
