@@ -15,7 +15,7 @@ class ReclamationController extends Controller
      */
     public function index()
     {
-        //
+        return view('reclamations.index');
     }
 
     /**
