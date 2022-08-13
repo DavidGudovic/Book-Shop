@@ -38,8 +38,16 @@ class UserService
     /*
     Logs the user out
     */
-    public function logoutUser()
+    public function logoutUser() : void
     {
       auth()->logout();
+    }
+    /*
+    Deletes a user from database by id
+    */
+    public function deleteUser(int $userID) : void
+    {
+       User::destroy($userID);
+       $this->logoutUser();
     }
 }
