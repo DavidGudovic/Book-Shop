@@ -176,6 +176,8 @@ return [
       'password' => 'Lozinka',
       'name' => 'Ime',
       'lastname' => 'Prezime',
+      'new_password' => 'Nova lozinka',
+      'current_password' => 'Lozinka',
     ],
 
 ];
