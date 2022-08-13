@@ -34,12 +34,5 @@ display: -webkit-box;
 -webkit-line-clamp: 6;
 }
 
-/* Image includes, cleaner here then inline tailwind */
-.gradient{
-  background-image: url('/images/util/header_pattern.png');
-  background-size: cover;
-}
-
-
 /* AlpineJS Flashing hidden menus fix*/
 [x-cloak]{display:none;}
