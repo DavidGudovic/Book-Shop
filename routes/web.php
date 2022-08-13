@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Resources\BookController;
 use App\Http\Controllers\Resources\UserController;
 
+// TODO Localize route URLs to Serbian
 
 // home page page
 Route::get('/', [HomePageController::class, 'index'])->name('home');
@@ -34,7 +35,9 @@ Route::prefix('books')->group(function(){
 Routes only logged in users can access
 redirects to login page if unauthorized
 */
+
 Route::middleware('auth', 'private')->group(function () {
+Route::get('/users/{user}/delete', [UserController::class, 'delete'])->name('users.delete');
 Route::resource('users', UserController::class);
 });
 
