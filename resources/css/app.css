@@ -18,10 +18,10 @@ a{
 @tailwind components;
 
 .form-control{
-  @apply bg-gray-100 border-2 border-gray-600 w-full p-4 rounded-lg;
+  @apply bg-gray-100 border-2 border-gray-600 w-full p-4;
 }
 .form-btn{
-  @apply bg-black text-white px-4 py-3 mx-2 rounded-xl font-medium w-full;
+  @apply bg-black text-white px-4 py-3 font-medium w-full;
 }
 
 @tailwind utilities;
