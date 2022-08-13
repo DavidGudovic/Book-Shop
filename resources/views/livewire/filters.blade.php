@@ -13,7 +13,7 @@
   <!-- End closed search icons -->
 
   <!-- Search form open -->
-  <form wire:submit.prevent="search">
+  <form wire:submit.prevent="search" x-cloak>
     <!-- Search Submit-->
     <button class="fixed top-20 right-6 pt-2 hover:text-yellow-400 z-10" type="submit"
             x-on:click="showFilters = false"
@@ -43,7 +43,7 @@
           x-on:click="showFilters = !showFilters"
           @click="$nextTick(() => showFilters ? window.scrollTo(0,0) : true)">
       <i class="fa-solid fa-sliders fa-2xl" :class="{'rotate-90 inline-block': showFilters}"></i>
-      <p x-show="!showFilters" class="text-opacity-70">Filteri</p>
+      <p x-show="!showFilters" x-cloak class="text-opacity-70">Filteri</p>
   </button>
   <!-- End open/close filters-->
 
