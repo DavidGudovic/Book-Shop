@@ -53,7 +53,7 @@ class BookController extends Controller
   */
   public function show(BookService $bookService,Book $book)
   {
-    return view('products.show', ['book' => $bookService->loadRelations($book)]);
+    return view('products.show', ['book' => $book]);
   }
 
   /*
