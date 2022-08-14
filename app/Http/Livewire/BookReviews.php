@@ -12,10 +12,14 @@ class BookReviews extends Component
     use WithPagination;
     public Book $book;
 
+    public function paginationView()
+    {
+      return 'pagination.reviews';
+    }
     public function render()
     {
         return view('livewire.book-reviews',[
-           'reviews' => $this->book->reviews()->with("user")->paginate(1),
+           'reviews' => $this->book->reviews()->with("user")->paginate(5),
         ]);
     }
 }

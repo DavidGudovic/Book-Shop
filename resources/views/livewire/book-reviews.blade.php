@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center gap-4 px-0 md:px-20">
+<div class="flex flex-col items-center justify-center gap-4 px-3 md:px-20">
   @forelse($reviews as $review)
-    <div class="flex flex-col gap-5 border-b border-black">
+    <div class="flex flex-col gap-5 border-b border-black w-full">
       <p>{{$review->user->name}}</p>
       <!-- Score -->
       <div class="flex flex-row gap-5">
