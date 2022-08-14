@@ -56,8 +56,8 @@
       </div>
       <!-- End info-->
       <!-- Synopsis-->
-      <div class="flex justify-center items-center p-6 md:w-1/2 md:min-w-[500px] ">
-        <p>{{$book->synopsis}}</p>
+      <div class="flex justify-center items-center p-6 md:w-1/2 md:min-w-[500px] overflow-hidden">
+        <p class="animate-apear-from-top md:animate-apear-from-left">{{$book->synopsis}}</p>
       </div>
       <!-- End synopsis-->
     </div>
