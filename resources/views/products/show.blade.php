@@ -92,28 +92,7 @@
       <!-- End actions -->
 
       <!-- List-->
-      <div class="flex flex-col items-center justify-center gap-4">
-        @forelse([1,2,3,4,5,6,7,8,9] as $index)
-          <div class="flex flex-col gap-5 border-b border-black">
-             <p>{{$index}} Korisnik</p>
-             <!-- Score -->
-             <div class="flex flex-row gap-5">
-               @if($book->average_score > 0)
-                 @foreach(range(1, $book->average_score) as $index)
-                   <i class="fa-solid fa-star"></i>
-                 @endforeach
-               @else
-                 <p class="text-gray-500 text-sm"> Još uvek nema ocena </p>
-               @endif
-             </div>
-             <!-- End score -->
-             <p>{{$index}} -> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-        @empty
-          <img src="{{URL('/images/util/noresult.jpg')}}" alt="" class="w-[400px] md:w-[500px] my-4">
-        @endforelse
-      </div>
-
+        <livewire:book-reviews :book='$book' />
       <!-- End List-->
 
     </div>
