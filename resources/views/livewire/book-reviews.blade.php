@@ -16,7 +16,7 @@
       <p class="mb-4">{{$review->text}}</p>
     </div>
   @empty
-    <img src="{{URL('/images/util/noresult.jpg')}}" alt="" class="w-[400px] md:w-[500px] my-4">
+    <img src="{{URL('/images/util/noreviews.jpg')}}" alt="" class="w-[400px] md:w-[500px] my-4">
   @endforelse
   {{ $reviews->links() }}
 </div>
