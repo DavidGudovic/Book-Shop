@@ -51,9 +51,9 @@ class BookController extends Controller
   /*
   Display the specified book.
   */
-  public function show(Book $book)
+  public function show(BookService $bookService,Book $book)
   {
-    return view('products.show', ['book' => $book]);
+    return view('products.show', ['book' => $bookService->loadRelations($book)]);
   }
 
   /*
