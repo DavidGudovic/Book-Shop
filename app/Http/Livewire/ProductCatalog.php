@@ -43,9 +43,9 @@ class ProductCatalog extends Component
   /*
   Applies validated search criteria passed by Filters Component
   */
-  public function applySearch(BookService $bookService,$criteria)
+  public function applySearch(BookService $bookService,$searchQuery)
   {
-    $this->book_list = $bookService->getBySearch($criteria);
+    $this->book_list = $bookService->getBySearch($searchQuery);
   }
 
   public function render()
