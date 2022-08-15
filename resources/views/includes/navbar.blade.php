@@ -41,7 +41,7 @@
       </div>
       <!-- End profile dropdown -->
       <!-- Alpine JS event -> Livewire Modal -->
-      <li><button class="hover:text-yellow-400" x-data="{}" x-on:click="window.livewire.emitTo('cart-modal', 'showModal')">Korpa</button></li>
+      <li><button class="hover:text-yellow-400" x-data="{}" x-on:click="window.livewire.emitTo('cart-modal', 'showModal')"> Korpa <livewire:cart-counter/> </button></li>
       <!-- End Alpine JS event -->
       <!-- End user links -->
     @endauth

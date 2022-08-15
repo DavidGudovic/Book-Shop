@@ -13,7 +13,7 @@
   @livewireStyles
 </head>
 <body>
-  <a href="{{route('home')}}" class="fixed top-1/2 left-1/2 z-10 align-middle rounded-xl text-white text-center font-bold underline py-6 mt-4 w-36"><< Početna</a>
+  <a href="{{route('home')}}" class="fixed top-4 left-2 z-10 align-middle rounded-xl text-white text-center font-bold underline w-36"><< Početna</a>
   @yield('phone-error')
   @yield('md-error')
 </body>

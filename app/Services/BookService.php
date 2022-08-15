@@ -13,22 +13,22 @@ class BookService
 {
 
   /*
-   Returns books by criteria,
-   Matches with Title, Author, ISBN
+  Returns books by criteria,
+  Matches with Title, Author, ISBN
   */
-  public function getBySearch($queryString) : Eloquent{
+  public function getBySearch(string $queryString) : Eloquent{
 
     //Adds flexibility to search
     // I.E "John Doe" query wouldn't return "John J. D. Doe" without explode->join
     $queryPieces = explode(" ", $queryString);
     $queryString = join("%", $queryPieces);
 
-        return  Book::where('title','LIKE','%'.$queryString.'%')
-            ->orWhere('isbn','LIKE','%'.$queryString.'%')
-            ->orWhereHas('authors', function($q) use ($queryString){
-              $q->where('name','LIKE','%'.$queryString.'%');
-            })
-            ->get();
+    return  Book::where('title','LIKE','%'.$queryString.'%')
+    ->orWhere('isbn','LIKE','%'.$queryString.'%')
+    ->orWhereHas('authors', function($q) use ($queryString){
+      $q->where('name','LIKE','%'.$queryString.'%');
+    })
+    ->get();
   }
   /*
   Returns a specific book with relevant info eager loaded
