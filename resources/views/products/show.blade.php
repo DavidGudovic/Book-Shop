@@ -79,7 +79,9 @@
     <!-- End recensions -->
 
     <!-- Modal -->
+    @auth
        <livewire:review-modal :book='$book'/>
+     @endauth
     <!-- End modal -->
 
   </div>

@@ -36,7 +36,7 @@
         <div class="flex flex-col gap-1"
           x-data="{ count: 0 }"
           x-init="count = $refs.counted.value.length">
-          <textarea class="border border-black resize-none" x-ref="counted" x-on:keyup="count = $refs.counted.value.length" name="text" rows="8" cols="80" maxlength="512" value="" wire:model="text">{{$review->text}}</textarea>
+          <textarea class="border border-black resize-none" x-ref="counted" x-on:keyup="count = $refs.counted.value.length" name="text" rows="8" cols="80" maxlength="512" value="" wire:model.defer="text">{{$review->text}}</textarea>
           <!-- Char count -->
           <div class="text-gray-500 text-sm text-center" :class="count > 450 ? 'text-red-400' : '' ">
             <span x-html="count" ></span> <span >/</span> <span x-html="$refs.counted.maxLength" ></span>
@@ -83,7 +83,7 @@
         <div class="flex flex-col gap-1"
           x-data="{ count: 0 }"
           x-init="count = $refs.counted.value.length">
-          <textarea class="border border-black resize-none" x-ref="counted" x-on:keyup="count = $refs.counted.value.length" name="text" rows="8" cols="80" maxlength="512" wire:model="text" ></textarea>
+          <textarea class="border border-black resize-none" x-ref="counted" x-on:keyup="count = $refs.counted.value.length" name="text" rows="8" cols="80" maxlength="512" wire:model.defer="text" ></textarea>
           <!-- Char count -->
           <div class="text-gray-500 text-sm text-center" :class="count > 450 ? 'text-red-400' : '' ">
             <span x-html="count" ></span> <span >/</span> <span x-html="$refs.counted.maxLength" ></span>
