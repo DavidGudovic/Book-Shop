@@ -40,7 +40,9 @@
      <!--END FOOTER-->
      @livewireScripts
      <!-- Global modals -->
+     @auth
      <livewire:cart-modal />
+     @endauth
      <!-- End global modals-->
    </body>
 </html>
