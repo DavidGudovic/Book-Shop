@@ -9,7 +9,7 @@
       <!-- Info -->
       <div class="flex flex-col border-b border-black pb-4 px-6 md:px-0 md:flex-row md:pb-0 md:w-1/2 md:min-w-[500px] md:border-b-0 md:border-r ">
         <img src="{{URL('/images/' . $book->image)}}" alt="Cover image of {{$book->title}} "
-             class="h-full max-h-[600px] max-w-[400px] w-full md:h-[400px] md:w-[250px] mb-3 md:mb-0 md:mr-6">
+        class="h-full max-h-[600px] max-w-[400px] w-full md:h-[400px] md:w-[250px] mb-3 md:mb-0 md:mr-6">
         <div class="flex flex-col justify-between gap-3 md:gap-6">
           <p class="font-bold text-xl">{{$book->title}}</p>
           <!--Group Author, Isbn, Category -->
@@ -44,9 +44,11 @@
 
             <div class="flex flex-row gap-4">
               <p class="align-middle">Količina:</p>
-              <a href="" x-on:click.prevent="quantity > 1 ? quantity-- : false" class="fa-solid fa-angle-left pt-1"></a>
-               <span x-text="quantity" class="w-4 text-center"></span>
-              <a href="" x-on:click.prevent="quantity < 100 ? quantity++ : false" class="fa-solid fa-angle-right pt-1"></a>
+              <!-- Quantity buttons -->
+              <a href="" x-on:click.prevent="quantity > 1 ? quantity-- : false" class="fa-solid fa-angle-left pt-1"  :class="quantity == 1 ? 'text-gray-400 hover:text-gray-400' : 'hover:text-yellow-400'"></a>
+              <span x-text="quantity" class="w-4 text-center"></span>
+              <a href="" x-on:click.prevent="quantity < 100 ? quantity++ : false" class="fa-solid fa-angle-right pt-1"  :class="quantity == 100 ? 'text-gray-400 hover:text-gray-400' : 'hover:text-yellow-400'"></a>
+              <!-- End quantity buttons -->
             </div>
 
             <a href="#" class="pl-6 py-1 rounded-xl bg-black text-white w-44">Dodaj u korpu <i class="fa-solid fa-cart-shopping"></i></a>
