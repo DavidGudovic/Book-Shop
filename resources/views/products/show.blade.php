@@ -68,35 +68,17 @@
       <x-heading>
         Recenzije
       </x-heading>
-      <!-- Actions-->
 
-        <div class="flex flex-col md:flex-row gap-6 justify-center px-10 mb-5 md:px-0">
-          <p class="pt-0.5">Sortiraj po:</p>
-          <div class="flex flex-row justify-between md:gap-6">
-
-            <select class="" name="filterby">
-              <option value="">Oceni</option>
-              <option value="">Datumu</option>
-            </select>
-
-            <select class="" name="filterdirection">
-              <option value="">Opadajuće</option>
-              <option value="">Rastuće</option>
-            </select>
-
-          </div>
-
-          <a href="#" class="py-1 rounded-xl bg-black text-white w-full text-center md:w-40">Postavi recenziju</a>
-        </div>
-
-      <!-- End actions -->
-
-      <!-- List-->
-        <livewire:book-reviews :book='$book' />
-      <!-- End List-->
+      <!-- Reviews-->
+      <livewire:book-reviews :book='$book' />
+      <!-- Reviews-->
 
     </div>
     <!-- End recensions -->
+
+    <!-- Modal -->
+       <livewire:review-modal :book='$book'/>
+    <!-- End modal -->
 
   </div>
   <!-- End wrapper -->
