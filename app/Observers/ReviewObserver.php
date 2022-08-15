@@ -15,7 +15,7 @@ class ReviewObserver
       Should've been in ReviewServices but I couldn't get the Dispatcher to pass an instance
     */
     public function calculateAverage(Book $book){
-       return $book->reviews->avg('score');
+       return $book->reviews->avg('score') ? $book->reviews->avg('score') : 0; 
     }
     /**
      * Handle the Review "created" event.
