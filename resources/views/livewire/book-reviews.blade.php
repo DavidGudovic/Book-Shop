@@ -25,22 +25,20 @@
       <a href="#"  x-data="{}" x-on:click.prevent="window.livewire.emitTo('review-modal', 'showModal')" class="py-1 rounded-xl bg-black text-white w-full text-center md:w-40">Postavi recenziju</a>
       @endreviewed
     @endauth
-
-
-
-
   </div>
   <!-- End actions -->
 
   <div class="flex flex-col items-center justify-center gap-4 px-3 md:px-20">
 
-    <div>
+
        @if ($message)
+         <div>
            <p class="text-center text-green-500">
                {{ $message }}
            </p>
+         </div>
        @endif
-   </div>
+
 
     @forelse($reviews as $review)
       <div class="flex flex-col gap-5 border-b border-black w-full">
