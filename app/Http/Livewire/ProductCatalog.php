@@ -14,6 +14,9 @@ class ProductCatalog extends Component
     'applySearch' => 'applySearch',
   ];
 
+  public function addToCart($id){
+    $this->emit('addToCart', $id, 1);
+  }
   /*
   Applies filters too book list. [categories, price_range]
   Filter criteria provided by raising a filter event
