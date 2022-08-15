@@ -11,17 +11,35 @@ class BookReviews extends Component
 {
   use WithPagination;
   public Book $book;
+  public $message;
+  public $sort_by = 'created_at';
+  public $sort_direction = 'DESC';
+
+  protected $listeners = [
+        'reviewUpdate' => 'reviewUpdate',
+    ];
+
+  /*
+    Flashes message, rerenders page
+  */
+
+  public function reviewUpdate(string $message){
+    $this->message = $message;
+  }
 
   public function paginationView()
   {
     return 'pagination.reviews';
   }
+
+
   public function render()
   {
     return view('livewire.book-reviews',[
       'reviews' => $this->book->reviews()->with(["user" => function($q){
-        $q->select('name', 'id');
-      }])->paginate(5),
+        $q->select('username', 'id');
+      }])->orderBy($this->sort_by, $this->sort_direction)->paginate(5),
     ]);
+
   }
 }
