@@ -14,8 +14,8 @@ class Filters extends Component
   //filter criteria
   public $category_list; //[K:categoryID -> V:true/false]
   public $price_range;
-  public $sort_by;
-  public $sort_direction;
+  public $sort_by = 'title';
+  public $sort_direction = 'ASC';
 
 
   public $listeners = [
