@@ -15,31 +15,29 @@ class ReviewObserver
       Should've been in ReviewServices but I couldn't get the Dispatcher to pass an instance
     */
     public function calculateAverage(Book $book){
-       return $book->reviews->avg('score') ? $book->reviews->avg('score') : 0; 
+       $book->average_score = $book->reviews->avg('score') ?? 0;
+       $book->saveQuietly();
     }
     /**
      * Handle the Review "created" event.
      */
     public function created(Review $review)
     {
-      $review->book->average_score = $this->calculateAverage($review->book);
-      $review->book->saveQuietly();
+      $this->calculateAverage($review->book);
     }
     /**
      * Handle the Review "updated" event.
      */
     public function updated(Review $review)
     {
-        $review->book->average_score = $this->calculateAverage($review->book);
-        $review->book->saveQuietly();
+        $this->calculateAverage($review->book);
     }
     /**
      * Handle the Review "deleted" event.
      */
     public function deleted(Review $review)
     {
-      $review->book->average_score = $this->calculateAverage($review->book);
-      $review->book->saveQuietly();
+       $this->calculateAverage($review->book);
     }
 
 }
