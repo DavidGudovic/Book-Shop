@@ -23,7 +23,7 @@ class ReviewModal extends Modal
     public function mount()
     {
       $this->review = Review::where([
-        ['user_id', auth()->user()->id],
+        ['user_id', auth()->id()],
         ['book_id', $this->book->id],
         ])->first();
 
@@ -44,7 +44,7 @@ class ReviewModal extends Modal
     public function create()
     {
       $this->review = Review::create([
-        'user_id' => auth()->user()->id,
+        'user_id' => auth()->id(),
         'book_id' => $this->book->id,
         'score' =>  $this->score,
         'text' => $this->text,
