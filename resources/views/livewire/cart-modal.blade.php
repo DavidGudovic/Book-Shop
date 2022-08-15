@@ -56,7 +56,7 @@
       </div>
       <!-- Empty -->
       <div x-show="emptyCart" class="flex flex-col justify-center gap-2 items-center ">
-        <a href="" class="p-1 mt-6 mb-2 text-center rounded-xl bg-black text-white w-32 ">Pogledaj ponudu</a>
+        <a href="{{route('books.index')}}" class="p-1 mt-6 mb-2 text-center rounded-xl bg-black text-white w-32 ">Pogledaj ponudu</a>
       </div>
       <!-- End Cart Footer -->
     </div>
