@@ -58,7 +58,7 @@ class ReviewModal extends Modal
     public function update()
     {
       $this->fillReview($this->score);
-      $this->review->save();
+      $this->review->update();
       $this->flashMessage('Uspešno ste izmenili Vašu recenziju');
     }
 
