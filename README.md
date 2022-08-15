@@ -1,5 +1,7 @@
 # Book-Shop
-A web store for a fictional Book Shop, made with Laravel, Tailwind and Livewire, for school. 
+A web store for a fictional Book Shop for school. 
+Built with Laravel, Livewire, Alpine JS. Hosted on Heroku. 
+While far from perfect, visually and functionally it's a step up from my previous work
 
 
 # Unfinished UI - PC
