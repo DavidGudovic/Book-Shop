@@ -94,7 +94,7 @@ class BookService
       return Book::with('authors', 'category')->nonFiction()->get();
     }
 
-    return [];
+    abort(404);
   }
 
   /*
