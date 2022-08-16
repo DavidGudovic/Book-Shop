@@ -2,7 +2,6 @@
 @extends('templates.app')
 
 @section('content')
-
 <!--Wrapper of profil-->
 <div class="w-screen min-h-screen">
 
@@ -36,15 +35,14 @@
   </div>
   <!-- End side menus -->
 
-  <!-- Action window display -->
-  <div class="flex-1">
-      @yield('window')
-  </div>
-  <!-- End window -->
-
+    <!-- Action window display -->
+    <div class="flex-1">
+        @yield('window')
+    </div>
+    <!-- End window -->
+ </div>
+<!-- End profile -->
 </div>
 <!--End wrapper -->
-
-</div>
 
 @endsection

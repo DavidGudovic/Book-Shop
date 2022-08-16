@@ -40,7 +40,7 @@ class CartModal extends ModalBase
 
   *Issues* :
    1. Queries the database to populate $items on every interaction with modal.
-   2. BookService is passed by mount and render,couldn't type hint resolve here
+   2. BookService is passed by render,couldn't type hint resolve here
 
    *Attempted* :
    1.1 whereIn instead of multipe where's + eager load - significantly faster now
@@ -70,7 +70,8 @@ class CartModal extends ModalBase
   /*
   Sets data into session, used for updating quantities
   */
-  public function setData() : void{
+  public function setData() : void
+  {
     Cart::set($this->quantities);
   }
 
@@ -97,10 +98,11 @@ class CartModal extends ModalBase
   }
   /*
   Increments quantity for id
+  can increment > 1 to fix an oversight
   */
-  public function increment($id) : void
+  public function increment($id, $quantity = 1) : void
   {
-    $this->quantities[$id]++;
+    $quantity == 1 ? $this->quantities[$id]++ : $this->quantities[$id] += $quantity;
     $this->setData();
   }
 
@@ -113,7 +115,7 @@ class CartModal extends ModalBase
     if(empty($this->items[$bookId])){
       Cart::add($bookId, $quantity);
     } else {
-      $this->increment($bookId);
+      $this->increment($bookId, $quantity);
     }
 
   }
