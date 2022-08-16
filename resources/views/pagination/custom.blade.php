@@ -97,4 +97,4 @@
     </div>
   </nav>
 @endif
-</div>  <!-- 100 lines for a paginator, ok -->
+</div>

@@ -50,7 +50,6 @@
               <a href="" x-on:click.prevent="quantity < 100 ? quantity++ : false" class="fa-solid fa-angle-right pt-1"  :class="quantity == 100 ? 'text-gray-400 hover:text-gray-400' : 'hover:text-yellow-400'"></a>
               <!-- End quantity buttons -->
             </div>
-
             <a href="#" class="pl-6 py-1 rounded-xl bg-black text-white w-44">Dodaj u korpu <i class="fa-solid fa-cart-shopping"></i></a>
           </div>
           <!--End group -->

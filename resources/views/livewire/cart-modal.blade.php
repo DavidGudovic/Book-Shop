@@ -55,7 +55,7 @@
             <a href="" wire:click.prevent="decrement({{$id}})" class="text-gray-600 fa-solid fa-angle-down absolute right-4 top-8 md:top-16 md:right-9"></a>  <!-- Increment -->
             <!-- End actions -->
           </div>
-          <!-- Item -->
+          <!-- End Item -->
         @empty
           <img  src="{{URL('/images/util/noresult.jpg')}}" class="w-[250px] md:w-[350px]">
         @endforelse
@@ -66,7 +66,7 @@
       <!-- Not empty -->
       <div x-show="count >= 1 ? true : false" class="flex flex-col justify-center gap-2 items-center ">
         <p class="font-bold text-center">Ukupno:</p>
-        <p class="text-center text-sm">{{$total}}</p>
+        <p class="text-center text-sm">{{$total}} RSD</p>
         <a href="" wire:click.prevent="order" class="p-1 text-center rounded-xl bg-black text-white w-32">Naruči</a>
       </div>
       <!-- Empty -->
