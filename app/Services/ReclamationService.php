@@ -11,7 +11,14 @@ use Illuminate\Database\Eloquent\Collection as Eloquent;
 class ReclamationService
 {
   /*
-   Makes an entry in the DB
+  Calls delete on passed reclamation
+  */
+  public function delete(Reclamation $reclamation) : void
+  {
+    $reclamation->delete();
+  }
+  /*
+  Makes an entry in the DB
   */
   public function createReclamation(string $text, Order $order) : void
   {

@@ -38,7 +38,7 @@
       </select>
       <div class="flex flex-row gap-6 mt-4">
         <button x-on:click.prevent="window.livewire.emit('setOrderFilters', statusFilter, monthFilter)" type="submit" class="form-btn py-1">Primeni</button>
-        <button x-on:click="monthFilter = 0; statusFilter = 0; window.livewire.emit('setFilters', monthFilter, statusFilter)"type="reset" class="form-btn bg-gray-500 py-1">Resetuj</button>
+        <button x-on:click="monthFilter = 0; statusFilter = 0; window.livewire.emit('setOrderFilters', monthFilter, statusFilter)" type="reset" class="form-btn bg-gray-500 py-1">Resetuj</button>
       </div>
     </form>
   </div>
