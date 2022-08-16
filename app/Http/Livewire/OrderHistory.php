@@ -7,13 +7,13 @@ use Livewire\WithPagination;
 use App\Models\Order;
 use App\Services\OrderService;
 /*
-  Order list for the logged in user component on user-profile, route: user/{id}/orders/
+Order list for the logged in user component on user-profile, route: user/{id}/orders/
 */
 class OrderHistory extends Component
 {
   use WithPagination;
-  public $statusFilter = 0;
-  public $monthFilter = 0;
+  public $status_filter = 0;
+  public $month_filter = 0;
 
   public $listeners = [
     'setOrderFilters' => 'setOrderFilters',
@@ -28,36 +28,36 @@ class OrderHistory extends Component
   public function render()
   {
     return view('livewire.order-history', [
-      //Attaches where - whereMonth clauses if $statusFilter - $monthFilter aren't empty
+      //Attaches where - whereMonth clauses if $status_filter - $month_filter aren't empty
       'orders' => auth()->user()->orders()
-      ->when(!empty($this->statusFilter), function ($query) {
-        return $query->where('status', $this->statusFilter);
-      })->when(!empty($this->monthFilter), function ($query) {
-        return $query->whereMonth('created_at', $this->monthFilter);
+      ->when(!empty($this->status_filter), function ($query) {
+        return $query->where('status', $this->status_filter);
+      })->when(!empty($this->month_filter), function ($query) {
+        return $query->whereMonth('created_at', $this->month_filter);
       })->with('reclamation', 'books')->orderBy('created_at', 'DESC')->paginate(2),
     ]);
   }
 
   /*
-    Applies status and month filter
-    Filter passed by event raised outside of Livewire
+  Applies status and month filter
+  Filter passed by event raised outside of Livewire
   */
   public function setOrderFilters($status, $month): void
   {
-    $this->statusFilter = $status;
-    $this->monthFilter = $month;
+    $this->status_filter = $status;
+    $this->month_filter = $month;
     $this->resetPage();
   }
 
   /*
-   Calls OrderServices to cancel an order
+  Calls OrderServices to cancel an order
   */
   public function cancelOrder(Order $order, OrderService $orderService) : void
   {
     $orderService->cancelOrder($order);
   }
   /*
-   Emits the orderId and showModal to the Reclamation Modal
+  Emits the orderId and showModal to the Reclamation Modal
   */
   public function addReclamation(Order $order) : void{
     $this->emitTo('reclamation-modal', 'setOrder', $order);
