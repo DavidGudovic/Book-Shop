@@ -35,7 +35,12 @@ class OrderService
     $order->save();
   }
 
-  public function getAllFromUser(int $id) : Eloquent{
-    return Order::with('books', 'reclamation')->where('user_id', $id)->get();
+  /*
+   Sets order status too canceled
+  */
+  public function cancelOrder(Order $order): void
+  {
+    $order->status = Order::STATUS_CANCELLED;
+    $order->update();
   }
 }

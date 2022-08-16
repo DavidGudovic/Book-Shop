@@ -4,10 +4,21 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-
+use App\Models\Order;
+use App\Services\OrderService;
+/*
+  Order list for the logged in user component on user-profile, route: user/{id}/orders/
+*/
 class OrderHistory extends Component
 {
   use WithPagination;
+  public $statusFilter = 0;
+  public $monthFilter = 0;
+
+  public $listeners = [
+    'setOrderFilters' => 'setOrderFilters',
+    'cancelOrder' => 'cancelOrder',
+  ];
 
   public function paginationView()
   {
@@ -17,7 +28,28 @@ class OrderHistory extends Component
   public function render()
   {
     return view('livewire.order-history', [
-      'orders' => auth()->user()->orders()->with('reclamation', 'user')->paginate(2),
+      //Attaches where - whereMonth clauses if $statusFilter - $monthFilter aren't empty
+      'orders' => auth()->user()->orders()
+      ->when(!empty($this->statusFilter), function ($query) {
+        return $query->where('status', $this->statusFilter);
+      })->when(!empty($this->monthFilter), function ($query) {
+        return $query->whereMonth('created_at', $this->monthFilter);
+      })->with('reclamation', 'books')->orderBy('created_at', 'DESC')->paginate(2),
     ]);
+  }
+
+  /*
+    Applies status and month filter
+    Filter passed by event raised outside of Livewire
+  */
+  public function setOrderFilters($status, $month): void
+  {
+    $this->statusFilter = $status;
+    $this->monthFilter = $month;
+  }
+
+  public function cancelOrder(Order $order, OrderService $orderService) : void
+  {
+    $orderService->cancelOrder($order);
   }
 }
