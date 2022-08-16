@@ -50,7 +50,7 @@
             <!-- Footer action -->
             <p class="flex justify-center md:justify-end mt-2">
               @if($order->status == Order::STATUS_SUCCESSFULL)
-                <a href="" class="text-black underline">Ostavi reklamaciju >></a>
+                <a href="" wire:click.prevent="addReclamation({{$order}})" class="text-black underline">Ostavi reklamaciju >></a>
               @elseif($order->status == Order::STATUS_PENDING)
                 <a href="" wire:click.prevent="cancelOrder({{$order}})" class="text-black underline">Otkaži >></a>
               @endif
@@ -67,7 +67,9 @@
     @endforelse
   </div>
   <!-- End Orders-->
-
+  <!-- Reclamation modal-->
+  <livewire:reclamation-modal/>
+  <!-- End modal-->
   <!-- Paginator -->
   <span class="text-center w-max">{{$orders->links()}}</span>
 </div>
