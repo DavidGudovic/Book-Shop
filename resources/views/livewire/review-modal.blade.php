@@ -3,10 +3,7 @@
     <div class="flex flex-col bg-white rounded-lg transform p-6 z-50 min-h-[500px]  w-full h-3/4 md:w-1/2"
          x-show="showModal">
 
-         <!-- Close Button -->
-         <a href="" class="fa-solid fa-xmark fa-xl absolute top-6 right-6"
-         x-on:click.prevent="showModal = false"></a>
-         <!-- End Close button -->
+        <x-close-button/>
 
     @reviewed($book)
     <!-- Change review  -->
