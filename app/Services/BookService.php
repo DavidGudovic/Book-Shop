@@ -13,6 +13,17 @@ class BookService
 {
 
   /*
+  Returns [int bookId => Eloquent book] by passed [int bookId => somevalue]
+  Used to mitigate performance issues in CartModal
+  */
+  public function getArray(array $query) : array{
+    $result = [];
+    foreach(Book::with('authors')->whereIn('id', array_keys($query))->get()  as $book){
+      $result[$book->id] = $book;
+    }
+    return $result;
+  }
+  /*
   Returns books by criteria,
   Matches with Title, Author, ISBN
   */
@@ -63,14 +74,12 @@ class BookService
     }
 
   }
-
   /*
   Return all books eager loaded
   */
   public function getAll() : Eloquent{
     return Book::with('authors', 'category')->get();
   }
-
   /*
   Returns a collection of books by categories
   */
@@ -79,7 +88,6 @@ class BookService
       $q->whereIn('id', $categories);
     })->get();
   }
-
   /*
   Returns a collection of books filtered by passed category
   category in ['fiction','nonFiction']
@@ -96,9 +104,8 @@ class BookService
 
     abort(404);
   }
-
   /*
-  Return all books eager loaded
+  Return book eager loaded
   */
   public function loadRelations(Book $book) : Book{
     return Book::with('authors', 'category', 'reviews')->where('id', $book->id)->first();

@@ -26,15 +26,15 @@
 
       <!-- Cart Items -->
       <div class="flex flex-col flex-1 gap-10 items-center w-full overflow-y-auto border-b-2 border-black">
-        @forelse($items as $id => $book)
+        @forelse($quantities as $id => $quantity)
           <!-- Item -->
           <div class="relative flex flex-row justify-between border-b-2 border-gray-500 w-full md:p-6">
             <!-- Left Info --->
             <div class="flex flex-col gap-2">
-                <p class="font-bold md:text-2xl">{{$book->title}}</p>
+                <p class="font-bold md:text-2xl">{{$items[$id]->title}}</p>
                 <p class="text-sm">
                   Autor:
-                  @foreach($book->authors as $author)
+                  @foreach($items[$id]->authors as $author)
                     {{$author->name}}
                     @if(!$loop->last)
                       ,
@@ -45,8 +45,8 @@
             <!-- End left -->
             <!-- Right info -->
             <div class="flex flex-col justify-evenly mr-8 w-20">
-              <p class="text-sm text-gray-600">Količina {{$quantities[$id]}}</p>
-              <p class="text-sm text-gray-600">{{$quantities[$id] * $book->price}} RSD</p>
+              <p class="text-sm text-gray-600">Količina {{$quantity}}</p>
+              <p class="text-sm text-gray-600">{{$quantity * $items[$id]->price}} RSD</p>
             </div>
             <!-- End right -->
             <!-- Actions -->
