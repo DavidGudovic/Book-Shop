@@ -46,10 +46,21 @@ class OrderHistory extends Component
   {
     $this->statusFilter = $status;
     $this->monthFilter = $month;
+    $this->resetPage();
   }
 
+  /*
+   Calls OrderServices to cancel an order
+  */
   public function cancelOrder(Order $order, OrderService $orderService) : void
   {
     $orderService->cancelOrder($order);
+  }
+  /*
+   Emits the orderId and showModal to the Reclamation Modal
+  */
+  public function addReclamation(Order $order) : void{
+    $this->emitTo('reclamation-modal', 'setOrder', $order);
+    $this->emitTo('reclamation-modal', 'showModal');
   }
 }
