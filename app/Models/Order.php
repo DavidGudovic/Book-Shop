@@ -7,36 +7,46 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    use HasFactory;
-    /*
-     fields
-    */
-    protected $fillable = [
-      'status',
-      'total_price',
-      'user_id',
-    ];
+  use HasFactory;
 
-    protected $hidden = [
+  /*
+  Flags
+  */
+  public const STATUS_PENDING = 1;
+  public const STATUS_CANCELLED = 2;
+  public const STATUS_SUCCESSFULL = 3;
+  /*
+  fields
+  */
+  protected $fillable = [
+    'status',
+    'total_price',
+    'user_id',
+  ];
 
-    ];
+  protected $hidden = [
 
-    protected $casts = [
+  ];
 
-    ];
+  protected $casts = [
 
-    /*
-      Eloquent relationships
-    */
-    public function reclamation(){
-      return $this->hasOne(Reclamation::class);
-    }
+  ];
 
-    public function user(){
-      return $this->belongsTo(User::class);
-    }
+  /*
+  Eloquent relationships
+  */
+  public function reclamation(){
+    return $this->hasOne(Reclamation::class);
+  }
 
-    public function books(){
-      return $this->belongsToMany(Book::class)->withPivot('quantity');
-    }
+  public function user(){
+    return $this->belongsTo(User::class);
+  }
+
+  public function books(){
+    return $this->belongsToMany(Book::class)->withPivot('quantity');
+  }
+  /*
+  Eloquent scopes
+  */
 }

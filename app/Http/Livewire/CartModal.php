@@ -45,7 +45,7 @@ class CartModal extends ModalBase
    1. Queries the database to populate $items on every interaction with modal.
    2. BookService is passed by mount and render,couldn't type hint resolve here
 
-   *Attempted*:
+   *Attempted* :
    1.1 whereIn instead of multipe where's + eager load - significantly faster now
    1.2 Querying if empty-> items | quantities - breaks modal (attempted to read 'title' on array).
   */

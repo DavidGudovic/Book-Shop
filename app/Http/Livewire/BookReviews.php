@@ -22,16 +22,15 @@ class BookReviews extends Component
   /*
     Flashes message, rerenders page
   */
-
-  public function reviewUpdate(string $message) : void{
+  public function reviewUpdate(string $message) : void
+  {
     $this->message = $message;
   }
 
   public function paginationView()
   {
-    return 'pagination.reviews';
+    return 'pagination.custom';
   }
-
 
   public function render()
   {

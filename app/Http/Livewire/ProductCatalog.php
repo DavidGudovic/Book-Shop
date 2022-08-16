@@ -23,7 +23,7 @@ class ProductCatalog extends Component
    Emits addToCart event with item id,
    Event cought and processed by CartModal Component
   */
-  public function addToCart($id)
+  public function addToCart($id) : void
   {
     $this->emit('addToCart', $id, 1);
   }

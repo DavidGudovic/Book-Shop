@@ -11,7 +11,7 @@ class CartService
   public function __construct()
   {
     if($this->get() === [])
-    $this->set($this->empty());
+    $this->set([]);
   }
 
   // Gets the cart array from session, or empty array
@@ -45,19 +45,13 @@ class CartService
   // Clears the cart
   public function clear(): void
   {
-    $this->set($this->empty());
+    $this->set([]);
   }
 
   // Returns count of cart items
   public function count(): int
   {
     return count($this->get());
-  }
-
-  // Returns an empty assoc array
-  public function empty(): array
-  {
-    return [];
   }
 
 

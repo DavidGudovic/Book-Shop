@@ -11,11 +11,16 @@ class ModalBase extends Component
 {
   public $showModal = false;
 
-  public function showModal(){
-    $this->showModal = !$this->showModal;
-  }
-
   public $listeners = [
     'showModal' => 'showModal',
   ];
+
+  /*
+   Toggles any child modal it's emmited to
+   i.e window.livewire.emitTo('cart-modal', 'showModal')
+   */
+  public function showModal()
+  {
+    $this->showModal = !$this->showModal;
+  }
 }

@@ -16,7 +16,8 @@ class BookService
   Returns [int bookId => Eloquent book] by passed [int bookId => somevalue]
   Used to mitigate performance issues in CartModal
   */
-  public function getArray(array $query) : array{
+  public function getArray(array $query) : array
+  {
     $result = [];
     foreach(Book::with('authors')->whereIn('id', array_keys($query))->get()  as $book){
       $result[$book->id] = $book;
@@ -27,8 +28,8 @@ class BookService
   Returns books by criteria,
   Matches with Title, Author, ISBN
   */
-  public function getBySearch(string $queryString) : Eloquent{
-
+  public function getBySearch(string $queryString) : Eloquent
+  {
     //Adds flexibility to search
     // I.E "John Doe" query wouldn't return "John J. D. Doe" without explode->join
     $queryPieces = explode(" ", $queryString);
@@ -45,22 +46,24 @@ class BookService
   Returns a specific book with relevant info eager loaded
   throws 404 if nothing is found
   */
-  public function getOne(int $book) : Book{
+  public function getOne(int $book) : Book
+  {
     return Book::with('authors', 'category', 'reviews')->where('id', $book)->firstOrFail();
   }
   /*
   Returns a collection of n random recommended books
   n = $quantity
   */
-  public function getRecommended(int $quantity) : Eloquent {
+  public function getRecommended(int $quantity) : Eloquent
+  {
     return Book::with('authors')->recommended()->inRandomOrder()->take($quantity)->get();
   }
   /*
   Used when filter criteria is ambigious,
   Determines criteria and calls relevant method.
   */
-  public function getAllorFiltered($category = null, $subcategories = []) : Eloquent{
-
+  public function getAllorFiltered($category = null, $subcategories = []) : Eloquent
+  {
     if(!empty($category) && empty($subcategories)){
       return $this->getByCategory($category);
     }
@@ -72,18 +75,19 @@ class BookService
     if(empty($category) && empty($subcategories)){
       return $this->getAll();
     }
-
   }
   /*
   Return all books eager loaded
   */
-  public function getAll() : Eloquent{
+  public function getAll() : Eloquent
+  {
     return Book::with('authors', 'category')->get();
   }
   /*
   Returns a collection of books by categories
   */
-  public function getBySubCategories($categories) : Eloquent{
+  public function getBySubCategories($categories) : Eloquent
+  {
     return Book::with('authors', 'category')->whereHas('category', function ($q) use($categories){
       $q->whereIn('id', $categories);
     })->get();
@@ -92,7 +96,8 @@ class BookService
   Returns a collection of books filtered by passed category
   category in ['fiction','nonFiction']
   */
-  public function getByCategory($category) : Eloquent{
+  public function getByCategory($category) : Eloquent
+  {
 
     if($category === 'fiction'){
       return Book::with('authors', 'category')->fiction()->get();
@@ -107,7 +112,8 @@ class BookService
   /*
   Return book eager loaded
   */
-  public function loadRelations(Book $book) : Book{
+  public function loadRelations(Book $book) : Book
+  {
     return Book::with('authors', 'category', 'reviews')->where('id', $book->id)->first();
   }
 

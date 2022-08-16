@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers\Resources;
 
+
+use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Services\OrderService;
 
 class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index(User $user)
     {
         return view('orders.index');
     }
 
+
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create(User $user)
     {
@@ -31,9 +31,6 @@ class OrderController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request,User $user)
     {
@@ -42,9 +39,6 @@ class OrderController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
     {
@@ -53,9 +47,6 @@ class OrderController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
      */
     public function edit(Order $order,User $user)
     {
@@ -64,10 +55,6 @@ class OrderController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Order $order,User $user)
     {
@@ -76,9 +63,6 @@ class OrderController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order,User $user)
     {

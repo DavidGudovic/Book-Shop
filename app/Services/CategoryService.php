@@ -12,8 +12,8 @@ class CategoryService
   Returns a collection of all Categories
   filter in [null, 'fiction', 'nonFiction']
   */
-  public function getAll($filter = null) : Eloquent{
-
+  public function getAll($filter = null) : Eloquent
+  {
     if(empty($filter)){
       return Category::all();
     }
@@ -31,12 +31,13 @@ class CategoryService
   returns an associative array [CategoryID, Boolean]
   used for filters in Product page
   */
-  public function getFilters($categories = []) : array{
+  public function getFilters($categories = []) : array
+  {
     $all_categories = $this->getAll();
     $filters = [];
 
     foreach($all_categories as $category){
-      $filters[$category->id] = in_array($category->id, $categories) ? true : false;
+      $filters[$category->id] = in_array($category->id, $categories);
     }
 
     return $filters;

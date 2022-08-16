@@ -19,7 +19,7 @@ class OrderService
     $order = Order::create([
       'user_id' => auth()->id(),
       'total_price' => $total,
-      'status' => 1,
+      'status' => Order::STATUS_PENDING,
     ]);
     $this->attachBooks($order,$items);
   }
@@ -33,5 +33,9 @@ class OrderService
       $order->books()->attach($bookId, ['quantity' => $quantity]);
     }
     $order->save();
+  }
+
+  public function getAllFromUser(int $id) : Eloquent{
+    return Order::with('books', 'reclamation')->where('user_id', $id)->get();
   }
 }
