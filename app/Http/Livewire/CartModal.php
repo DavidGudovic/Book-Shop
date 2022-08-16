@@ -23,12 +23,6 @@ class CartModal extends ModalBase
     'addToCart' => 'addToCart',
   ];
 
-  public function mount(BookService $bookService)
-  {
-    if(empty($this->items) && empty($this->quantities)){
-      $this->getData($bookService);
-    }
-  }
 
   public function render(BookService $bookService)
   {
