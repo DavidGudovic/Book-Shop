@@ -3,14 +3,14 @@ A web store for a fictional Book Shop for school.
 Built with Laravel, Livewire, Alpine JS. Hosted on Heroku. 
 While far from perfect, visually and functionally it's a step up from my previous work </br>
 <a href="http://knjizara-aurora.herokuapp.com">Click for live version</a>
-# Unfinished UI - PC
+# Landing page PC
 
 actual screen height is a quarter of the screenshot   
 
 ![landing page](https://user-images.githubusercontent.com/56200401/184506765-6b9fccbe-dcf5-47bb-9d27-ba7f70a2025d.jpeg)
 
    
-# Unfinished UI on an Android phone   
+# Landing page Phone   
    
 <p align="center">
    
