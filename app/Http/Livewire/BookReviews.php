@@ -23,7 +23,7 @@ class BookReviews extends Component
     Flashes message, rerenders page
   */
 
-  public function reviewUpdate(string $message){
+  public function reviewUpdate(string $message) : void{
     $this->message = $message;
   }
 

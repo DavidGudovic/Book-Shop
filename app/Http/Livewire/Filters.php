@@ -45,7 +45,7 @@ class Filters extends Component
   Soft resets filters
   emits search query to ProductCatalog component
   */
-  public function search()
+  public function search() : void
   {
     $this->validate();
     $this->softResetFilter();
@@ -58,7 +58,7 @@ class Filters extends Component
   Called when applying filters
   Resets search query (Items are filtered by filtes, not searchBar)
   */
-  public function submit()
+  public function submit() : void
   {
     $this->resetSearchBar();
     $this->emit("filter", $this->category_list, $this->price_range, $this->sort_by, $this->sort_direction);
@@ -67,7 +67,7 @@ class Filters extends Component
   /*
   Resets searchQuery, reRenders SearchBar
   */
-  public function resetSearchBar()
+  public function resetSearchBar() : void
   {
     $this->search_query = "";
   }
@@ -75,7 +75,7 @@ class Filters extends Component
   input type(reset) behaviour but works on non user inputed data
   Resets form without emiting new filters to ProductCatalog
   */
-  public function softResetFilter()
+  public function softResetFilter() : void
   {
     $this->sort_by = "title";
     $this->sort_direction = "ASC";
@@ -89,7 +89,7 @@ class Filters extends Component
   Resets search query
   Emits empty filter to ProductCatalog ( displays all products )
   */
-  public function resetFilter()
+  public function resetFilter() : void
   {
     $this->softResetFilter();
     $this->resetSearchBar();

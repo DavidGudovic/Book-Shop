@@ -41,7 +41,7 @@ class ReviewModal extends ModalBase
     /*
      Creates a new review in DB
     */
-    public function create()
+    public function create() : void
     {
       $this->review = Review::create([
         'user_id' => auth()->id(),
@@ -55,7 +55,7 @@ class ReviewModal extends ModalBase
     /*
     Updates a review
     */
-    public function update()
+    public function update() : void
     {
       $this->fillReview($this->score);
       $this->review->update();
@@ -65,7 +65,7 @@ class ReviewModal extends ModalBase
     /*
     Updates a review
     */
-    public function delete()
+    public function delete() : void
     {
       $this->review->delete();
       $this->flashMessage('Uspešno ste izbrisali Vašu recenziju');
@@ -74,7 +74,7 @@ class ReviewModal extends ModalBase
     /*
     Fills review with data
     */
-    private function fillReview(int $score)
+    private function fillReview(int $score) : void
     {
       $this->review->user_id = auth()->user()->id;
       $this->review->book_id = $this->book->id;
@@ -85,7 +85,8 @@ class ReviewModal extends ModalBase
       Flashes a message to the book preview page
       Refreshes it
     */
-    private function flashMessage(string $message){
+    private function flashMessage(string $message) : void
+    {
       $this->showModal = false;
       $this->emit('reviewUpdate', $message);
     }

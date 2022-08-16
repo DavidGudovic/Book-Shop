@@ -51,7 +51,7 @@ class UserService
        $this->logoutUser();
     }
     /*
-      Update user
+      Assigns new data to the database for the currently authenticated user.
     */
     public function updateUser(array $newData) : void
     {

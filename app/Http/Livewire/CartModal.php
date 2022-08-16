@@ -23,7 +23,8 @@ class CartModal extends ModalBase
     'addToCart' => 'addToCart',
   ];
 
-  public function mount(BookService $bookService){
+  public function mount(BookService $bookService)
+  {
     if(empty($this->items) && empty($this->quantities)){
       $this->getData($bookService);
     }
@@ -38,6 +39,7 @@ class CartModal extends ModalBase
 
   /*
   Populates arrays for the view with data from the session and database
+  arrays[$items, $quantities]
 
   *Issues* :
    1. Queries the database to populate $items on every interaction with modal.
@@ -47,7 +49,8 @@ class CartModal extends ModalBase
    1.1 whereIn instead of multipe where's + eager load - significantly faster now
    1.2 Querying if empty-> items | quantities - breaks modal (attempted to read 'title' on array).
   */
-  public function getData(BookService $bookService){
+  public function getData(BookService $bookService) : void
+  {
     $this->total = 0;
     $this->items = $bookService->getArray(Cart::get());
     foreach(Cart::get() as $bookId => $quantity){
@@ -60,7 +63,8 @@ class CartModal extends ModalBase
   /*
   Clears local data, used before clearing session data to avoid bugs
   */
-  public function clearData(){
+  public function clearData() : void
+  {
     $this->count = 0;
     $this->quantities = [];
     $this->items = [];
@@ -69,14 +73,15 @@ class CartModal extends ModalBase
   /*
   Sets data into session, used for updating quantities
   */
-  public function setData(){
+  public function setData() : void{
     Cart::set($this->quantities);
   }
 
   /*
   Finalizes the order, calls for clear local and session data, flashes message
   */
-  public function order(OrderService $orderService){
+  public function order(OrderService $orderService) : void
+  {
     $orderService->makeOrder($this->quantities, $this->total);
     $this->clearData();
     Cart::clear();
@@ -86,7 +91,8 @@ class CartModal extends ModalBase
   /*
   Decrements quantity for id
   */
-  public function decrement($id){
+  public function decrement($id) : void
+  {
     if($this->quantities[$id] == 1){ return; }
 
     $this->quantities[$id]--;
@@ -95,7 +101,8 @@ class CartModal extends ModalBase
   /*
   Increments quantity for id
   */
-  public function increment($id){
+  public function increment($id) : void
+  {
     $this->quantities[$id]++;
     $this->setData();
   }
@@ -103,7 +110,8 @@ class CartModal extends ModalBase
   /*
   Increments if exists, adds item to session if doesnt
   */
-  public function addToCart(int $bookId, int $quantity){
+  public function addToCart(int $bookId, int $quantity) : void
+  {
 
     if(empty($this->items[$bookId])){
       Cart::add($bookId, $quantity);
@@ -116,7 +124,8 @@ class CartModal extends ModalBase
   /*
   Remove items from session
   */
-  public function remove(int $id){
+  public function remove(int $id)
+  {
     unset($this->quantities[$id]);
     unset($this->items[$id]);
     Cart::remove($id);

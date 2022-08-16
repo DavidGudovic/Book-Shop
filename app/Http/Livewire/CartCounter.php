@@ -13,7 +13,8 @@ class CartCounter extends Component
     ];
 
     /*  triggers ReRender */
-    public function refresh(){
+    public function refresh() : void
+    {
 
     }
 

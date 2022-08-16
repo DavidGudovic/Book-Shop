@@ -14,7 +14,8 @@ class OrderService
   /*
   Creates order in DB
   */
-  public function makeOrder(array $items, int $total) : void{
+  public function makeOrder(array $items, int $total) : void
+  {
     $order = Order::create([
       'user_id' => auth()->id(),
       'total_price' => $total,
@@ -26,7 +27,8 @@ class OrderService
   /*
    Attaches items to order
   */
-  public function attachBooks(Order $order, array $items) : void{
+  public function attachBooks(Order $order, array $items) : void
+  {
     foreach($items as $bookId => $quantity){
       $order->books()->attach($bookId, ['quantity' => $quantity]);
     }
