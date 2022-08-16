@@ -3,7 +3,9 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-
+/*
+ Cart quantity counter in navbar
+*/
 class CartCounter extends Component
 {
     public $count;

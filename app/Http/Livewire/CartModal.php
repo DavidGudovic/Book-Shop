@@ -10,6 +10,9 @@ use App\Models\Order;
 use App\Services\BookService;
 use App\Services\OrderService;
 
+/*
+ Global cart modal
+*/
 class CartModal extends ModalBase
 {
   public $items = []; //  Books

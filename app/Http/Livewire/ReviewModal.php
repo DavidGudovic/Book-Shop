@@ -7,6 +7,9 @@ use App\Http\Livewire\ModalBase;
 use App\Models\Book;
 use App\Models\Review;
 
+/*
+ Add new Review modal component on books.show
+*/
 class ReviewModal extends ModalBase
 {
     public Book $book;

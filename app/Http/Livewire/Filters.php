@@ -5,6 +5,9 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Services\CategoryService;
 
+/*
+ Filter component on books.index
+*/
 class Filters extends Component
 {
   public $fiction_categories; //mounted

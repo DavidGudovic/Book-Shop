@@ -7,6 +7,9 @@ use Livewire\WithPagination;
 use App\Models\Book;
 use App\Services\ReviewService;
 
+/*
+ Review component on books.show
+*/
 class BookReviews extends Component
 {
   use WithPagination;

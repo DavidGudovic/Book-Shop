@@ -4,7 +4,9 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Services\BookService;
-
+/*
+  Filterable, searchable book list component on books.index
+*/
 class ProductCatalog extends Component
 {
   public $book_list; //filtered result
