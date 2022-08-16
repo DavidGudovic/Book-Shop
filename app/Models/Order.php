@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Order extends Model
 {
@@ -13,8 +15,9 @@ class Order extends Model
   Flags
   */
   public const STATUS_PENDING = 1;
-  public const STATUS_CANCELLED = 2;
-  public const STATUS_SUCCESSFULL = 3;
+  public const STATUS_SUCCESSFULL = 2;
+  public const STATUS_CANCELLED = 3;
+  public const STATUS_REFUNDED = 4;
   /*
   fields
   */
@@ -49,4 +52,6 @@ class Order extends Model
   /*
   Eloquent scopes
   */
+
+
 }
