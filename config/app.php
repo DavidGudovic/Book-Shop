@@ -210,6 +210,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Order' => App\Models\Order::class,
+        'Reclamation' => App\Models\Reclamation::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
