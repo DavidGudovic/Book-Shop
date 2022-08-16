@@ -3,11 +3,11 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Http\Livewire\Modal;
+use App\Http\Livewire\ModalBase;
 use App\Models\Book;
 use App\Models\Review;
 
-class ReviewModal extends Modal
+class ReviewModal extends ModalBase
 {
     public Book $book;
     public ?Review $review;

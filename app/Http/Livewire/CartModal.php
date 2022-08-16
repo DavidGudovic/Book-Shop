@@ -3,14 +3,14 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Http\Livewire\Modal;
+use App\Http\Livewire\ModalBase;
 use App\Services\Cart\CartFacade as Cart;
 use App\Models\Book;
 use App\Models\Order;
 use App\Services\BookService;
 use App\Services\OrderService;
 
-class CartModal extends Modal
+class CartModal extends ModalBase
 {
   public $items = []; //  Books
   public $quantities = []; // [ id => quantity ]

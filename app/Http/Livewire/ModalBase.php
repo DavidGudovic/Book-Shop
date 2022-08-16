@@ -7,7 +7,7 @@ use Livewire\Component;
 /*
   Base Modal class
 */
-class Modal extends Component
+class ModalBase extends Component
 {
   public $showModal = false;
 
