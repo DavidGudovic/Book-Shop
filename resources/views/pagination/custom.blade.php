@@ -17,7 +17,7 @@
         </p>
       </div>
       <!-- End text-->
-
+      <!-- Page links -->
       <div>
         <span class="relative z-0 inline-flex ">
           <span>
@@ -29,16 +29,24 @@
               </span>
             @else
               <button wire:click="previousPage('{{ $paginator->getPageName() }}')" dusk="previousPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}.after" rel="prev"
-                 class="relative inline-flex items-center px-2 py-2  text-black  hover:text-yellow-400 focus:z-10 transition ease-in-out duration-150" aria-label="{{ __('pagination.previous') }}">
+                class="relative inline-flex items-center px-2 py-2  text-black  hover:text-yellow-400 focus:z-10 transition ease-in-out duration-150" aria-label="{{ __('pagination.previous') }}">
                 <i class="fa-solid fa-angle-left"></i>
               </button>
             @endif
           </span>
           <!-- End previous page -->
 
-
-           <!--  Page numbers list-->
+          <!--  Page numbers list-->
           @foreach ($elements as $element)
+
+            <!-- Dot seperator after 11 pages, not customizable for some reason -->
+            @if (is_string($element))
+              <span aria-disabled="true" class="pt-1">
+                ...
+              </span>
+            @endif
+            <!-- End dot seperator -->
+
             @if (is_array($element))
               @foreach ($element as $page => $url)
                 <span wire:key="paginator-{{ $paginator->getPageName() }}-{{ $this->numberOfPaginatorsRendered[$paginator->getPageName()] }}-page{{ $page }}"  class="py-1 px-1">
@@ -50,13 +58,15 @@
                   @else
                     <!-- 2 around current are dots -->
                     @if($page >= $paginator->currentPage()-2 && $page <= $paginator->currentPage()+2)
-                      <span>.</span>
+                      @if($page >= $paginator->currentPage()-1 && $page <= $paginator->currentPage()+1)
+                        <span>..</span>
+                      @endif
                     @else
-                    <!-- Not Current, not around -->
-                    <button class="hover:text-yellow-400" wire:click="gotoPage({{ $page }}, '{{ $paginator->getPageName() }}')" aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
-                      {{ $page }}
-                    </button>
-                   @endif
+                      <!-- Not Current, not around -->
+                      <button class="hover:text-yellow-400" wire:click="gotoPage({{ $page }}, '{{ $paginator->getPageName() }}')" aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
+                        {{ $page }}
+                      </button>
+                    @endif
                   @endif
                 </span>
               @endforeach
@@ -68,7 +78,7 @@
             <!-- Next page -->
             @if ($paginator->hasMorePages())
               <button wire:click="nextPage('{{ $paginator->getPageName() }}')" dusk="nextPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}.after" rel="next"
-              class="relative inline-flex items-center px-2 py-2  text-black  hover:text-yellow-400 focus:z-10 transition ease-in-out duration-150" aria-label="{{ __('pagination.next') }}">
+                class="relative inline-flex items-center px-2 py-2  text-black  hover:text-yellow-400 focus:z-10 transition ease-in-out duration-150" aria-label="{{ __('pagination.next') }}">
                 <i class="fa-solid fa-angle-right"></i>
               </button>
             @else
@@ -78,12 +88,13 @@
                 </span>
               </span>
             @endif
-              <!-- End page -->
+            <!-- End page -->
           </span>
-          
+
         </span>
       </div>
+      <!-- End page links -->
     </div>
   </nav>
 @endif
-</div>
+</div>  <!-- 100 lines for a paginator, ok -->
