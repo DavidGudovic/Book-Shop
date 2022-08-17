@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Http\Livewire\ModalBase;
 use App\Models\Book;
 use App\Models\Review;
+use App\Services\ReviewService;
 
 /*
  Add new Review modal component on books.show
@@ -23,13 +24,9 @@ class ReviewModal extends ModalBase
       'update' => 'update',
     ];
 
-    public function mount()
+    public function mount(ReviewService $reviewService)
     {
-      $this->review = Review::where([
-        ['user_id', auth()->id()],
-        ['book_id', $this->book->id],
-        ])->first();
-
+        $this->review = $reviewService->getOne($this->book->id, auth()->id());
         if($this->review){
           $this->score = $this->review->score;
           $this->text = $this->review->text;
@@ -44,14 +41,9 @@ class ReviewModal extends ModalBase
     /*
      Creates a new review in DB
     */
-    public function create() : void
+    public function create(ReviewService $reviewService) : void
     {
-      $this->review = Review::create([
-        'user_id' => auth()->id(),
-        'book_id' => $this->book->id,
-        'score' =>  $this->score,
-        'text' => $this->text,
-      ]);
+      $this->review = $reviewService->createReview($this->book->id, $this->score, $this->text);
       $this->flashMessage('Uspešno ste postavili Vašu recenziju');
     }
 
