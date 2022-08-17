@@ -5,14 +5,27 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+  /*
+  Doesnt seed Books, Authors, Categories since they're not suitable for fake data.
+  */
+  public function run()
+  {
+    \App\Models\User::factory(20)->create();
+    \App\Models\Review::factory(300)->create();
+    \App\Models\Order::factory(100)->create();
     /*
-     Only seeds Users, Reclamations and Reviews
+    Super inefficient, but is only run once to seed fake data, works and there's
+    13 books, 100 orders in the database when it runs so performance is a non issue
     */
-    public function run()
-    {
-         \App\Models\User::factory(20)->create();
-         \App\Models\Review::factory(100)->create();
-         //\App\Models\Reclamation::factory(100)->create();
-         //\App\Models\Order::factory(100)->create();
+    foreach(\App\Models\Order::all() as $order){
+      foreach(\App\Models\Book::inRandomOrder()->limit(rand(1,5))->get() as $book){
+        $quantity = rand(1,5);
+        $order->books()->attach($book, ['quantity' => $quantity]);
+        $order->total_price += $book->price * $quantity;
+        $order->save();
+      }
     }
+    \App\Models\Reclamation::factory(50)->create();
+
+  }
 }

@@ -25,13 +25,6 @@ class Filters extends Component
     'search' => 'search',
   ];
 
-  public $rules = [
-    'search_query' => 'required',
-  ];
-  public $messages = [
-    'search_query' => 'Unesite tekst pretrage',
-  ];
-
   public function mount(CategoryService $categoryService)
   {
     $this->fiction_categories = $categoryService->getAll('fiction');
@@ -44,13 +37,11 @@ class Filters extends Component
   }
 
   /*
-  Validates search query
   Soft resets filters
   emits search query to ProductCatalog component
   */
   public function search() : void
   {
-    $this->validate();
     $this->softResetFilter();
     $this->emit("applySearch", $this->search_query);
   }

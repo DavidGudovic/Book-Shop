@@ -21,15 +21,6 @@ class Book extends Model
       'image',
       'isRecommended',
     ];
-
-    protected $hidden = [
-
-    ];
-
-    protected $casts = [
-
-    ];
-
     /*
       Eloquent relationships
     */

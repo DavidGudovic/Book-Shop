@@ -17,15 +17,7 @@ class Review extends Model
       'text',
       'score',
     ];
-
-    protected $hidden = [
-
-    ];
-
-    protected $casts = [
-
-    ];
-
+    
     /*
       Eloquent relationships
     */

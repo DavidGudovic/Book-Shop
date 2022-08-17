@@ -15,20 +15,11 @@ class Author extends Model
     protected $fillable = [
       'name'
     ];
-
-    protected $hidden = [
-
-    ];
-
-    protected $casts = [
-
-    ];
-
     /*
       Eloquent relationships
     */
 
     public function books(){
-      return $this->belongsToMany(Book::class); 
+      return $this->belongsToMany(Book::class);
     }
 }

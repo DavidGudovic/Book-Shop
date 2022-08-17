@@ -64,8 +64,8 @@ class ProductCatalog extends Component
   {
     $this->book_list =
     $sort_direction == 'ASC' ?
-    $this->book_list->sortBy($sort_by) : // 0 1 2...n
-    $this->book_list->sortByDesc($sort_by); // n... 2 1 0
+    $this->book_list->sortBy($sort_by) :
+    $this->book_list->sortByDesc($sort_by);
   }
 
   /*

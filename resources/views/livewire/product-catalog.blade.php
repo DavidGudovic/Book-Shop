@@ -38,7 +38,7 @@
         <div class="flex justify-between items-center mt-3">
           <a href="{{route('books.show', $book)}}" class="rounded-3xl bg-black text-white px-2 py-1" name="button">Više informacija</a>
           <p class="text-lg">{{$book->price}} RSD</p>
-          <a href="" wire:click.prevent="addToCart({{$book->id}})"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="{{route('login')}}" @auth wire:click.prevent="addToCart({{$book->id}})" @endauth><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
       </div>
       <!--End book -->

@@ -26,15 +26,6 @@ class Order extends Model
     'total_price',
     'user_id',
   ];
-
-  protected $hidden = [
-
-  ];
-
-  protected $casts = [
-
-  ];
-
   /*
   Eloquent relationships
   */

@@ -23,12 +23,6 @@ class Reclamation extends Model
       'user_id',
       'order_id',
     ];
-    protected $hidden = [
-
-    ];
-    protected $casts = [
-
-    ];
     /*
       Eloquent relationships
     */

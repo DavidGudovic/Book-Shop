@@ -35,7 +35,7 @@ class ReclamationHistory extends Component
   }
 
   /*
-    Just calls delete from service on $reclamation
+     Calls delete from service on $reclamation
   */
   public function cancel(Reclamation $reclamation, ReclamationService $reclamationService) : void
   {

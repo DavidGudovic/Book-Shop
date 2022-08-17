@@ -13,6 +13,7 @@ class OrderService
 
   /*
   Creates order in DB
+  $items = [Book->id => quantity]
   */
   public function makeOrder(array $items, int $total) : void
   {
@@ -26,6 +27,7 @@ class OrderService
 
   /*
    Attaches items to order
+   $items = [Book->id => quantity]
   */
   public function attachBooks(Order $order, array $items) : void
   {

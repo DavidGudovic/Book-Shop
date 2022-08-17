@@ -16,22 +16,12 @@ class Category extends Model
       'isFiction',
       'image',
     ];
-
-    protected $hidden = [
-
-    ];
-
-    protected $casts = [
-
-    ];
-
     /*
       Eloquent relationships
     */
     public function books(){
       return $this->hasMany(Book::class);
     }
-
     /*
      Local scopes
 

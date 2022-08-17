@@ -13,7 +13,7 @@ class UserService
     Creates a user in database
     returns an Eloquent Model object of the user
     */
-    public function createUser(array $userData): User
+    public function createUser(array $userData) : User
     {
         // Create user
           return  User::create([

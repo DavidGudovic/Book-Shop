@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Podgorica',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'sr_Latn_RS',
 
     /*
     |--------------------------------------------------------------------------
@@ -212,7 +212,6 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Order' => App\Models\Order::class,
         'Reclamation' => App\Models\Reclamation::class,
-        // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
 ];

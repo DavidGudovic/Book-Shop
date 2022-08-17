@@ -11,11 +11,11 @@ use Illuminate\Database\Eloquent\Collection as Eloquent;
 class ReclamationService
 {
   /*
-  Calls delete on passed reclamation
+  Deletes passed reclamation
   */
   public function delete(Reclamation $reclamation) : void
   {
-    $reclamation->delete();
+    Reclamation::destroy($reclamation->id);
   }
   /*
   Makes an entry in the DB

@@ -1,11 +1,11 @@
 <?php
 namespace App\Services\Cart;
 /*
-. Services for the Shopping cart
+. Services for managing the shopping cart in session storage
 */
 class CartService
 {
-  // session->[int id  =>  int quantity]
+  // session->[int bookId  =>  int quantity]
 
   // If there's no cart sets it to empty on construct
   public function __construct()

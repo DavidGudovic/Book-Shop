@@ -33,6 +33,10 @@ class ReclamationModal extends ModalBase
       $this->order = $order;
     }
 
+    /*
+     Gives the reclamation text and order to service for adding to db
+     flashes message to user
+    */
     public function makeReclamation(ReclamationService $reclamationService) : void
     {
       $reclamationService->createReclamation($this->text, $this->order);

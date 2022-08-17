@@ -49,7 +49,7 @@
           <div class="flex justify-between items-center mt-3" x-data='{}'>
             <a href="{{route('books.show', $recommended)}}" class="rounded-3xl bg-black text-white px-4 py-2" name="button">Više informacija</a>
             <p class="text-2xl">{{$recommended->price}} RSD</p>
-            <a href="" x-on:click.prevent="window.livewire.emit('addToCart', {{$recommended->id}}, 1)"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
+            <a href="{{route('login')}}" @auth x-on:click.prevent="window.livewire.emit('addToCart', {{$recommended->id}}, 1)" @endauth ><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
           </div>
         </div>
         <!-- End of book -->

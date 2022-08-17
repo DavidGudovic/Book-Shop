@@ -28,7 +28,7 @@ class OrderHistory extends Component
   public function render()
   {
     return view('livewire.order-history', [
-      //Attaches where - whereMonth clauses if $status_filter - $month_filter aren't empty
+      //Attaches where(status) and\or whereMonth clauses if $status_filter and\or $month_filter aren't empty
       'orders' => auth()->user()->orders()
       ->when(!empty($this->status_filter), function ($query) {
         return $query->where('status', $this->status_filter);

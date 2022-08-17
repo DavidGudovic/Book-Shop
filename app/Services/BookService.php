@@ -30,8 +30,6 @@ class BookService
   */
   public function getBySearch(string $queryString) : Eloquent
   {
-    //Adds flexibility to search
-    // I.E "John Doe" query wouldn't return "John J. D. Doe" without explode->join
     $queryPieces = explode(" ", $queryString);
     $queryString = join("%", $queryPieces);
 

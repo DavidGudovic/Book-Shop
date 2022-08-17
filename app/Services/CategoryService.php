@@ -28,7 +28,7 @@ class CategoryService
 
   }
   /*
-  returns an associative array [CategoryID, Boolean]
+  returns an associative array [CategoryID => Boolean(selected)]
   used for filters in Product page
   */
   public function getFilters($categories = []) : array

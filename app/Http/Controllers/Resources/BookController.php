@@ -24,7 +24,7 @@ class BookController extends Controller
   {
       $decoded = json_decode($subcategories);
       $books = $bookService->getAllorFiltered($category, $decoded);
-      $filters = $categoryService->getFilters($decoded ? $decoded : []);
+      $filters = $categoryService->getFilters($decoded ?? []);
 
       return $books ? //isNull
       view('products.index')->with(['books' => $books, 'filters' => $filters]) :

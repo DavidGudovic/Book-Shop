@@ -11,7 +11,7 @@ use App\Services\BookService;
 use App\Services\OrderService;
 
 /*
- Global cart modal
+Global cart modal
 */
 class CartModal extends ModalBase
 {
@@ -39,12 +39,12 @@ class CartModal extends ModalBase
   arrays[$items, $quantities]
 
   *Issues* :
-   1. Queries the database to populate $items on every interaction with modal.
-   2. BookService is passed by render,couldn't type hint resolve here
+  1. Queries the database to populate $items on every interaction with modal.
+  2. BookService is passed by render,couldn't type hint resolve here
 
-   *Attempted* :
-   1.1 whereIn instead of multipe where's + eager load - significantly faster now
-   1.2 Querying if empty-> items | quantities - breaks modal (attempted to read 'title' on array).
+  *Attempted* :
+  1.1 whereIn instead of multipe where's + eager load - significantly faster now
+  1.2 Querying if empty-> items | quantities - breaks modal (attempted to read 'title' on array).
   */
   public function getData(BookService $bookService) : void
   {
@@ -102,7 +102,7 @@ class CartModal extends ModalBase
   */
   public function increment($id, $quantity = 1) : void
   {
-    $quantity == 1 ? $this->quantities[$id]++ : $this->quantities[$id] += $quantity;
+    $this->quantities[$id] += $quantity;
     $this->setData();
   }
 
@@ -111,13 +111,9 @@ class CartModal extends ModalBase
   */
   public function addToCart(int $bookId, int $quantity) : void
   {
-
-    if(empty($this->items[$bookId])){
-      Cart::add($bookId, $quantity);
-    } else {
-      $this->increment($bookId, $quantity);
-    }
-
+    empty($this->items[$bookId]) ?
+    Cart::add($bookId, $quantity) :
+    $this->increment($bookId, $quantity);    
   }
 
   /*

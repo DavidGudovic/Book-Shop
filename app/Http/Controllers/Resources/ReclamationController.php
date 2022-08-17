@@ -11,8 +11,6 @@ class ReclamationController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index(User $user)
     {
@@ -21,8 +19,6 @@ class ReclamationController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create(User $user)
     {
@@ -31,9 +27,6 @@ class ReclamationController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request,User $user)
     {
@@ -42,9 +35,6 @@ class ReclamationController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Reclamation  $reclamation
-     * @return \Illuminate\Http\Response
      */
     public function show(Reclamation $reclamation,User $user)
     {
@@ -52,11 +42,8 @@ class ReclamationController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Reclamation  $reclamation
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    */
     public function edit(Reclamation $reclamation,User $user)
     {
         //
@@ -64,10 +51,6 @@ class ReclamationController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Reclamation  $reclamation
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Reclamation $reclamation,User $user)
     {
@@ -76,9 +59,6 @@ class ReclamationController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Reclamation  $reclamation
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Reclamation $reclamation,User $user)
     {

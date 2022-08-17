@@ -38,8 +38,8 @@ class BookReviews extends Component
   public function render()
   {
     return view('livewire.book-reviews',[
-      'reviews' => $this->book->reviews()->with(["user" => function($q){
-        $q->select('username', 'id');
+      'reviews' => $this->book->reviews()->with(["user" => function($query){
+        $query->select('username', 'id');
       }])->orderBy($this->sort_by, $this->sort_direction)->paginate(5),
     ]);
 
