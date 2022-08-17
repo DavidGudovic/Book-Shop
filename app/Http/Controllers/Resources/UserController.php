@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Services\UserService;
+use App\Http\Requests\User\UpdateRequest;
 
 class UserController extends Controller
 {
@@ -60,25 +61,15 @@ class UserController extends Controller
   /**
   * Update the user in storage.
   */
-  public function update(Request $request,UserService $userService, User $user)
+  public function update(UpdateRequest $request,UserService $userService, User $user)
   {
-    // Validating here cause casting to a custom request breaks 'private' middleware
-    $newData = $this->validate($request,[
-    'username' => 'required|unique:users,username,' . $user->id,
-    'email' => 'required|email|unique:users,email,' . $user->id,
-    'name' => 'required',
-    'current_password' => 'required|min:8',
-    'new_password' => 'required|min:8',
-  ]);
-
   if(!Hash::check($request->input('current_password'), $user->password)){
     return back()->withErrors(['current_password'=>'Uneli ste pogrešnu šifru']);
   }
-
-  $userService->updateUser($newData);
+  $userService->updateUser($request->validated());
   return back()->with(['status'=> 'success', 'status_msg' => 'Uspešno ste izmenili podatke!']);
-
 }
+
 
 /**
 * Remove the specified resource from storage.
