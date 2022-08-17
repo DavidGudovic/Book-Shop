@@ -3,7 +3,7 @@
 
 @section('content')
 <!--Wrapper of profil-->
-<div class="w-screen min-h-screen">
+<div class=" min-h-screen">
 
   <x-heading>
     Profil Korisnika

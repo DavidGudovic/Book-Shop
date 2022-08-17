@@ -23,7 +23,7 @@
      <!-- CONTENT - Injectable background-->
      <div class="flex flex-row flex-1 justify-center @yield('background-pattern')">
        <!-- MAIN CONTENT -->
-       <main>
+       <main class="w-screen">
          @yield('content')
        </main>
        <!-- END MAIN CONTENT -->
