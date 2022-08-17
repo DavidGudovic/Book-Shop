@@ -12,7 +12,7 @@
       <!-- End status message -->
     <!--Fields-->
       @csrf
-      @method('PUT')
+      @method('PATCH')
       <!-- Username -->
       <div class="flex flex-col gap-2">
         <p class="font-bold ">Korisničko Ime</p>
