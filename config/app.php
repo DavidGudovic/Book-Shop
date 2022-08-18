@@ -212,6 +212,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Order' => App\Models\Order::class,
         'Reclamation' => App\Models\Reclamation::class,
+        'Cart' => App\Services\Cart\CartFacade::class,
     ])->toArray(),
 
 ];
