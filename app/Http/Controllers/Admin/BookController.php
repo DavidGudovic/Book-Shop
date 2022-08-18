@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ReclamationController extends Controller
+class BookController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.reclamations');
+        return view('admin.books');
     }
 
     /**
@@ -25,6 +25,7 @@ class ReclamationController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
      */
     public function store(Request $request)
     {
@@ -33,6 +34,7 @@ class ReclamationController extends Controller
 
     /**
      * Display the specified resource.
+     *
      */
     public function show($id)
     {

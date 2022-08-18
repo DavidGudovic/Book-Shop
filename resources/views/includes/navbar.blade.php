@@ -21,7 +21,10 @@
     <!-- End generic -->
     @admin
     <!-- Admin specific links -->
-    <li><a href="{{route('admin.orders.index')}}">Administracija</a></li>
+    <li class="hidden md:inline-block"><a href="{{route('admin.orders.index')}}">Administracija</a></li>
+    <!-- End admin specific links -->
+    <!-- Admin specific links -->
+    <li  class="md:hidden" ><a href="{{route('admin.orders.index')}}">Admin</a></li>
     <!-- End admin specific links -->
     @endadmin
     @auth
@@ -41,7 +44,7 @@
       </div>
       <!-- End profile dropdown -->
       <!-- Alpine JS event -> Livewire Modal -->
-      <li><button class="hover:text-yellow-400 w-24" x-data="{}" x-on:click="window.livewire.emitTo('cart-modal', 'showModal')"> Korpa <livewire:cart-counter/> </button></li>
+      <li><button class="hover:text-yellow-400 md:w-24" x-data="{}" x-on:click="window.livewire.emitTo('cart-modal', 'showModal')"> Korpa <livewire:cart-counter/> </button></li>
       <!-- End Alpine JS event -->
       <!-- End user links -->
     @endauth

@@ -12,7 +12,7 @@ use App\Http\Controllers\Resources\ReclamationController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ReclamationController as AdminReclamationController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
-use App\Http\Controllers\Admin\AuthorController;
+use App\Http\Controllers\Admin\BookController as AdminBookController;
 use App\Http\Controllers\Admin\ReportController;
 
 // TODO Localize route URLs to Serbian
@@ -44,10 +44,10 @@ Route::middleware('auth', 'private')->group(function () {
 Routes only administrators can access
 Throws 403 if unauthorized
 */
-Route::middleware('admin')->prefix('admin')->group(function () {
+Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
   Route::resource('orders', AdminOrderController::class);
   Route::resource('reclamations', AdminReclamationController::class);
   Route::resource('users', AdminUserController::class);
-  Route::resource('authors', AuthorController::class);
+  Route::resource('books', AdminBookController::class);
   Route::resource('reports', ReportController::class);
 });
