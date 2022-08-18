@@ -10,8 +10,6 @@ use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use App\Services\UserService;
 
-
-
 //Displays register form, creates user
 class RegisterController extends Controller
 {
