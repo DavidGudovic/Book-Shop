@@ -31,7 +31,7 @@ class OrderHistory extends Component
       //Attaches where(status) and\or whereMonth clauses if $status_filter and\or $month_filter aren't empty
       'orders' => auth()->user()->orders()
       ->when(!empty($this->status_filter), function ($query) {
-        return $query->where('status', $this->status_filter);
+        return $query->status($this->status_filter);
       })->when(!empty($this->month_filter), function ($query) {
         return $query->whereMonth('created_at', $this->month_filter);
       })->with('reclamation', 'books')->orderBy('created_at', 'DESC')->paginate(2),

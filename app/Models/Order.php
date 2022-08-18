@@ -44,5 +44,9 @@ class Order extends Model
   Eloquent scopes
   */
 
+  public function scopeStatus($query, int $status)
+  {
+    return $query->where('status', $status);
+  }
 
 }
