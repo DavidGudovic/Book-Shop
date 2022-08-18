@@ -21,7 +21,7 @@
     <!-- End generic -->
     @admin
     <!-- Admin specific links -->
-    <li><a href="">Administracija</a></li>
+    <li><a href="{{route('admin.orders.index')}}">Administracija</a></li>
     <!-- End admin specific links -->
     @endadmin
     @auth
