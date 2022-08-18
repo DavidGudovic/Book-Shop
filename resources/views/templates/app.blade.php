@@ -27,11 +27,6 @@
          @yield('content')
        </main>
        <!-- END MAIN CONTENT -->
-       <!--OPTIONAL ASIDE-->
-       <aside>
-         @yield('side')
-       </aside>
-       <!-- END ASIDE -->
      </div>
      <!-- END CONTENT -->
 
