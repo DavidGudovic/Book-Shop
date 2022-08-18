@@ -12,7 +12,7 @@ class ReclamationController extends Controller
      */
     public function index()
     {
-        return view('admin.reclamations');
+        return view('admin.reclamations.index');
     }
 
     /**
