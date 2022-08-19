@@ -12,6 +12,9 @@ class AuthorizeAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-       return auth()->user()->role == 'admin' ?  $next($request) : abort(403);
+      if($user = auth()->user()){
+         return $user->role == 'admin' ?  $next($request) : abort(403);
+      }
+      abort(403);
     }
 }
