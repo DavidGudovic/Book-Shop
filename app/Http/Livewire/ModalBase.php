@@ -17,7 +17,7 @@ class ModalBase extends Component
 
   /*
    Toggles any child modal it's emmited to
-   i.e window.livewire.emitTo('cart-modal', 'showModal')
+   i.e window.livewire.emitTo('cart.modal', 'showModal')
    */
   public function showModal()
   {
