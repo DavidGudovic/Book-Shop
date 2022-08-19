@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Reviews;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -10,7 +10,7 @@ use App\Services\ReviewService;
 /*
  Review component on books.show
 */
-class BookReviews extends Component
+class Index extends Component
 {
   use WithPagination;
   public Book $book;
@@ -37,7 +37,7 @@ class BookReviews extends Component
 
   public function render()
   {
-    return view('livewire.book-reviews',[
+    return view('livewire.reviews.index',[
       'reviews' => $this->book->reviews()->with(["user" => function($query){
         $query->select('username', 'id');
       }])->orderBy($this->sort_by, $this->sort_direction)->paginate(5),

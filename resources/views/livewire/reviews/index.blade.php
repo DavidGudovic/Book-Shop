@@ -20,9 +20,9 @@
     <!-- End filter -->
     @auth
       @reviewed($book)
-      <a href="#" x-data="{}" x-on:click.prevent="window.livewire.emitTo('review-modal', 'showModal')" class="py-1 rounded-xl bg-black text-white w-full text-center md:w-40">Izmeni recenziju</a>
+      <a href="#" x-data="{}" x-on:click.prevent="window.livewire.emitTo('reviews.modal', 'showModal')" class="py-1 rounded-xl bg-black text-white w-full text-center md:w-40">Izmeni recenziju</a>
     @else
-      <a href="#"  x-data="{}" x-on:click.prevent="window.livewire.emitTo('review-modal', 'showModal')" class="py-1 rounded-xl bg-black text-white w-full text-center md:w-40">Postavi recenziju</a>
+      <a href="#"  x-data="{}" x-on:click.prevent="window.livewire.emitTo('reviews.modal', 'showModal')" class="py-1 rounded-xl bg-black text-white w-full text-center md:w-40">Postavi recenziju</a>
       @endreviewed
     @endauth
   </div>

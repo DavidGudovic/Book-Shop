@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Reviews;
 
 use Livewire\Component;
 use App\Http\Livewire\ModalBase;
@@ -11,7 +11,7 @@ use App\Services\ReviewService;
 /*
  Add new Review modal component on books.show
 */
-class ReviewModal extends ModalBase
+class Modal extends ModalBase
 {
     public Book $book;
     public ?Review $review;
@@ -35,7 +35,7 @@ class ReviewModal extends ModalBase
 
     public function render()
     {
-        return view('livewire.review-modal');
+        return view('livewire.reviews.modal');
     }
 
     /*
@@ -58,7 +58,7 @@ class ReviewModal extends ModalBase
     }
 
     /*
-    Updates a review
+    deletes a reveiw
     */
     public function delete() : void
     {

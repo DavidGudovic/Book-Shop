@@ -36,7 +36,7 @@
      @livewireScripts
      <!-- Global modals -->
      @auth
-     <livewire:cart-modal />
+     <livewire:cart.modal />
      @endauth
      <!-- End global modals-->
    </body>

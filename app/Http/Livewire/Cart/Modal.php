@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Cart;
 
 use Livewire\Component;
 use App\Http\Livewire\ModalBase;
@@ -13,7 +13,7 @@ use App\Services\OrderService;
 /*
 Global cart modal
 */
-class CartModal extends ModalBase
+class Modal extends ModalBase
 {
   public $items = []; //  Books
   public $quantities = []; // [ id => quantity ]
@@ -30,8 +30,8 @@ class CartModal extends ModalBase
   public function render(BookService $bookService)
   {
     $this->getData($bookService);
-    $this->emitTo('cart-counter', 'refresh');
-    return view('livewire.cart-modal');
+    $this->emitTo('cart.counter', 'refresh');
+    return view('livewire.cart.modal');
   }
 
   /*
@@ -113,7 +113,7 @@ class CartModal extends ModalBase
   {
     empty($this->items[$bookId]) ?
     Cart::add($bookId, $quantity) :
-    $this->increment($bookId, $quantity);    
+    $this->increment($bookId, $quantity);
   }
 
   /*

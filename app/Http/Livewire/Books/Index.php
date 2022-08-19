@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Books;
 
 use Livewire\Component;
 use App\Services\BookService;
 /*
   Filterable, searchable book list component on books.index
 */
-class ProductCatalog extends Component
+class Index extends Component
 {
   public $book_list; //filtered result
 
@@ -18,7 +18,7 @@ class ProductCatalog extends Component
 
   public function render()
   {
-    return view('livewire.product-catalog');
+    return view('livewire.books.index');
   }
 
   /*

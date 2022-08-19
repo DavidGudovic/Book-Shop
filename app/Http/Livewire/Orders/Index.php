@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Orders;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -9,7 +9,7 @@ use App\Services\OrderService;
 /*
 Order list for the logged in user component on user-profile, route: user/{id}/orders/
 */
-class OrderHistory extends Component
+class Index extends Component
 {
   use WithPagination;
   public $status_filter = 0;
@@ -27,7 +27,7 @@ class OrderHistory extends Component
 
   public function render()
   {
-    return view('livewire.order-history', [
+    return view('livewire.orders.index', [
       //Attaches where(status) and\or whereMonth clauses if $status_filter and\or $month_filter aren't empty
       'orders' => auth()->user()->orders()
       ->when(!empty($this->status_filter), function ($query) {
@@ -60,7 +60,7 @@ class OrderHistory extends Component
   Emits the orderId and showModal to the Reclamation Modal
   */
   public function addReclamation(Order $order) : void{
-    $this->emitTo('reclamation-modal', 'setOrder', $order);
-    $this->emitTo('reclamation-modal', 'showModal');
+    $this->emitTo('reclamations.modal', 'setOrder', $order);
+    $this->emitTo('reclamations.modal', 'showModal');
   }
 }

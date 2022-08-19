@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Cart;
 
 use Livewire\Component;
 /*
  Cart quantity counter in navbar
 */
-class CartCounter extends Component
+class Counter extends Component
 {
     public $count;
 
@@ -23,6 +23,6 @@ class CartCounter extends Component
     public function render()
     {
         $this->count = array_sum(session('cart') ?? []);
-        return view('livewire.cart-counter');
+        return view('livewire.cart.counter');
     }
 }

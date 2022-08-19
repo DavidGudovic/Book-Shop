@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Books;
 
 use Livewire\Component;
 use App\Services\CategoryService;
@@ -33,7 +33,7 @@ class Filters extends Component
 
   public function render()
   {
-    return view('livewire.filters');
+    return view('livewire.books.filters');
   }
 
   /*

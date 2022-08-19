@@ -68,7 +68,7 @@
   </div>
   <!-- End Orders-->
   <!-- Reclamation modal-->
-  <livewire:reclamation-modal/>
+  <livewire:reclamations.modal/>
   <!-- End modal-->
   <!-- Paginator -->
   <span class="text-center w-max">{{$orders->links()}}</span>

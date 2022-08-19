@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Reclamations;
 
 use Livewire\Component;
 use App\Http\Livewire\ModalBase;
@@ -10,7 +10,7 @@ use App\Services\ReclamationService;
 /*
   Add Reclamation to order modal component on user-profile -> orders.index
 */
-class ReclamationModal extends ModalBase
+class Modal extends ModalBase
 {
     public Order $order;
     public string $text="";
@@ -22,7 +22,7 @@ class ReclamationModal extends ModalBase
 
     public function render()
     {
-        return view('livewire.reclamation-modal');
+        return view('livewire.reclamations.modal');
     }
 
     /*

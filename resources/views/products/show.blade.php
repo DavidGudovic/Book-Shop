@@ -71,7 +71,7 @@
       </x-heading>
 
       <!-- Reviews-->
-      <livewire:book-reviews :book='$book' />
+      <livewire:reviews.index :book='$book' />
       <!-- Reviews-->
 
     </div>
@@ -79,7 +79,7 @@
 
     <!-- Modal -->
     @auth
-       <livewire:review-modal :book='$book'/>
+       <livewire:reviews.modal :book='$book'/>
      @endauth
     <!-- End modal -->
 
