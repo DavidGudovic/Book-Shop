@@ -50,7 +50,10 @@
   <!-- End filters -->
 
   <!-- Products -->
-  <div class="flex flex-col p-2  gap-2 mt-4 items-center ">
+  <div class="flex flex-col p-2  gap-2 mt-4 items-center md:min-w-[500px]">
+    @if(session()->has('message'))
+      <p class="text-center font-bold">{{session('message')}}</p>
+    @endif
     @forelse($books as $book)
       <!-- Book -->
       <div class="@if(!$loop->last)border-b border-black @endif w-full flex flex-col md:flex-row py-4">

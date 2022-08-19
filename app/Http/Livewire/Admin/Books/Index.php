@@ -19,6 +19,10 @@ class Index extends Component
   public $sort_by = 'created_at';
   public $sort_direction = 'DESC';
 
+  public $listeners = [
+    'refreshIndex' => 'refreshIndex',
+  ];
+
   public function mount(CategoryService $categoryService, BookService $bookService)
   {
     $this->books = $bookService->getAll();
@@ -30,16 +34,20 @@ class Index extends Component
     return view('livewire.admin.books.index');
   }
 
+  public function refreshIndex() : void
+  {
+    // Trigger render
+  }
 
   /*
-  Calls getBySearch and sets the book list to the result
+  Emits the book for editting to the modal
   */
   public function edit(Book $book) : void
   {
-    $this->emitTo('admin.books.modal', 'edit', $book);
+    $this->emitTo('admin.books.edit-modal', 'edit', $book);
   }
   /*
-  Calls getBySearch and sets the book list to the result
+  Calls delete on bookId
   */
   public function delete(BookService $bookService, int $bookId) : void
   {
@@ -84,11 +92,11 @@ class Index extends Component
     $this->books->sortByDesc($this->sort_by);
   }
   /*
-    Flips recommended status
+  Flips recommended status
   */
   public function flipRecommended(BookService $bookService, Book $book) : void
   {
-     $bookService->flipRecommended($book);
+    $bookService->flipRecommended($book);
   }
 
 

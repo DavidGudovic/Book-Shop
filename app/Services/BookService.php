@@ -30,8 +30,7 @@ class BookService
   */
   public function getBySearch(string $queryString) : Eloquent
   {
-    $queryPieces = explode(" ", $queryString);
-    $queryString = join("%", $queryPieces);
+    $queryString = join("%", explode(" ", $queryString));
 
     return  Book::where('title','LIKE','%'.$queryString.'%')
     ->orWhere('isbn','LIKE','%'.$queryString.'%')
@@ -123,6 +122,14 @@ class BookService
   public function delete(int $bookId): void
   {
     Book::destroy($bookId);
+  }
+  
+  /*
+   Just calls update.. no additional work right now, maybe will be later
+  */
+  public function update(Book $book): void
+  {
+    $book->update();
   }
   /*
    Flips isRecommended value
