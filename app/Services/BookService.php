@@ -35,8 +35,8 @@ class BookService
 
     return  Book::where('title','LIKE','%'.$queryString.'%')
     ->orWhere('isbn','LIKE','%'.$queryString.'%')
-    ->orWhereHas('authors', function($q) use ($queryString){
-      $q->where('name','LIKE','%'.$queryString.'%');
+    ->orWhereHas('authors', function($query) use ($queryString){
+      $query->where('name','LIKE','%'.$queryString.'%');
     })
     ->get();
   }
@@ -50,11 +50,14 @@ class BookService
   }
   /*
   Returns a collection of n random recommended books
+  If n is 0 returns all of them
   n = $quantity
   */
-  public function getRecommended(int $quantity) : Eloquent
+  public function getRecommended(int $quantity = 0) : Eloquent
   {
-    return Book::with('authors')->recommended()->inRandomOrder()->take($quantity)->get();
+    return Book::with('authors')->recommended()->when($quantity > 0, function ($query) use ($quantity) {
+      return $query->inRandomOrder()->take($quantity);
+    })->get();
   }
   /*
   Used when filter criteria is ambigious,
@@ -77,7 +80,7 @@ class BookService
   /*
   Return all books eager loaded
   */
-  public function getAll() : Eloquent
+  public function getAll() : ELoquent
   {
     return Book::with('authors', 'category')->get();
   }
@@ -113,6 +116,21 @@ class BookService
   public function loadRelations(Book $book) : Book
   {
     return Book::with('authors', 'category', 'reviews')->where('id', $book->id)->first();
+  }
+  /*
+   Calls destroy on bookId.
+  */
+  public function delete(int $bookId): void
+  {
+    Book::destroy($bookId);
+  }
+  /*
+   Flips isRecommended value
+  */
+  public function flipRecommended(Book $book): void
+  {
+    $book->isRecommended = !$book->isRecommended;
+    $book->save();
   }
 
 }
