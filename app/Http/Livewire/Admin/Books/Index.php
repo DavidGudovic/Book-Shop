@@ -21,6 +21,7 @@ class Index extends Component
 
   public $listeners = [
     'refreshIndex' => 'refreshIndex',
+    'filter'=> 'filter',
   ];
 
   public function mount(CategoryService $categoryService, BookService $bookService)
@@ -29,14 +30,17 @@ class Index extends Component
     $this->categories = $categoryService->getAll();
   }
 
-  public function render (BookService $bookService)
+  public function render ()
   {
     return view('livewire.admin.books.index');
   }
 
+  /*
+
+  */
   public function refreshIndex() : void
   {
-    // Trigger render
+    $this->emit('filter');
   }
 
   /*
@@ -52,6 +56,7 @@ class Index extends Component
   public function delete(BookService $bookService, int $bookId) : void
   {
     $bookService->delete($bookId);
+    $this->refreshIndex();
   }
   /*
   Filters the book list by category
