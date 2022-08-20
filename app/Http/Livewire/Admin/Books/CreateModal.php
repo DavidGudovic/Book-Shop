@@ -40,7 +40,10 @@ class CreateModal extends ModalBase
 
   public function render()
   {
-    $this->showModal ? : $this->resetFields();
+    if(!$this->showModal){
+      $this->resetFields();
+      $this->resetValidation();
+    }
     return view('livewire.admin.books.create-modal');
   }
 
