@@ -52,7 +52,7 @@
   <div class="flex flex-1 flex-col w-full items-center mt-6">
     @forelse ($users as $user)
       <!-- User -->
-      <div class="flex md:flex-row flex-col justify-evenly w-full m-auto px-6 md:px-0 py-2 border-b border-black">
+      <div class="flex md:flex-row flex-col justify-evenly w-full m-auto px-6 md:px-0 py-3 border-b border-black">
         <div class="w-full"><p>Korisničko ime: </p> <p class="font-bold">{{$user->username}}</p></div>
         <div class="w-full"><p>Ime i prezime: </p> <p class="font-bold">{{$user->name}}</p></div>
         <div class="w-full"><p>Email: </p> <p class="font-bold">{{$user->email}}</p></div>
