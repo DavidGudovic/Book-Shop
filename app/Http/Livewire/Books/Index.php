@@ -23,7 +23,7 @@ class Index extends Component
 
   /*
    Emits addToCart event with item id,
-   Event cought and processed by CartModal Component
+   Event cought and processed by cart.modal
   */
   public function addToCart($id) : void
   {
@@ -32,7 +32,7 @@ class Index extends Component
 
   /*
   Applies filters too book list. [categories, price_range, sorting]
-  Filter criteria provided by Filters component by raising a filter event
+  Filter criteria provided by books.filters component by raising a filter event
   */
   public function filter(BookService $bookService, $category_list = [], $price_range = null, $sort_by='title', $sort_direction='ASC') : void
   {
@@ -69,7 +69,7 @@ class Index extends Component
   }
 
   /*
-  Applies validated search criteria passed by event raised by Filters Component
+  Applies validated search criteria passed by event raised by books.filters
   */
   public function applySearch(BookService $bookService,$searchQuery) : void
   {

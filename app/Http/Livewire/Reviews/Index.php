@@ -8,7 +8,7 @@ use App\Models\Book;
 use App\Services\ReviewService;
 
 /*
- Review component on books.show
+Review component on books.show
 */
 class Index extends Component
 {
@@ -19,16 +19,8 @@ class Index extends Component
   public $sort_direction = 'DESC';
 
   protected $listeners = [
-        'reviewUpdate' => 'reviewUpdate',
-    ];
-
-  /*
-    Flashes message, rerenders page
-  */
-  public function reviewUpdate(string $message) : void
-  {
-    $this->message = $message;
-  }
+    'reviewUpdate' => 'reviewUpdate',
+  ];
 
   public function paginationView()
   {
@@ -44,4 +36,14 @@ class Index extends Component
     ]);
 
   }
+  /*
+  Flashes message, rerenders page
+  */
+  public function reviewUpdate(string $message) : void
+  {
+    $this->message = $message;
+  }
+
+
+
 }

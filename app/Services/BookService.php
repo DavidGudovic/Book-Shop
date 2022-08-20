@@ -36,8 +36,7 @@ class BookService
     ->orWhere('isbn','LIKE','%'.$queryString.'%')
     ->orWhereHas('authors', function($query) use ($queryString){
       $query->where('name','LIKE','%'.$queryString.'%');
-    })
-    ->get();
+    })->get();
   }
   /*
   Returns a specific book with relevant info eager loaded
@@ -123,7 +122,7 @@ class BookService
   {
     Book::destroy($bookId);
   }
-  
+
   /*
    Just calls update.. no additional work right now, maybe will be later
   */

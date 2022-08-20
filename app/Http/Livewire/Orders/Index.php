@@ -30,11 +30,11 @@ class Index extends Component
     return view('livewire.orders.index', [
       //Attaches where(status) and\or whereMonth clauses if $status_filter and\or $month_filter aren't empty
       'orders' => auth()->user()->orders()
-      ->when(!empty($this->status_filter), function ($query) {
-        return $query->status($this->status_filter);
-      })->when(!empty($this->month_filter), function ($query) {
-        return $query->whereMonth('created_at', $this->month_filter);
-      })->with('reclamation', 'books')->orderBy('created_at', 'DESC')->paginate(2),
+               ->when(!empty($this->status_filter), function ($query) {
+                       return $query->status($this->status_filter);
+             })->when(!empty($this->month_filter), function ($query) {
+                       return $query->whereMonth('created_at', $this->month_filter);
+             })->with('reclamation', 'books')->orderBy('created_at', 'DESC')->paginate(2),
     ]);
   }
 
@@ -57,7 +57,7 @@ class Index extends Component
     $orderService->cancelOrder($order);
   }
   /*
-  Emits the orderId and showModal to the Reclamation Modal
+  Emits the orderId and showModal to the Reclamations.Modal
   */
   public function addReclamation(Order $order) : void{
     $this->emitTo('reclamations.modal', 'setOrder', $order);

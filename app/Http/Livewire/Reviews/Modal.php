@@ -77,7 +77,7 @@ class Modal extends ModalBase
       $this->review->text = $this->text;
     }
     /*
-      Flashes a message to the book preview page
+      Flashes a message reviews.index 
       Refreshes it
     */
     private function flashMessage(string $message) : void

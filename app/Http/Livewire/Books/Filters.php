@@ -38,7 +38,7 @@ class Filters extends Component
 
   /*
   Soft resets filters
-  emits search query to ProductCatalog component
+  emits search query to livewire.books.index
   */
   public function search() : void
   {
@@ -48,7 +48,7 @@ class Filters extends Component
 
 
   /*
-  Emits filter criteria from form to ProductCatalog
+  Emits filter criteria from form to livewire.books.index
   Called when applying filters
   Resets search query (Items are filtered by filtes, not searchBar)
   */
@@ -81,7 +81,7 @@ class Filters extends Component
   /*
   calls soft reset
   Resets search query
-  Emits empty filter to ProductCatalog ( displays all products )
+  Emits empty filter to livewire.books.index  ( displays all products )
   */
   public function resetFilter() : void
   {
