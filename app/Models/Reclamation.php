@@ -33,4 +33,20 @@ class Reclamation extends Model
     public function order(){
       return $this->belongsTo(Order::class);
     }
+
+    /*
+    Eloquent scopes
+    */
+    public function scopeStatus($query, int $status)
+    {
+      return $query->where('status', $status);
+    }
+
+    public function scopeSearch($query, $query_string)
+    {
+      return  $query->where('id', $query_string)
+                    ->orWhere('user_id', $query_string)
+                    ->orWhere('order_id', $query_string);
+    }
+
 }

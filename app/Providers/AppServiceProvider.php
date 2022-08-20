@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Review;
 use App\Observers\ReviewObserver;
+use App\Models\Reclamation;
+use App\Observers\ReclamationObserver;
 use App\Services\ReviewService;
 use App\Services\Cart\CartService;
 
@@ -25,5 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //  calculates average score
         Review::observe(ReviewObserver::class);
+        // Changes status of refunded orders
+        Reclamation::observe(ReclamationObserver::class);
     }
 }

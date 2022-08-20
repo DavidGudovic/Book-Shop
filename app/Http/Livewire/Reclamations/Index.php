@@ -30,7 +30,7 @@ class Index extends Component
       'reclamations' =>auth()->user()->reclamations()
       ->when(!empty($this->status_filter), function($query){
         return $query->where('status', $this->status_filter);
-      })->paginate(2),
+      })->orderBy('created_at', 'DESC')->paginate(2),
     ]);
   }
 
