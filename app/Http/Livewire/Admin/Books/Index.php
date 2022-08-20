@@ -27,6 +27,7 @@ class Index extends Component
   public function mount(CategoryService $categoryService, BookService $bookService)
   {
     $this->books = $bookService->getAll();
+    $this->sort();
     $this->categories = $categoryService->getAll();
   }
 
