@@ -50,7 +50,7 @@
 
   <!-- Users list -->
   <div class="flex flex-1 flex-col w-full items-center mt-6">
-    @foreach ($users as $user)
+    @forelse ($users as $user)
       <!-- User -->
       <div class="flex md:flex-row flex-col justify-evenly w-full m-auto px-6 md:px-0 py-2 border-b border-black">
         <div class="w-full"><p>Korisničko ime: </p> <p class="font-bold">{{$user->username}}</p></div>
@@ -65,7 +65,9 @@
         <!-- End actions -->
       </div>
       <!-- End user -->
-    @endforeach
+    @empty
+      <img src="{{URL('images/util/noresult-admin.jpg')}}" alt="">
+    @endforelse
     <div class="text-center md:w-1/2">
       {{$users->links()}}
     </div>
