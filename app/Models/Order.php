@@ -49,4 +49,15 @@ class Order extends Model
     return $query->where('status', $status);
   }
 
+  public function scopeSearch($query, $query_string)
+  {
+    return  $query->where('id', $query_string)
+                  ->orWhere('user_id', $query_string);
+  }
+
+  public function scopeUser($query, $userId)
+  {
+    return $query->where('user_id', $userId);
+  }
+
 }
