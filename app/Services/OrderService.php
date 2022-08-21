@@ -45,4 +45,9 @@ class OrderService
     $order->status = Order::STATUS_CANCELLED;
     $order->update();
   }
+
+  public function loadRelations(Order $order) : void
+  {
+    return Order::find($order->id)->with('books');
+  }
 }
