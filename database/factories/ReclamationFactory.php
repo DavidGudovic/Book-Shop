@@ -13,9 +13,10 @@ class ReclamationFactory extends Factory
 
     public function definition()
     {
+        $order = Order::all()->random();
       return[
-        'user_id' => User::all()->random()->id,
-        'order_id' => Order::all()->random()->id,
+        'user_id' => $order->user_id,
+        'order_id' => $order->id,
         'text' => fake()->paragraph,
         'status' => Reclamation::STATUS_PENDING,
       ];

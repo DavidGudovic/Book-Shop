@@ -18,11 +18,13 @@ class ReviewFactory extends Factory
   */
   public function definition()
   {
+
+     $book = Book::all()->random()->id;
     return[
       'user_id' => User::all()->random()->id,
-      'book_id' => Book::all()->random()->id,
+      'book_id' => $book,
       'text' => fake()->paragraph,
-      'score' => rand(1,5),
+      'score' => $book % 2 === 1 ? rand(3,5) : rand(1,2),
     ];
   }
 }

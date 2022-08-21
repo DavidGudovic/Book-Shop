@@ -10,12 +10,12 @@ class DatabaseSeeder extends Seeder
   */
   public function run()
   {
-    \App\Models\User::factory(20)->create();
-    \App\Models\Review::factory(300)->create();
-    \App\Models\Order::factory(100)->create();
+    \App\Models\User::factory(200)->create();
+    \App\Models\Review::factory(400)->create();
+    \App\Models\Order::factory(1000)->create();
     /*
     Super inefficient, but is only run once to seed fake data, works and there's
-    13 books, 100 orders in the database when it runs so performance is a non issue
+    20 books, 1000 orders in the database when it runs so performance is a non issue
     */
     foreach(\App\Models\Order::all() as $order){
       foreach(\App\Models\Book::inRandomOrder()->limit(rand(1,5))->get() as $book){
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         $order->save();
       }
     }
-    \App\Models\Reclamation::factory(50)->create();
+    \App\Models\Reclamation::factory(200)->create();
 
   }
 }
