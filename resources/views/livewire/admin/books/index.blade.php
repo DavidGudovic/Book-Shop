@@ -12,6 +12,7 @@
           <option value="created_at">Datumu dodavanja</option>
           <option value="title">Nazivu</option>
           <option value="average_score">Oceni</option>
+          <option value="price">Ceni</option>
         </select>
         <select wire:model="sort_direction" wire:change="sort" class="ml-1" name="order">
           <option value="ASC">Rastuće</option>
