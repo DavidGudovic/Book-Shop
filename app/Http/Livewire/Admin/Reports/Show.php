@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class Show extends Component
 {
@@ -107,5 +108,32 @@ class Show extends Component
     $this->products = [];
     $this->totalProducts = 0;
     $this->totalIncome = 0;
+  }
+
+
+  /*
+   Downloads a pdf version of the report to the users device
+  */
+  public function print()
+  {
+    $this->generate();
+    $data = [
+      'month' => $this->month,
+      'orderReport' => $this->orderReport,
+      'userReport' => $this->userReport,
+      'productQuantities' => $this->productQuantities,
+      'productTotals' => $this->productTotals,
+      'products' => $this->products,
+      'totalOrders' => $this->totalOrders,
+      'totalProducts' => $this->totalProducts,
+      'totalIncome' => $this->totalIncome,
+      'newUsers' => $this->newUsers,
+      'generated_at' => Carbon::now()->format('d-m-Y'),
+      'menager' => auth()->user()->name,
+    ];
+    $pdf = Pdf::loadView('admin.reports.pdf', $data)->setPaper('a4', 'portrait')->output(); //
+    return response()->streamDownload(
+      fn() => print($pdf), 'izveštaj ' . $this->month . ' 2022.pdf'
+    );
   }
 }
