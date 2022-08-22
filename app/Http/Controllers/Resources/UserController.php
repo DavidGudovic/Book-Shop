@@ -10,6 +10,9 @@ use App\Models\User;
 use App\Services\UserService;
 use App\Http\Requests\User\UpdateRequest;
 
+/*
+ Resource controller for Models\User
+*/
 class UserController extends Controller
 {
   /**

@@ -10,7 +10,7 @@ class ReclamationObserver
 
     public $afterCommit = true;
     /**
-     * Handle the Reclamation "updated" event.
+     * Change the status of the related order if its refunded
      */
     public function updated(Reclamation $reclamation)
     {

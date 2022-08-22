@@ -15,11 +15,8 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\BookController as AdminBookController;
 use App\Http\Controllers\Admin\ReportController;
 
-// TODO Localize route URLs to Serbian
-
 // home page page
 Route::get('/', [HomePageController::class, 'index'])->name('home');
-//Authentication TODO Restify
 Route::resource('register', RegisterController::class, ['only' => ['create', 'store']]);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);

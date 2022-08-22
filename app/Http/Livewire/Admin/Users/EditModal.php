@@ -43,6 +43,9 @@ class EditModal extends ModalBase
       $this->showModal();
     }
 
+    /*
+     Sets a new password to the user if requested
+    */
     public function setPassword() : void
     {
       if(!empty($this->new_password))

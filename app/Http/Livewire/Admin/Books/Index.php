@@ -37,7 +37,8 @@ class Index extends Component
   }
 
   /*
-
+   Emits filter event to itself to rehydrate data
+   Just calling $this->filter() caused stuff to break
   */
   public function refreshIndex() : void
   {

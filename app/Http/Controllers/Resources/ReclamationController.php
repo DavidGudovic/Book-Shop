@@ -7,6 +7,9 @@ use App\Models\Reclamation;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+/*
+ Resource controller for Models\Reclamation
+*/
 class ReclamationController extends Controller
 {
     /**
