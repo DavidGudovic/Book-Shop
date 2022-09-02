@@ -46,8 +46,10 @@ class OrderService
     $order->update();
   }
 
-  public function loadRelations(Order $order) : void
+
+  public function loadRelations(Order $order) : Eloquent
   {
     return Order::find($order->id)->with('books');
   }
+
 }

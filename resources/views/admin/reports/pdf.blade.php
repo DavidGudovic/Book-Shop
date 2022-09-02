@@ -32,7 +32,33 @@
   <table width="100%">
     <tr>
       <td valign="top" align="left">
-        <img src="{{public_path('images/util/logo.jpg')}}" width="150" alt="">
+        <?php
+          $svg = '<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+              width="150pt" height="150pt" viewBox="0 0 355.000000 300.000000"
+              preserveAspectRatio="xMidYMid meet">
+
+              <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
+              fill="#000000" stroke="none">
+              <path d="M0 1500 l0 -1500 1775 0 1775 0 0 1500 0 1500 -1775 0 -1775 0 0
+              -1500z m2138 1355 c255 -26 395 -61 557 -140 149 -72 232 -156 270 -273 25
+              -77 17 -198 -18 -275 -90 -198 -417 -360 -1062 -527 -214 -56 -320 -92 -440
+              -150 -123 -59 -181 -96 -280 -180 -195 -165 -315 -406 -302 -605 9 -134 70
+              -244 167 -303 77 -46 121 -56 235 -56 88 1 113 5 207 37 185 63 338 152 553
+              324 204 162 500 467 706 726 101 128 112 137 160 137 50 0 86 -34 94 -92 3
+              -24 5 -315 3 -648 l-3 -605 -232 -3 -233 -2 0 436 0 437 -152 -151 c-358 -353
+              -649 -553 -943 -650 -159 -53 -242 -66 -410 -66 -171 0 -275 23 -413 90 -103
+              50 -198 133 -246 215 -76 131 -67 334 22 503 49 94 161 207 272 273 237 142
+              419 202 1046 347 280 65 414 106 509 153 156 79 284 194 340 305 91 183 56
+              371 -97 513 -73 68 -140 106 -258 147 -95 32 -96 32 -290 33 -183 0 -201 -2
+              -294 -28 -259 -72 -483 -225 -610 -415 -74 -111 -117 -142 -197 -142 -95 0
+              -161 66 -167 167 -4 55 -1 68 22 103 50 75 247 187 455 256 320 108 671 145
+              1029 109z"/>
+              </g>
+              </svg>';
+
+          $html = '<img src="data:image/svg+xml;base64,'.base64_encode($svg).'"  width="80" height="80" />';
+          echo $html;
+         ?>
       </td>
       <td valign="top" align="right">
         <h3>Aurora D.O.O.</h3>
@@ -74,26 +100,26 @@
         <tr>
           <th scope="row">1</th>
           <td>Neobrađena</td>
-          <td align="right">{{$orderReport[1]->count}}</td>
-          <td align="right">{{$orderReport[1]->total}} RSD</td>
+          <td align="right">{{$orderReport[1]->count ?? 0}}</td>
+          <td align="right">{{$orderReport[1]->total ?? 0}} RSD</td>
         </tr>
         <tr>
           <th scope="row">2</th>
           <td>Uspešna</td>
-          <td align="right">{{$orderReport[2]->count}}</td>
-          <td align="right">{{$orderReport[2]->total}} RSD</td>
+          <td align="right">{{$orderReport[2]->count ?? 0}}</td>
+          <td align="right">{{$orderReport[2]->total ?? 0}} RSD</td>
         </tr>
         <tr>
           <th scope="row">3</th>
           <td>Otkazana</td>
-          <td align="right">{{$orderReport[3]->count}}</td>
-          <td align="right">{{$orderReport[3]->total}} RSD</td>
+          <td align="right">{{$orderReport[3]->count ?? 0}}</td>
+          <td align="right">{{$orderReport[3]->total ?? 0}} RSD</td>
         </tr>
         <tr>
           <th scope="row">4</th>
           <td>Refundirana</td>
-          <td align="right">{{$orderReport[4]->count}}</td>
-          <td align="right">{{$orderReport[4]->total}} RSD</td>
+          <td align="right">{{$orderReport[4]->count ?? 0}}</td>
+          <td align="right">{{$orderReport[4]->total ?? 0}} RSD</td>
         </tr>
       </tbody>
 

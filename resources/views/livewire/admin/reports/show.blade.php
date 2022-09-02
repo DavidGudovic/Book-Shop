@@ -19,6 +19,7 @@
   </div>
 
   <div class="relative flex flex-col justify-center items-center w-full border border-black h-fit my-4 p-4 min-w-96">
+    
     @if($totalOrders != 0)
       <!-- PDF button -->
       <a href="" class="fa-solid fa-file-pdf fa-2xl absolute top-6 right-4" wire:click.prevent="print"></a>
@@ -52,17 +53,17 @@
           </div>
           <div class="flex flex-col w-full">
             <p class="font-bold">Broj</p>
-            <p>{{$orderReport[Order::STATUS_PENDING-1]->count}}</p>
-            <p>{{$orderReport[Order::STATUS_SUCCESSFULL-1]->count}}</p>
-            <p>{{$orderReport[Order::STATUS_CANCELLED-1]->count}}</p>
-            <p>{{$orderReport[Order::STATUS_REFUNDED-1]->count}}</p>
+            <p>{{$orderReport[Order::STATUS_PENDING-1]->count ?? 0}}</p>
+            <p>{{$orderReport[Order::STATUS_SUCCESSFULL-1]->count ?? 0}}</p>
+            <p>{{$orderReport[Order::STATUS_CANCELLED-1]->count ?? 0}}</p>
+            <p>{{$orderReport[Order::STATUS_REFUNDED-1]->count ?? 0}}</p>
           </div>
           <div class="flex flex-col w-full">
             <p class="font-bold">Total RSD: </p>
-            <p>{{$orderReport[Order::STATUS_PENDING-1]->total}}</p>
-            <p>{{$orderReport[Order::STATUS_SUCCESSFULL-1]->total}}</p>
-            <p>{{$orderReport[Order::STATUS_CANCELLED-1]->total}}</p>
-            <p>{{$orderReport[Order::STATUS_REFUNDED-1]->total}}</p>
+            <p>{{$orderReport[Order::STATUS_PENDING-1]->total ?? 0}}</p>
+            <p>{{$orderReport[Order::STATUS_SUCCESSFULL-1]->total ?? 0}}</p>
+            <p>{{$orderReport[Order::STATUS_CANCELLED-1]->total ?? 0}}</p>
+            <p>{{$orderReport[Order::STATUS_REFUNDED-1]->total ?? 0}}</p>
           </div>
         </div>
         <!-- End orders by status -->
@@ -116,11 +117,6 @@
         <!-- End product report-->
       </div>
       <!-- End bottom row-->
-
-
-
-
-
     @else
       <p class="text-center font-bold text-2xl p-6">Nema podataka</p>
     @endif

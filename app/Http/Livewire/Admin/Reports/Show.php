@@ -131,7 +131,7 @@ class Show extends Component
       'generated_at' => Carbon::now()->format('d-m-Y'),
       'menager' => auth()->user()->name,
     ];
-    $pdf = Pdf::loadView('admin.reports.pdf', $data)->setPaper('a4', 'portrait')->output(); //
+    $pdf = Pdf::loadView('admin.reports.pdf', $data)->setPaper('a4', 'portrait')->set_option('isRemoteEnabled', true)->output(); //
     return response()->streamDownload(
       fn() => print($pdf), 'izveštaj ' . $this->month . ' 2022.pdf'
     );
