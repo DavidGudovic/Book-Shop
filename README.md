@@ -1,16 +1,53 @@
 # Book-Shop
-A web store for a fictional Book Shop for school. 
+A web store for a Book Shop.
 Built with Laravel, Livewire, Alpine JS. Hosted on Heroku. 
 </br>
-<a href="http://knjizara-aurora.herokuapp.com">Click for live version</a>
-# Unfinished UI - PC
+
+# Features
+▪	MVC, 2 roles, two dozen use cases, modern, fully responsive design, comprehensive documentation.
+▪	Product catalog, filtering and searching, shopping cart, purchase histories, user authentication, order management, CMS system, reclamation system, user comments and scores of products, generating PDF report, etc.
+
+# Database IDEF1X diagram
+
+<p align="center>
+
+![image](https://github.com/DavidGudovic/Book-Shop/assets/56200401/cc23ddcc-e15c-4ad8-95f4-569e715a6547)
+   
+</p>
+
+# Small part of the UI - PC
 
 actual screen height is a quarter of the screenshot   
 
 ![landing page](https://user-images.githubusercontent.com/56200401/184506765-6b9fccbe-dcf5-47bb-9d27-ba7f70a2025d.jpeg)
 
+<p align="center">
    
-# Unfinished UI on an Android phone   
+![image](https://github.com/DavidGudovic/Book-Shop/assets/56200401/697db0b3-038b-4449-91fd-6e55b9f9db1e)
+   
+</p>
+
+<p align="center">
+
+![image](https://github.com/DavidGudovic/Book-Shop/assets/56200401/bebda390-6310-459a-b779-82bb56fefc2f)
+
+</p>
+
+
+<p align="center">
+   
+![image](https://github.com/DavidGudovic/Book-Shop/assets/56200401/788f8178-b7a0-4257-b7fd-7cbad66a01fd)
+
+</p>
+
+<p align="center">
+
+![image](https://github.com/DavidGudovic/Book-Shop/assets/56200401/d0b51d99-2b8c-4b6a-9dc7-946d6cad5e45)
+
+</p>
+
+   
+# UI on an Android phone   
    
 <p align="center">
    
