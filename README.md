@@ -11,7 +11,7 @@ Built with Laravel, Livewire, Alpine JS. Hosted on Heroku.
 
 <p align="center>
 
-![image](https://github.com/DavidGudovic/Book-Shop/assets/56200401/cc23ddcc-e15c-4ad8-95f4-569e715a6547)
+![image](https://github.com/DavidGudovic/Book-Shop/assets/56200401/7801a80c-bbc0-4767-b11f-a36df70e94d0)
    
 </p>
 
