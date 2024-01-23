@@ -4,16 +4,8 @@ Built with Laravel, Livewire, Alpine JS. Hosted on Heroku.
 </br>
 
 # Features
-▪	MVC, 2 roles, two dozen use cases, modern, fully responsive design, comprehensive documentation.
+▪	MVC, 2 roles, two dozen use cases, modern, fully responsive design, comprehensive documentation. </br>
 ▪	Product catalog, filtering and searching, shopping cart, purchase histories, user authentication, order management, CMS system, reclamation system, user comments and scores of products, generating PDF report, etc.
-
-# Database IDEF1X diagram
-
-<p align="center>
-
-![image](https://github.com/DavidGudovic/Book-Shop/assets/56200401/7801a80c-bbc0-4767-b11f-a36df70e94d0)
-   
-</p>
 
 # Small part of the UI - PC
 
@@ -27,12 +19,15 @@ actual screen height is a quarter of the screenshot
    
 </p>
 
+</br>
+
 <p align="center">
 
 ![image](https://github.com/DavidGudovic/Book-Shop/assets/56200401/bebda390-6310-459a-b779-82bb56fefc2f)
 
 </p>
 
+</br>
 
 <p align="center">
    
@@ -40,13 +35,16 @@ actual screen height is a quarter of the screenshot
 
 </p>
 
+</br>
+
 <p align="center">
 
 ![image](https://github.com/DavidGudovic/Book-Shop/assets/56200401/d0b51d99-2b8c-4b6a-9dc7-946d6cad5e45)
 
 </p>
 
-   
+</br>
+
 # UI on an Android phone   
    
 <p align="center">
@@ -54,6 +52,7 @@ actual screen height is a quarter of the screenshot
 <img src='https://user-images.githubusercontent.com/56200401/184506768-b52da830-2c0d-4e08-9bff-c61bfd29ed89.png'>
    
 </p>
+</br>
 <p align="center">
    
 <img src='https://user-images.githubusercontent.com/56200401/184506811-f745d462-817a-46ef-af7b-7b04c533a67f.png'>
